@@ -5,7 +5,7 @@ import { Col, Container } from 'react-bootstrap';
 const Footer = () => (
   <footer className="mt-auto py-3 dark-green-navbar">
     <Container>
-      <Col className="text-center">
+      <Col className="text-center text-white">
         Department of Information and Computer Sciences
         {' '}
         <br />

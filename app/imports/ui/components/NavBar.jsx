@@ -16,23 +16,23 @@ const NavBar = () => {
     <Navbar expand="lg" className= "dark-green-navbar">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <h2>UHnify</h2>
+          <h2 className="text-white">UHnify</h2>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto justify-content-start">
             {currentUser ? ([
-              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add">Home</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">Browse Club</Nav.Link>,
-              <Nav.Link id="list-stuff-nav" as={NavLink} to="/list" key="list">Club Detail</Nav.Link>,
+              <Nav.Link id="add-stuff-nav" as={NavLink} to="/add" key="add" className="text-white">Home</Nav.Link>,
+              <Nav.Link className="text-white" id="list-stuff-nav" as={NavLink} to="/list" key="list">Browse Club</Nav.Link>,
+              <Nav.Link className="text-white" id="list-stuff-nav" as={NavLink} to="/list" key="list">Club Detail</Nav.Link>,
             ]) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
+              <Nav.Link className="text-white" id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">
             {currentUser === '' ? (
-              <NavDropdown id="login-dropdown" title="Login">
+              <NavDropdown className="text-white" id="login-dropdown" title="Login">
                 <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
                   <PersonFill />
                   Sign
