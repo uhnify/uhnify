@@ -80,10 +80,16 @@ body {
   margin-right: 120px !important;
 }
 
+/*Set left arrow and right arrow buttons for slider*/
 .carousel .carousel-indicators button
 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+/*Set height of slider image*/
+.h-custom {
+  height: 500px; /* Set your desired height here */
+  width: 75%;
 }
 
