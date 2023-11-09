@@ -15,8 +15,8 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="dark-green-navbar">
       <Container fluid>
-        <Navbar.Brand id="navBrandLogo" as={NavLink} to="/">
-          <h2 className="text-white">UHnify</h2>
+        <Navbar.Brand id=" " as={NavLink} to="/">
+          UHnify
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
