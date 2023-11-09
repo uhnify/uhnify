@@ -13,6 +13,11 @@ const Landing = () => (
         <h1>Welcome to this template</h1>
         <p>Now get to work and modify this app!</p>
       </Col>
+      <Col>
+        <div className="d-flex justify-content-center py-2">
+          <Image src="images/ManoaCampus.png" alt="On the Beach" style={{ width: '1200px' }} />
+        </div>
+      </Col>
 
     </Row>
   </Container>

@@ -30,3 +30,33 @@ body {
 .dark-green-navbar {
   background-color: #004225; /* Example dark green color */
 }
+/*Customize the nav-item*/
+.nav-item{
+  padding: 15px;
+}
+.nav-link
+{
+  font-size: 18px !important;
+}
+/*Styling the Home, Browse Club, and Club Detail*/
+#topLeftNav
+{
+  margin-left: 40px;
+}
+/*Styling the Home, Browse Club, and Club Detail for hover effect*/
+#topLeftNav:hover
+{
+  background-color: gray;
+  opacity: .7;
+}
+/*Styling the Home, Browse Club, and Club Detail add white underline when selected*/
+.nav-link.active
+{
+  border-bottom: 3px solid white;
+}
+
+/*Added space between logo and nav links*/
+#navBrandLogo
+{
+  margin-right: 100px;
+}
