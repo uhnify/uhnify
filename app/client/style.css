@@ -312,24 +312,3 @@ em {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
-
-
-#topLeftNav {
-  position: relative;
-}
-
-#topLeftNav::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0; /* Initially, set the width to 0 */
-  height: 3px; /* Adjust the thickness of the line as needed */
-  background-color: white;
-  transition: width 0.3s; /* Add transition for width */
-}
-
-#topLeftNav:hover::before,
-#topLeftNav.active::before {
-  width: 100%; /* Increase the width to 100% on hover and for active links */
-}

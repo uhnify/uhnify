@@ -24,7 +24,7 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="ClubHub" id="nav-dropdown-clubs topLeftNav">
+            <NavDropdown title="ClubHub" id="nav-dropdown-clubs">
               <NavDropdown.Item as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
