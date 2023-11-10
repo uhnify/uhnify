@@ -81,10 +81,15 @@ body {
 }
 
 .carousel .carousel-indicators button {
-  width: 20px; /* Adjust the size as needed */
-  height: 20px; /* Adjust the size as needed */
-  background-color: gray;
+  width: 15px; /* Adjust the size as needed */
+  height: 15px; /* Adjust the size as needed */
+  background-color: grey;
   border-radius: 50%; /* Rounded shape */
+}
+
+.carousel-container
+{
+  width: 800px !important;
 }
 
 .carousel .carousel-indicators .active {
@@ -93,13 +98,18 @@ body {
 }
 /*Set height of slider image*/
 .h-custom {
-  height: 500px; /* Set your desired height here */
-  width: 75%;
+  height: 400px; /* Set your desired height here */
 }
 /*Create an underline under where it says Discover, Connect, and Join Clubs at UH with Ease */
 hr {
   width: 50%; /* Adjust the width as needed, e.g., 50% of the containing element */
   margin: auto !important; /* Center the hr horizontally within its containing element */
   border: 1px solid #000; /* Optional: Add a border for styling */
+}
+
+
+.carousel-control-prev
+{
+  position: absolute;
 }
 

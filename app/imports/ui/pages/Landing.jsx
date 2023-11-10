@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Image, Carousel } from 'react-bootstrap';
+import { Container, Image, Carousel, Row, Col } from 'react-bootstrap';
 
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
@@ -8,7 +8,7 @@ const Landing = () => (
     <p className="d-flex justify-content-center"> Discover, Connect, and Join Clubs at UH with Ease</p>
     <hr />
 
-    <Container className="w-50:">
+    <Container className="carousel-container">
       <Carousel className="py-4">
         <Carousel.Item>
           <Image className="d-block w-100 h-custom" src="images/AccountingClub.png" />
@@ -32,6 +32,22 @@ const Landing = () => (
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+    </Container>
+    <Container className="width-50">
+      <Row>
+        <Col>
+          <h2>Explore Clubs</h2>
+          <p className="lead">Browse through the various clubs UH has to offer.</p>
+
+        </Col>
+
+        <Col>
+          <h2>Upcoming Events</h2>
+          <p className="lead">Browse through the various clubs UH has to offer.</p>
+
+          {/* Insert events calendar or list here */}
+        </Col>
+      </Row>
     </Container>
   </>
 );
