@@ -1,56 +1,319 @@
-/* Use Open Sans as the default sans serif font. */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Source+Code+Pro:300,400,500,700");
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700|Raleway:400,700|Playfair+Display:400,700i');
 
 /* Set up some CSS variables to theme the application. */
 :root {
-  --matr-navbar-bg: #ECECEC;
-  --matr-navbar-bg-rgb: 236, 236, 236;
-}
-
-*{
-  box-sizing: border-box;
-  margin: 0;
-}
-/* Change bootstrap variable values.
- See https://getbootstrap.com/docs/5.2/customize/css-variables/
- */
-body {
-  --bs-light-rgb: var(--matr-navbar-bg-rgb);
-}
-
-/* Set the alert background on the signin and signup pages. */
-#signin-page .alert-light, #signup-page .alert-light {
-  --bs-alert-bg: var(--matr-navbar-bg);
+  --banana-leaf-green: #4F7942;
+  --light-tropical-green: #DAE8D4;
+  --coconut-white: #FFFFF0;
+  --pale-yellow: #feefd0;
 }
 
 /* Define custom styles */
+body {
+  background-color: var(--coconut-white);
+  color: var(--banana-leaf-green);
+  font-family: 'Open Sans', sans-serif;
+}
+
 .gray-background {
-  background-color: var(--matr-navbar-bg);
-  color: var(--bs-dark);
+  background-color: var(--light-tropical-green);
+  color: var(--banana-leaf-green);
   padding-top: 10px;
   padding-bottom: 20px;
 }
 
+/* Modify or remove the dark-green-navbar if it is not used or needed anymore */
 .dark-green-navbar {
-  background-color: #004225; /* Example dark green color */
+  background-color: var(--banana-leaf-green);
 }
+
+
+/* Root variables for color scheme */
+:root {
+  --banana-leaf-green: #4F7942;
+  --light-tropical-green: #DAE8D4;
+  --coconut-white: #FFFFF0;
+  --pale-yellow: #feefd0;
+}
+
+/* Global resets */
+body, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--coconut-white);
+  color: var(--banana-leaf-green);
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-weight: bold;
+  color: var(--banana-leaf-green);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--banana-leaf-green);
+}
+
+em {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+
+/* Club card styles */
+.club-card {
+  background-color: var(--light-tropical-green);
+  border: 1px solid var(--banana-leaf-green);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.club-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 3px solid var(--coconut-white);
+}
+
+/* Utility Classes for Typography */
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Iconography */
+.icon {
+  width: 50px; /* Example size */
+  height: auto;
+  fill: var(--banana-leaf-green);
+  /* Add styles for your SVG icons */
+}
+
+/* Responsive typography */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Other potential responsive behavior */
+@media (max-width: 768px) {
+  .club-card {
+    padding: 15px;
+  }
+}
+
+/* Define a card component with rounded edges and shadows */
+.card {
+  background-color: var(--coconut-white);
+  border-radius: 20px; /* This will give you very rounded edges */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* This adds a subtle shadow */
+  transition: 0.3s; /* This makes the hover effect smooth */
+  padding: 16px; /* Adjust padding as needed */
+  margin: 16px; /* Space out cards */
+}
+
+/* Define the hover effect for the card to make it appear to "lift" off the page */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
+  transform: translateY(-4px); /* Slightly raise the card */
+}
+
+/* You may want to add specific classes for different card sizes if they vary */
+.card-small {
+  /* Define size or any other specific style */
+}
+
+.card-medium {
+  /* Define size or any other specific style */
+}
+
+.card-large {
+  /* Define size or any other specific style */
+}
+
+/* Ensure text is styled according to your mood board */
+.card .card-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem; /* Adjust size as needed */
+  font-weight: 700;
+  color: var(--banana-leaf-green);
+}
+
+.card .card-text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem; /* Adjust size as needed */
+  color: var(--banana-leaf-green);
+}
+
+
+.dark-green-navbar .dropdown-menu {
+  border-radius: 0.5rem; /* Soft curved edges */
+  box-shadow: none; /* No shadow by default */
+}
+
+.dark-green-navbar .dropdown-menu:hover,
+.dark-green-navbar .dropdown-menu:focus {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Shadow on hover/focus */
+}
+
+/* If you want the shadow to appear when you hover over the dropdown trigger */
+.dark-green-navbar .nav-item:hover .dropdown-menu,
+.dark-green-navbar .nav-item:focus .dropdown-menu {
+  display: block;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Additional CSS variables for the navbar */
+:root {
+  --navbar-bg-color: rgba(255, 255, 255, 0); /* Clear background */
+  --nav-item-bg-color: rgba(255, 255, 255, 0.3); /* Semi-transparent for nav items */
+  --nav-item-border-radius: 1.2rem; /* Very rounded edges for nav items */
+  --nav-item-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Shadow on hover */
+}
+
+/* Clear navbar styles */
 .navbar {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  background-color: var(--navbar-bg-color) !important; /* Clear background */
+  box-shadow: none !important; /* No shadow */
 }
-/*Customize the nav-item*/
-.nav-item{
-  padding: 15px;
+
+/* Style nav items as buttons with rounded edges */
+.navbar .nav-link,
+.navbar .navbar-brand,
+.navbar .nav-item .nav-link {
+  background-color: var(--nav-item-bg-color);
+  border-radius: var(--nav-item-border-radius);
+  transition: all 0.3s; /* Smooth transition for background color and shadow */
+  margin: 0 0.5rem; /* Space between items */
 }
-.nav-link
-{
-  font-size: 14px !important;
+
+/* Rounded corners for dropdown menus as well */
+.navbar .dropdown-menu {
+  border-radius: var(--nav-item-border-radius);
 }
-/*Styling the Home, Browse Club, and Club Detail*/
-#topLeftNav
-{
-  margin-right: 30px;
+
+/* Hover effect for nav items */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover,
+.navbar .nav-item:hover .nav-link {
+  box-shadow: var(--nav-item-hover-shadow);
+  transform: translateY(-2px); /* Slightly raise the nav item */
 }
+
+/* Remove the hover background color change that Bootstrap adds by default */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+  background-color: transparent;
+}
+
+/* Since the navbar is clear, ensure the toggle button is visible */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.5); /* Adjust as needed */
+}
+
+/* Adjust toggle icon color */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Style for active nav item */
+.navbar .nav-link.active,
+.navbar .nav-item.show .nav-link {
+  background-color: var(--nav-item-bg-color); /* Slightly darker to indicate active status */
+  box-shadow: none; /* No shadow for active item */
+}
+
+.nav-link.no-shadow {
+  box-shadow: none !important;
+}
+
+.navbar-brand.no-shadow {
+  box-shadow: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  /* Clear background for collapsed navbar */
+  .navbar-collapse {
+    background-color: var(--navbar-bg-color);
+  }
+
+  /* Style adjustments for nav items in the collapsed navbar */
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    border-radius: 0; /* Rectangular items for mobile view */
+  }
+}
+
+/* Ensure that the dropdown menus have the appropriate styles as well */
+.navbar .dropdown-menu:hover,
+.navbar .dropdown-menu {
+  background-color: var(--nav-item-bg-color); /* Match nav item background */
+  border: none; /* Remove border */
+}
+
+
+/* Hover effect for dropdown items */
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus {
+  background-color: #707070; /* No background change */
+  box-shadow: none; /* No shadow */
+}
+
+/* First dropdown item rounded at the top */
+.dark-green-navbar .dropdown-menu .dropdown-item:first-child {
+  border-top-left-radius: 0.7rem;
+  border-top-right-radius: 0.7rem;
+}
+
+/* Last dropdown item rounded at the bottom */
+.dark-green-navbar .dropdown-menu .dropdown-item:last-child {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+
 #topLeftNav {
   position: relative;
 }
@@ -70,46 +333,3 @@ body {
 #topLeftNav.active::before {
   width: 100%; /* Increase the width to 100% on hover and for active links */
 }
-
-/*Font size for navbarbrand textlogo*/
-.navbar-brand
-{
-  font-family: 'Agbalumo';
-  font-size: 45px !important;
-  color: #ECECEC !important;
-  margin-right: 120px !important;
-}
-
-.carousel .carousel-indicators button {
-  width: 15px; /* Adjust the size as needed */
-  height: 15px; /* Adjust the size as needed */
-  background-color: grey;
-  border-radius: 50%; /* Rounded shape */
-}
-
-.carousel-container
-{
-  width: 800px !important;
-}
-
-.carousel .carousel-indicators .active {
-  background-color: #fff; /* White fill for the active indicator */
-  background-size: 5px 5px; /* Adjust the size as needed */
-}
-/*Set height of slider image*/
-.h-custom {
-  height: 400px; /* Set your desired height here */
-}
-/*Create an underline under where it says Discover, Connect, and Join Clubs at UH with Ease */
-hr {
-  width: 50%; /* Adjust the width as needed, e.g., 50% of the containing element */
-  margin: auto !important; /* Center the hr horizontally within its containing element */
-  border: 1px solid #000; /* Optional: Add a border for styling */
-}
-
-
-.carousel-control-prev
-{
-  position: absolute;
-}
-

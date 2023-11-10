@@ -1,59 +1,75 @@
 import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { useTracker } from 'meteor/react-meteor-data';
 import { NavLink } from 'react-router-dom';
+import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
+import { Meteor } from 'meteor/meteor';
+import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Bell, Person, Gear, Search } from 'react-bootstrap-icons';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const NavBar = () => {
-  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { currentUser } = useTracker(() => ({
+  const { currentUser, isAdmin } = useTracker(() => ({
     currentUser: Meteor.user() ? Meteor.user().username : '',
+    isAdmin: Roles.userIsInRole(Meteor.userId(), 'admin'),
   }), []);
 
   return (
     <Navbar expand="lg" className="dark-green-navbar">
-      <Container fluid>
-        <Navbar.Brand id=" " as={NavLink} to="/">
-          UHnify
+      <Container>
+        <Navbar.Brand as={NavLink} to="/" className="no-shadow">
+          <Navbar.Brand as={NavLink} to="/" className="brand-text">
+            UHnify
+          </Navbar.Brand>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto justify-content-start">
-            {currentUser ? ([
-              <Nav.Link id="topLeftNav" as={NavLink} to="/add" key="add" className="text-white">Home</Nav.Link>,
-              <Nav.Link id="topLeftNav" className="text-white" as={NavLink} to="/list" key="list">Browse Club</Nav.Link>,
-              <Nav.Link id="topLeftNav" className="text-white" as={NavLink} to="/clubdetail" key="list">Club Detail</Nav.Link>,
-            ]) : ''}
-            {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link className="text-white" id="list-stuff-admin-nav" as={NavLink} to="/admin" key="admin">Admin</Nav.Link>
-            ) : ''}
-          </Nav>
-          <Nav className="justify-content-end">
-            {currentUser === '' ? (
-              <NavDropdown className="text-white" id="login-dropdown" title="Login">
-                <NavDropdown.Item id="login-dropdown-sign-in" as={NavLink} to="/signin">
-                  <PersonFill />
-                  Sign
-                  in
-                </NavDropdown.Item>
-                <NavDropdown.Item id="login-dropdown-sign-up" as={NavLink} to="/signup">
-                  <PersonPlusFill />
-                  Sign
-                  up
-                </NavDropdown.Item>
-              </NavDropdown>
-            ) : (
-              <NavDropdown id="navbar-current-user" title={currentUser}>
-                <NavDropdown.Item id="navbar-sign-out" as={NavLink} to="/signout">
-                  <BoxArrowRight />
-                  {' '}
-                  Sign
-                  out
-                </NavDropdown.Item>
-              </NavDropdown>
+          <Nav className="me-auto">
+            <NavDropdown title="ClubHub" id="nav-dropdown-clubs topLeftNav">
+              <NavDropdown.Item as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
+            </NavDropdown>
+
+            <NavDropdown title="Events" id="nav-dropdown-events">
+              <NavDropdown.Item as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
+            </NavDropdown>
+
+            <Nav.Link as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
+
+            {isAdmin && (
+              <Nav.Link as={NavLink} to="/admin">Dashboard</Nav.Link>
             )}
+          </Nav>
+          <Nav>
+            <Nav.Link as={NavLink} to="/notifications" className="no-shadow">
+              <Bell />
+            </Nav.Link>
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success"><Search /></Button>
+            </Form>
+            <NavDropdown title={<Person />} id="nav-dropdown-profile">
+              <NavDropdown.Item as={NavLink} to="/user/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/user/settings">
+                <Gear /> Customize
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item as={NavLink} to="/SignOut">
+                Logout
+              </NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/SignIn">
+                Login
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
