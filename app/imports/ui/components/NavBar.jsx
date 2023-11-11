@@ -16,15 +16,13 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="dark-green-navbar">
       <Container>
-        <Navbar.Brand as={NavLink} to="/" className="no-shadow">
-          <Navbar.Brand as={NavLink} to="/" className="brand-text">
-            UHnify
-          </Navbar.Brand>
+        <Navbar.Brand as={NavLink} to="/">
+          UHnify
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="ClubHub" id="nav-dropdown-clubs">
+            <NavDropdown title="ClubHub">
               <NavDropdown.Item as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
@@ -36,7 +34,7 @@ const NavBar = () => {
               <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
+            <Nav.Link as={ NavLink } to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
 
             {isAdmin && (
               <Nav.Link as={NavLink} to="/admin">Dashboard</Nav.Link>

@@ -10,6 +10,9 @@
   --pale-yellow: #feefd0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 /* Define custom styles */
 body {
   background-color: var(--coconut-white);
@@ -44,6 +47,7 @@ body, h1, h2, h3, p {
   padding: 0;
 }
 
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: var(--coconut-white);
@@ -72,28 +76,7 @@ em {
   font-style: italic;
 }
 
-/* Club card styles */
-.club-card {
-  background-color: var(--light-tropical-green);
-  border: 1px solid var(--banana-leaf-green);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
 
-.club-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.club-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px;
-  border: 3px solid var(--coconut-white);
-}
 
 /* Utility Classes for Typography */
 .text-bold {
@@ -116,31 +99,7 @@ em {
   /* Add styles for your SVG icons */
 }
 
-/* Responsive typography */
-@media (min-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
 
-  h2 {
-    font-size: 2rem;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-  }
-
-  p {
-    font-size: 1.125rem;
-  }
-}
-
-/* Other potential responsive behavior */
-@media (max-width: 768px) {
-  .club-card {
-    padding: 15px;
-  }
-}
 
 /* Define a card component with rounded edges and shadows */
 .card {
@@ -150,6 +109,7 @@ em {
   transition: 0.3s; /* This makes the hover effect smooth */
   padding: 16px; /* Adjust padding as needed */
   margin: 16px; /* Space out cards */
+  width: 100%;
 }
 
 /* Define the hover effect for the card to make it appear to "lift" off the page */
@@ -157,20 +117,6 @@ em {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
   transform: translateY(-4px); /* Slightly raise the card */
 }
-
-/* You may want to add specific classes for different card sizes if they vary */
-.card-small {
-  /* Define size or any other specific style */
-}
-
-.card-medium {
-  /* Define size or any other specific style */
-}
-
-.card-large {
-  /* Define size or any other specific style */
-}
-
 /* Ensure text is styled according to your mood board */
 .card .card-title {
   font-family: 'Raleway', sans-serif;
@@ -214,19 +160,31 @@ em {
 
 /* Clear navbar styles */
 .navbar {
-  background-color: var(--navbar-bg-color) !important; /* Clear background */
+  background-color: white !important; /* Clear background */
   box-shadow: none !important; /* No shadow */
+  height: 120px;
 }
+
 
 /* Style nav items as buttons with rounded edges */
 .navbar .nav-link,
-.navbar .navbar-brand,
 .navbar .nav-item .nav-link {
-  background-color: var(--nav-item-bg-color);
+  background-color: white;
+  font-size: 25px;
   border-radius: var(--nav-item-border-radius);
   transition: all 0.3s; /* Smooth transition for background color and shadow */
   margin: 0 0.5rem; /* Space between items */
 }
+/*Do Navbar Brand*/
+.navbar .navbar-brand
+{
+  background-color: var(--nav-item-bg-color);
+  font-size: 35px;
+  border-radius: var(--nav-item-border-radius);
+  transition: all 0.3s; /* Smooth transition for background color and shadow */
+  margin: 0 0.5rem; /* Space between items */
+}
+
 
 /* Rounded corners for dropdown menus as well */
 .navbar .dropdown-menu {
@@ -241,11 +199,6 @@ em {
   transform: translateY(-2px); /* Slightly raise the nav item */
 }
 
-/* Remove the hover background color change that Bootstrap adds by default */
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover {
-  background-color: transparent;
-}
 
 /* Since the navbar is clear, ensure the toggle button is visible */
 .navbar-toggler {
@@ -255,21 +208,6 @@ em {
 /* Adjust toggle icon color */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-/* Style for active nav item */
-.navbar .nav-link.active,
-.navbar .nav-item.show .nav-link {
-  background-color: var(--nav-item-bg-color); /* Slightly darker to indicate active status */
-  box-shadow: none; /* No shadow for active item */
-}
-
-.nav-link.no-shadow {
-  box-shadow: none !important;
-}
-
-.navbar-brand.no-shadow {
-  box-shadow: none !important;
 }
 
 /* Responsive adjustments */
@@ -286,14 +224,13 @@ em {
   }
 }
 
+
 /* Ensure that the dropdown menus have the appropriate styles as well */
 .navbar .dropdown-menu:hover,
 .navbar .dropdown-menu {
-  background-color: var(--nav-item-bg-color); /* Match nav item background */
+  background-color: white; /* Match nav item background */
   border: none; /* Remove border */
 }
-
-
 /* Hover effect for dropdown items */
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {
@@ -311,4 +248,61 @@ em {
 .dark-green-navbar .dropdown-menu .dropdown-item:last-child {
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+
+.slider {
+  margin-bottom: 30px;
+  position: relative;
+}
+.slider .owl-item.active.center .slider-card {
+  transform: scale(1.15);
+  opacity: 1;
+  background: #ff9966; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+}
+.slider-card {
+  background: #fff;
+  padding: 0px 0px;
+  margin: 50px 15px 90px 15px;
+  border-radius: 5px;
+  box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
+  transform: scale(0.9);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.slider-card img {
+  border-radius: 5px 5px 0px 0px;
+}
+.owl-nav .owl-prev {
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 0;
+  opacity: 1;
+  font-size: 30px !important;
+  z-index: 1;
+}
+.owl-nav .owl-next {
+  position: absolute;
+  top: calc(50% - 25px);
+  right: 0;
+  opacity: 1;
+  font-size: 30px !important;
+  z-index: 1;
+}
+.owl-dots {
+  text-align: center;
+}
+.owl-dots .owl-dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+  background: #ccc !important;
+  margin-left: 3px;
+  margin-right: 3px;
+  outline: none;
+}
+.owl-dots .owl-dot.active {
+  background: #f44336 !important;
 }
