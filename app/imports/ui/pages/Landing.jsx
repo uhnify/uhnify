@@ -33,94 +33,96 @@ const Landing = () => {
     });
   }, []);
   return (
-    <Container fluid className="p-0">
-      <main>
-        <Container fluid className="py-5">
-          <div className="d-flex justify-content-center align-items-center">
-            <Image src="/images/DALLEUHnify.png" alt="Main campus image" />
-          </div>
-        </Container>
-        {/* Cards section */}
-        <section id="slider" className="pt-5">
-          <div className="container">
-            <h1 className="text-center"><b>Responsive Owl Carousel</b></h1>
-            <div className="slider">
-              <div className="owl-carousel">
-                <div className="slider-card">
-                  <div className="d-flex justify-content-center align-items-center mb-4">
-                    <Image src="/images/DALLEUHnify.png" alt="" />
+    <>
+      <Container fluid className="p-0">
+        <main>
+          <Container fluid className="py-5">
+            <div className="d-flex justify-content-center align-items-center">
+              <Image src="/images/DALLEUHnify.png" alt="Main campus image" />
+            </div>
+          </Container>
+          {/* Cards section */}
+          <section id="slider" className="pt-5">
+            <div className="container">
+              <h1 className="text-center"><b>Responsive Owl Carousel</b></h1>
+              <div className="slider">
+                <div className="owl-carousel">
+                  <div className="slider-card">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                      <Image src="/images/DALLEUHnify.png" alt="" />
+                    </div>
+                    <h5 className="mb-0 text-center"><b>HTML CSS3 Tutorials</b></h5>
+                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
-                  <h5 className="mb-0 text-center"><b>HTML CSS3 Tutorials</b></h5>
-                  <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
-                </div>
-                <div className="slider-card">
-                  <div className="d-flex justify-content-center align-items-center mb-4">
-                    <Image src="/images/DALLEUHnify.png" alt="" />
+                  <div className="slider-card">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                      <Image src="/images/DALLEUHnify.png" alt="" />
+                    </div>
+                    <h5 className="mb-0 text-center"><b>Wordpress Tutorials</b></h5>
+                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
-                  <h5 className="mb-0 text-center"><b>Wordpress Tutorials</b></h5>
-                  <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
-                </div>
-                <div className="slider-card">
-                  <div className="d-flex justify-content-center align-items-center mb-4">
-                    <Image src="/images/DALLEUHnify.png" alt="" />
+                  <div className="slider-card">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                      <Image src="/images/DALLEUHnify.png" alt="" />
+                    </div>
+                    <h5 className="mb-0 text-center"><b>PHP MySQL Tutorials</b></h5>
+                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
-                  <h5 className="mb-0 text-center"><b>PHP MySQL Tutorials</b></h5>
-                  <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
-                </div>
-                <div className="slider-card">
-                  <div className="d-flex justify-content-center align-items-center mb-4">
-                    <Image src="/images/DALLEUHnify.png" alt="" />
+                  <div className="slider-card">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                      <Image src="/images/DALLEUHnify.png" alt="" />
+                    </div>
+                    );
+                    <h5 className="mb-0 text-center"><b>Javascript Tutorials</b></h5>
+                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
-                  );
-                  <h5 className="mb-0 text-center"><b>Javascript Tutorials</b></h5>
-                  <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
-                </div>
-                <div className="slider-card">
-                  <div className="d-flex justify-content-center align-items-center mb-4">
-                    <Image src="/images/DALLEUHnify.png" alt="" />
+                  <div className="slider-card">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
+                      <Image src="/images/DALLEUHnify.png" alt="" />
+                    </div>
+                    <h5 className="mb-0 text-center"><b>Bootstrap Tutorials</b></h5>
+                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
-                  <h5 className="mb-0 text-center"><b>Bootstrap Tutorials</b></h5>
-                  <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section>
-          <Container>
-            <Row>
-              <Col> {/* Added lg={3} for larger screens */}
-                <Card> {/* Added custom-card class for additional styling */}
-                  <Card.Img variant="top" src="images/DALLEUHnify.png" alt="Events" />
-                  <Card.Body className="card-content">
-                    <Card.Title>Events</Card.Title>
-                    <Card.Text>Join the community in exciting events around campus.</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col> {/* Same changes as above */}
-                <Card>
-                  <Card.Img variant="top" src="images/DALLEUHnify.png" alt="Browse Clubs" />
-                  <Card.Body className="card-content">
-                    <Card.Title>Browse Clubs</Card.Title>
-                    <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col> {/* Same changes as above */}
-                <Card>
-                  <Card.Img variant="top" src="images/DALLEUHnify.png" alt="My Clubs" />
-                  <Card.Body className="card-content">
-                    <Card.Title>My Clubs</Card.Title>
-                    <Card.Text>View and manage your club memberships and activities.</Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        </section>
-      </main>
-    </Container>
+          </section>
+        </main>
+      </Container>
+
+      <Container fluid style={{ maxWidth: '2000px' }}>
+        <Row className="gx-5">
+          <Col> {/* Added lg={3} for larger screens */}
+            <Card> {/* Added custom-card class for additional styling */}
+              <Card.Img src="images/DALLEUHnify.png" alt="Events" />
+              <Card.Body>
+                <Card.Title>Events</Card.Title>
+                <Card.Text>Join the community in exciting events around campus.</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col> {/* Same changes as above */}
+            <Card>
+              <Card.Img src="images/DALLEUHnify.png" alt="Browse Clubs" />
+              <Card.Body>
+                <Card.Title>Browse Clubs</Card.Title>
+                <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col> {/* Same changes as above */}
+            <Card>
+              <Card.Img src="images/DALLEUHnify.png" alt="My Clubs" />
+              <Card.Body>
+                <Card.Title>My Clubs</Card.Title>
+                <Card.Text>View and manage your club memberships and activities.</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+
+    </>
   );
 };
 export default Landing;

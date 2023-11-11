@@ -117,13 +117,7 @@ em {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
   transform: translateY(-4px); /* Slightly raise the card */
 }
-/* Ensure text is styled according to your mood board */
-.card .card-title {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.25rem; /* Adjust size as needed */
-  font-weight: 700;
-  color: var(--banana-leaf-green);
-}
+
 
 .card .card-text {
   font-family: 'Open Sans', sans-serif;
