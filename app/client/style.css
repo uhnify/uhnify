@@ -260,14 +260,15 @@ em {
   background: #fff;
   padding: 0px 0px;
   margin: 50px 15px 90px 15px;
-  border-radius: 5px;
+  border-radius: .5em;
   box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
   transform: scale(0.9);
   opacity: 0.5;
   transition: all 0.3s;
 }
 .slider-card img {
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 5px 5px 0px 0px !important;
+
 }
 .owl-nav .owl-prev {
   position: absolute;
