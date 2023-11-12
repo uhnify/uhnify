@@ -9,5 +9,11 @@
     { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
     { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
     { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  ],
+
+  "defaultClub": [
+    {"name":  "Basketball Club", "description": "Basketball Club", "owner": "john@foo.com", "location":  "POST 319", "image": "https://img.freepik.com/premium-photo/close-up-basketball-player-running-with-ball-generative-ai_902846-38748.jpg?w=1060", "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm"},
+    {"name":  "Volleyball Club", "description": "Volleyball Club", "owner": "admin@foo.com", "location":  "POST 319", "image": "https://unblast.com/wp-content/uploads/2020/04/Volleyball-Vector-Illustration-1.jpg",
+      "meetingTime": "Every Wednesday 3:00 pm - 4:00 pm"}
   ]
 }
