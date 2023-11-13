@@ -9,7 +9,7 @@ const ClubFinder = () => (
       </Col>
     </Row>
     <Row xs={1} md={2} lg={3} className="g-4">
-      <Card className="h-100">
+      <Card className="h-100 card">
         <Card.Header>
           <Image width={100} src="https://upload.wikimedia.org/wikipedia/commons/f/f7/JaquesCookStaunton.jpg" />
           <Card.Title>Chess Club</Card.Title>
@@ -21,7 +21,7 @@ const ClubFinder = () => (
           <Button>Add to My Clubs</Button>
         </Card.Body>
       </Card>
-      <Card className="h-100">
+      <Card className="h-100 card">
         <Card.Header>
           <Image width={75} src="https://upload.wikimedia.org/wikipedia/commons/6/64/Football_signed_by_Gerald_R._Ford.jpg" />
           <Card.Title>Football Club</Card.Title>

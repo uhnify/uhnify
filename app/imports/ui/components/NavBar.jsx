@@ -14,7 +14,7 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar expand="lg" className="dark-green-navbar">
+    <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/" className="no-shadow">
           <Navbar.Brand as={NavLink} to="/" className="brand-text">
