@@ -1,4 +1,9 @@
 {
+  "monti": {
+    "appId": "changeme",
+    "appSecret": "changeme"
+  },
+
   "defaultAccounts": [
     { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
     { "email": "john@foo.com", "password": "changeme" }
