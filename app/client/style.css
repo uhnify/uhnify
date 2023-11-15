@@ -307,12 +307,19 @@ em {
 
 
 .signin-form-section {
-  flex: 0 0 50%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
-  background-color: #ffffff;
+}
+
+.signin-form-section form {
+  display: flex;
+  flex-direction: column; /* Stack the children vertically */
+  align-items: center; /* Center align the children */
+  justify-content: center; /* Center justify the content */
+  width: 100%;
+  max-width: 320px; /* Or adjust the max width as needed */
 }
 
 /* Style the headings */
@@ -321,8 +328,12 @@ em {
   font-size: 2.5rem; /* Large font size for the headings */
   color: #333; /* Dark grey color for the text */
   font-weight: 700; /* Bold font weight */
+  text-align: center; /* Center align the text */
+  width: 100%; /* Ensure the width of the heading is 100% of its container */
   margin-bottom: 2rem; /* Space below the heading */
+  white-space: nowrap; /* Ensure the text stays on one line */
 }
+
 
 .signup-call-to-action-section {
   flex: 0 0 50%;
@@ -347,7 +358,37 @@ em {
   border-radius: 20px;
   border: 1px solid #ced4da;
 }
+.signup-call-to-action-section {
+  flex: 0 0 50%;
+  background-color: var(--banana-leaf-green);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
 
+.signin-form-section form {
+  width: 100%;
+  max-width: 320px;
+}
+
+.form-control {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #005f73;
+}
 .btn-primary {
   width: 100%;
   padding: 0.75rem 1rem;

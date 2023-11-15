@@ -27,7 +27,7 @@ const SignIn = () => {
   return (
     <Container fluid>
       <Row className="min-vh-100">
-        <Col md={8} className="signin-form-section">
+        <Col md={8} className="signin-form-section d-flex flex-column justify-content-center">
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
             <Form.Group controlId="formBasicEmail">
