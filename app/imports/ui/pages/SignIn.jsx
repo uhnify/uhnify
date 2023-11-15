@@ -1,28 +1,16 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
-import SimpleSchema from 'simpl-schema';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
-/**
- * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
- * Authentication errors modify the component’s state to be displayed
- */
 const SignIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const schema = new SimpleSchema({
-    email: String,
-    password: String,
-  });
-  const bridge = new SimpleSchema2Bridge(schema);
 
-  // Handle Signin submission using Meteor's account mechanism.
-  const submit = (doc) => {
-    // console.log('submit', doc, redirect);
-    const { email, password } = doc;
+  const handleSubmit = (e) => {
+    e.preventDefault();
     Meteor.loginWithPassword(email, password, (err) => {
       if (err) {
         setError(err.reason);
@@ -30,44 +18,47 @@ const SignIn = () => {
         setRedirect(true);
       }
     });
-    // console.log('submit2', email, password, error, redirect);
   };
 
-  // Render the signin form.
-  // console.log('render', error, redirect);
-  // if correct authentication, redirect to page instead of login screen
   if (redirect) {
-    return (<Navigate to="/" />);
+    return <Navigate to="/" />;
   }
-  // Otherwise return the Login form.
+
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
-          </Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
-          </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
+    <Container fluid>
+      <Row className="min-vh-100">
+        <Col md={8} className="signin-form-section">
+          <Form onSubmit={handleSubmit}>
+            <h1>Login to Your Account</h1>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control className="form-controltextbox"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control className="form-controltextbox"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit" className="form-controlsubmit">
+              Submit
+            </Button>
+          </Form>
+          {error && <div className="text-danger">{error}</div>}
+        </Col>
+        <Col md={4} className="signup-call-to-action-section ">
+          <div className="signup-call-to-action">
+            <h1>New Here?</h1>
+            <p className="font-color-white">Sign up and discover a great amount of new opportunities!</p>
+            <Button variant="outline-light" href="/signup" className="form-controlsignup">Sign Up</Button>
+          </div>
         </Col>
       </Row>
     </Container>

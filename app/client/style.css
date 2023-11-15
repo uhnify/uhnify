@@ -252,7 +252,6 @@ em {
 }
 .slider-card {
   background: #fff;
-  padding: 0px 0px;
   margin: 50px 15px 90px 15px;
   border-radius: .5em;
   box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
@@ -262,7 +261,7 @@ em {
 
 }
 .slider-card img {
-  border-radius: 5px 5px 0px 0px !important;
+  border-radius: 5px 5px !important;
 
 }
 .owl-nav .owl-prev {
@@ -297,6 +296,7 @@ em {
   background: #f44336 !important;
 }
 
+
 .club-category-tag {
   background-color: #f0f0f0;
   border-radius: 5px;
@@ -304,4 +304,154 @@ em {
   margin: 5px;
   display: inline-block;
 }
+
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+
+.signin-form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-form-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the headings */
+.signin-form-section h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 2rem;
+  white-space: nowrap; /* Make sure the header is in one line */
+  margin-left: 0px;
+  margin-right: 300px; /* Center the login header, idk ehy text center wasnt working. */
+}
+.signup-call-to-action h1 {
+  text-align: center;
+  font-size: 4rem; /* Size of the header */
+  color: #ffffff;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+.signup-call-to-action p {
+  text-align: center;
+  font-size: 1.8rem; /* Size of the header */
+  color: #ffffff;
+  font-weight: 5;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+
+.signup-call-to-action-section {
+  flex: 0 0 50%;
+  background-color: var(--banana-leaf-green);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.signin-form-section form {
+  width: 100%;
+  max-width: 320px;
+}
+
+.form-controltextbox {
+  width: 450px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: #f0f0f0 !important;
+}
+
+.form-controltextbox:focus {
+  background-color: #ffffff !important;
+  border-color: #545d62 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(93, 92, 92, 0.22) !important;
+}
+
+
+
+.form-controlsubmit {
+  width: 200px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: var(--banana-leaf-green) !important;
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+}
+
+.form-controlsignup {
+  width: 200px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+
+}
+
+
+.signup-call-to-action-section {
+  flex: 0 0 50%;
+  background-color: var(--banana-leaf-green);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.signin-form-section form {
+  width: 100%;
+  max-width: 320px;
+}
+
+
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #005f73;
+}
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #005f73;
+}
+
+.font-color-white {
+  color: #ffffff;
+}
+
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
