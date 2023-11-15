@@ -14,6 +14,10 @@ const Club = ({ club }) => (
     </Card.Header>
     <Card.Body>
       <Card.Text>{club.description}</Card.Text>
+      {/* Render the categories here */}
+      {club.categories && club.categories.map(category => (
+        <span key={category} className="club-category-tag">{category}</span>
+      ))}
       <Link to={`/edit/${club._id}`}>Edit</Link>
     </Card.Body>
   </Card>
@@ -29,6 +33,7 @@ Club.propTypes = {
     location: PropTypes.string,
     _id: PropTypes.string,
     meetingTime: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.string), // Adding categories to PropTypes
   }).isRequired,
 };
 

@@ -18,6 +18,11 @@ class ClubsCollection {
       location: String,
       image: String,
       meetingTime: String,
+      categories: {
+        type: Array,
+        optional: true, // make it optional if not all clubs have categories
+      },
+      'categories.$': String, // Define the type of the array elements
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);

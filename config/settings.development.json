@@ -17,7 +17,7 @@
   ],
 
   "defaultClub": [
-    {"name":  "Basketball Club", "description": "Basketball Club", "owner": "john@foo.com", "location":  "POST 319", "image": "https://img.freepik.com/premium-photo/close-up-basketball-player-running-with-ball-generative-ai_902846-38748.jpg?w=1060", "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm"},
+    {"name":  "Basketball Club", "description": "Basketball Club", "owner": "john@foo.com", "location":  "POST 319", "image": "https://img.freepik.com/premium-photo/close-up-basketball-player-running-with-ball-generative-ai_902846-38748.jpg?w=1060", "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm",  "categories": ["basketball", "sports"]},
     {"name":  "Volleyball Club", "description": "Volleyball Club", "owner": "admin@foo.com", "location":  "POST 319", "image": "https://unblast.com/wp-content/uploads/2020/04/Volleyball-Vector-Illustration-1.jpg",
       "meetingTime": "Every Wednesday 3:00 pm - 4:00 pm"}
   ]
