@@ -25,9 +25,9 @@ const SignIn = () => {
   }
 
   return (
-    <Container fluid className="signin-container">
+    <Container fluid>
       <Row className="min-vh-100">
-        <Col md={6} className="signin-form-section">
+        <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
             <Form.Group controlId="formBasicEmail">
@@ -53,7 +53,7 @@ const SignIn = () => {
           </Form>
           {error && <div className="text-danger">{error}</div>}
         </Col>
-        <Col md={6} className="signup-call-to-action-section ">
+        <Col md={4} className="signup-call-to-action-section ">
           <div className="signup-call-to-action">
             <h1>New Here?</h1>
             <p>Sign up and discover a great amount of new opportunities!</p>
