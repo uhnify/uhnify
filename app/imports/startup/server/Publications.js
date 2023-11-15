@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Clubs } from '../../api/club/Club';
-
+import { Events } from '../../api/events/Events';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Stuffs.userPublicationName, function () {
@@ -42,6 +42,21 @@ Meteor.publish(Clubs.adminPublicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Events.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Events.collection.find({ createdBy: username });
+  }
+  return this.ready();
+});
+
+Meteor.publish(Events.adminPublicationName, function () {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    return Events.collection.find();
   }
   return this.ready();
 });

@@ -20,5 +20,47 @@
     {"name":  "Basketball Club", "description": "Basketball Club", "owner": "john@foo.com", "location":  "POST 319", "image": "https://img.freepik.com/premium-photo/close-up-basketball-player-running-with-ball-generative-ai_902846-38748.jpg?w=1060", "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm",  "categories": ["basketball", "sports"]},
     {"name":  "Volleyball Club", "description": "Volleyball Club", "owner": "admin@foo.com", "location":  "POST 319", "image": "https://unblast.com/wp-content/uploads/2020/04/Volleyball-Vector-Illustration-1.jpg",
       "meetingTime": "Every Wednesday 3:00 pm - 4:00 pm"}
+  ],
+  "defaultEvent": [
+    {
+      "title": "Coding Workshop",
+      "description": "Join us for a beginner-friendly coding workshop focusing on web development basics.",
+      "date": "2023-12-01T18:00:00Z",
+      "location": "IT Building Room 101",
+      "createdBy": "admin@foo.com",
+      "image": "images/codingWorkshop.png"
+    },
+    {
+      "title": "Outdoor Yoga Session",
+      "description": "A relaxing yoga session in the park. Suitable for all levels.",
+      "date": "2023-11-15T07:00:00Z",
+      "location": "Central Park",
+      "createdBy": "john@foo.com",
+      "image": "images/codingWorkshop.png"
+    },
+    {
+      "title": "Art Exhibition Opening",
+      "description": "Opening night for our community art exhibition, featuring local artists.",
+      "date": "2023-11-20T19:00:00Z",
+      "location": "Downtown Art Gallery",
+      "createdBy": "admin@foo.com",
+      "image": "images/codingWorkshop.png"
+    },
+    {
+      "title": "Live Concert: Indie Bands",
+      "description": "An evening of live music from up-and-coming indie bands.",
+      "date": "2023-12-05T20:00:00Z",
+      "location": "Riverfront Amphitheater",
+      "createdBy": "john@foo.com",
+      "image": "images/codingWorkshop.png"
+    },
+    {
+      "title": "Community Beach Clean-Up",
+      "description": "Join us in making our beaches cleaner and safer for everyone. Supplies provided.",
+      "date": "2023-11-30T09:00:00Z",
+      "location": "Sunny Beach",
+      "createdBy": "john@foo.com",
+      "image": "/images/codingWorkshop.png"
+    }
   ]
 }

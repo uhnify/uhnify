@@ -16,6 +16,7 @@ import NotAuthorized from '../pages/NotAuthorized';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ClubDetail from '../pages/ClubDetail';
 import ListClubs from '../pages/ListClubs';
+import ListEvents from '../pages/ListEvents';
 import ListClubAdmin from '../pages/ListClubAdmin';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
+          <Route path="/upcoming-events" element={<ListEvents />} />
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/clubdetail" element={<ProtectedRoute><ClubDetail /></ProtectedRoute>} />
           <Route path="/add" element={<ProtectedRoute><AddStuff /></ProtectedRoute>} />

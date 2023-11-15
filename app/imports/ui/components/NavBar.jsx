@@ -34,9 +34,6 @@ const NavBar = () => {
               <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
-
-            <Nav.Link as={ NavLink } to="/my-clubs">My Clubs</Nav.Link>
-
             {isAdmin && (
               <Nav.Link as={NavLink} to="/admin">Dashboard</Nav.Link>
             )}
