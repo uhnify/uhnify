@@ -258,7 +258,6 @@ em {
 }
 .slider-card {
   background: #fff;
-  padding: 0px 0px;
   margin: 50px 15px 90px 15px;
   border-radius: .5em;
   box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
@@ -267,7 +266,7 @@ em {
   transition: all 0.3s;
 }
 .slider-card img {
-  border-radius: 5px 5px 0px 0px !important;
+  border-radius: 5px 5px !important;
 
 }
 .owl-nav .owl-prev {
@@ -302,48 +301,57 @@ em {
   background: #f44336 !important;
 }
 
-.signin-section {
+
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
+
+.signin-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.signin-form-section {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
+  background-color: #ffffff;
 }
 
-.auth-card {
+.signup-call-to-action-section {
+  flex: 0 0 50%;
+  background-color: #00aabb;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.signin-form-section form {
   width: 100%;
-  max-width: 500px;
+  max-width: 320px;
 }
 
-.login__content-title,
-.image-container-title {
-  font-size: 1.5rem;
+.form-control {
+  width: 100%;
   margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ced4da;
 }
 
-.login__content-text,
-.image-container-text {
-  margin-bottom: 2rem;
-}
-
-.login__form-title {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.login__form-btn {
+.btn-primary {
   width: 100%;
-  background-color: #007bff;
-  border-color: #007bff;
+  padding: 0.75rem 1rem;
+  border-radius: 20px;
+  border: none;
+  background-color: #005f73;
 }
 
-.sign-up-link {
-  margin-top: 1rem;
-  text-align: center;
-}
+/*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-.bg-teal {
-  background-color: #009688; /* Replace with the actual color you want */
-}
-
-.signup-section {
-  padding: 2rem;
-}
-
-/* Add further styling as per your requirements */
