@@ -14,7 +14,7 @@ const NavBar = () => {
   }), []);
 
   return (
-    <Navbar expand="lg" className="dark-green-navbar">
+    <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
           UHnify
@@ -59,12 +59,11 @@ const NavBar = () => {
                 <Gear /> Customize
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item as={NavLink} to="/SignOut">
-                Logout
-              </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/SignIn">
-                Login
-              </NavDropdown.Item>
+              {currentUser ? (
+                <NavDropdown.Item as={NavLink} to="/SignOut">Logout</NavDropdown.Item>
+              ) : (
+                <NavDropdown.Item as={NavLink} to="/SignIn">Login</NavDropdown.Item>
+              )}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
