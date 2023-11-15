@@ -1,8 +1,15 @@
 import React from 'react';
-import { Row, Container, Col, Button, Card, Image } from 'react-bootstrap';
+import { Row, Container, Col, Button, Card, Image, Form } from 'react-bootstrap';
 
 const ClubFinder = () => (
   <Container className="py-3">
+    <Col>
+      <h2>Filter</h2>
+      <Form>
+        <Form.Check label="sports" />
+        <Form.Check label="games" />
+      </Form>
+    </Col>
     <Row className="justify-content-center">
       <Col className="text-center">
         <h2>Clubs</h2>
