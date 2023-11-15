@@ -56,7 +56,7 @@ const SignIn = () => {
         <Col md={4} className="signup-call-to-action-section ">
           <div className="signup-call-to-action">
             <h1>New Here?</h1>
-            <p>Sign up and discover a great amount of new opportunities!</p>
+            <p className="font-color-white">Sign up and discover a great amount of new opportunities!</p>
             <Button variant="outline-light" href="/signup">Sign Up</Button>
           </div>
         </Col>

@@ -315,9 +315,18 @@ em {
   background-color: #ffffff;
 }
 
+/* Style the headings */
+.signin-form-section h1,
+.signup-call-to-action h1 {
+  font-size: 2.5rem; /* Large font size for the headings */
+  color: #333; /* Dark grey color for the text */
+  font-weight: 700; /* Bold font weight */
+  margin-bottom: 2rem; /* Space below the heading */
+}
+
 .signup-call-to-action-section {
   flex: 0 0 50%;
-  background-color: #00aabb;
+  background-color: var(--banana-leaf-green);
   color: #ffffff;
   display: flex;
   justify-content: center;
@@ -345,6 +354,10 @@ em {
   border-radius: 20px;
   border: none;
   background-color: #005f73;
+}
+
+.font-color-white {
+  color: #ffffff;
 }
 
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
