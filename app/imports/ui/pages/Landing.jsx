@@ -72,7 +72,6 @@ const Landing = () => {
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/DALLEUHnify.png" alt="" />
                     </div>
-                    );
                     <h5 className="mb-0 text-center"><b>Javascript Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
@@ -92,8 +91,9 @@ const Landing = () => {
 
       <Container fluid style={{ maxWidth: '2000px' }}>
         <Row className="gx-5">
-          <Col> {/* Added lg={3} for larger screens */}
-            <Card> {/* Added custom-card class for additional styling */}
+          {/* Each Col component should span 4 grid units */}
+          <Col xs={12} md={6} lg={4}>
+            <Card>
               <Card.Img src="images/DALLEUHnify.png" alt="Events" />
               <Card.Body>
                 <Card.Title>Events</Card.Title>
@@ -101,7 +101,7 @@ const Landing = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col> {/* Same changes as above */}
+          <Col xs={12} md={6} lg={4}>
             <Card>
               <Card.Img src="images/DALLEUHnify.png" alt="Browse Clubs" />
               <Card.Body>
@@ -110,7 +110,7 @@ const Landing = () => {
               </Card.Body>
             </Card>
           </Col>
-          <Col> {/* Same changes as above */}
+          <Col xs={12} md={6} lg={4}>
             <Card>
               <Card.Img src="images/DALLEUHnify.png" alt="My Clubs" />
               <Card.Body>
@@ -121,7 +121,6 @@ const Landing = () => {
           </Col>
         </Row>
       </Container>
-
     </>
   );
 };

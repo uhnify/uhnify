@@ -210,12 +210,6 @@ em {
   .navbar-collapse {
     background-color: var(--navbar-bg-color);
   }
-
-  /* Style adjustments for nav items in the collapsed navbar */
-  .navbar .nav-link,
-  .navbar .navbar-brand {
-    border-radius: 0; /* Rectangular items for mobile view */
-  }
 }
 
 
@@ -265,6 +259,7 @@ em {
   transform: scale(0.9);
   opacity: 0.5;
   transition: all 0.3s;
+
 }
 .slider-card img {
   border-radius: 5px 5px 0px 0px !important;
@@ -301,3 +296,12 @@ em {
 .owl-dots .owl-dot.active {
   background: #f44336 !important;
 }
+
+.club-category-tag {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+}
+
