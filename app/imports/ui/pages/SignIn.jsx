@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 
-/**
- * Signin page overrides the form’s submit event and call Meteor’s loginWithPassword().
- * Authentication errors modify the component’s state to be displayed
- */
 const SignIn = () => {
   const [error, setError] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const schema = new SimpleSchema({
+
+  const signInSchema = new SimpleSchema({
     email: String,
     password: String,
   });
-  const bridge = new SimpleSchema2Bridge(schema);
 
-  // Handle Signin submission using Meteor's account mechanism.
-  const submit = (doc) => {
-    // console.log('submit', doc, redirect);
+  const bridge = new SimpleSchema2Bridge(signInSchema);
+
+  const submitSignIn = (doc) => {
     const { email, password } = doc;
     Meteor.loginWithPassword(email, password, (err) => {
       if (err) {
@@ -30,44 +26,37 @@ const SignIn = () => {
         setRedirect(true);
       }
     });
-    // console.log('submit2', email, password, error, redirect);
   };
 
-  // Render the signin form.
-  // console.log('render', error, redirect);
-  // if correct authentication, redirect to page instead of login screen
   if (redirect) {
-    return (<Navigate to="/" />);
+    return <Navigate to="/" />;
   }
-  // Otherwise return the Login form.
+
   return (
-    <Container id="signin-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Login to your account</h2>
-          </Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField id="signin-form-email" name="email" placeholder="E-mail address" />
-                <TextField id="signin-form-password" name="password" placeholder="Password" type="password" />
+    <Container fluid className="px-0">
+      <Row noGutters className="min-vh-100">
+        <Col md={6} className="d-flex align-items-center justify-content-center signin-section">
+          <Card className="auth-card">
+            <Card.Body>
+              <h1 className="login__content-title">Login to Your Account</h1>
+              <AutoForm schema={bridge} onSubmit={submitSignIn}>
+                <TextField name="email" placeholder="E-mail address" />
+                <TextField name="password" placeholder="Password" type="password" />
                 <ErrorsField />
-                <SubmitField id="signin-form-submit" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
-          <Alert variant="light">
-            <Link to="/signup">Click here to Register</Link>
-          </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Login was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
+                <SubmitField className="login__form-btn" />
+              </AutoForm>
+              <div className="sign-up-link">
+                New Here? <a href="/signup">Sign Up</a>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={6} className="d-flex flex-column align-items-center justify-content-center bg-teal signup-section">
+          <div className="text-white text-center">
+            <h1 className="image-container-title">New Here?</h1>
+            <p className="image-container-text">Sign up and discover a great amount of new opportunities!</p>
+            <Button variant="light" href="/signup">Sign Up</Button>
+          </div>
         </Col>
       </Row>
     </Container>

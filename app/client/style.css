@@ -301,3 +301,49 @@ em {
 .owl-dots .owl-dot.active {
   background: #f44336 !important;
 }
+
+.signin-section {
+  padding: 2rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+}
+
+.login__content-title,
+.image-container-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.login__content-text,
+.image-container-text {
+  margin-bottom: 2rem;
+}
+
+.login__form-title {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.login__form-btn {
+  width: 100%;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.sign-up-link {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.bg-teal {
+  background-color: #009688; /* Replace with the actual color you want */
+}
+
+.signup-section {
+  padding: 2rem;
+}
+
+/* Add further styling as per your requirements */
