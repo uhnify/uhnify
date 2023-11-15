@@ -27,27 +27,27 @@ const SignIn = () => {
   return (
     <Container fluid>
       <Row className="min-vh-100">
-        <Col md={8} className="signin-form-section d-flex flex-column justify-content-center">
+        <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
             <Form.Group controlId="formBasicEmail">
-              <Form.Control
+              <Form.Control className="form-controltextbox"
                 type="email"
-                placeholder="Enter email"
+                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control
+              <Form.Control className="form-controltextbox"
                 type="password"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className="form-controlsubmit">
               Submit
             </Button>
           </Form>
@@ -57,7 +57,7 @@ const SignIn = () => {
           <div className="signup-call-to-action">
             <h1>New Here?</h1>
             <p className="font-color-white">Sign up and discover a great amount of new opportunities!</p>
-            <Button variant="outline-light" href="/signup">Sign Up</Button>
+            <Button variant="outline-light" href="/signup" className="form-controlsignup">Sign Up</Button>
           </div>
         </Col>
       </Row>
