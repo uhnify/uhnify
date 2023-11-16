@@ -31,7 +31,8 @@ const SignIn = () => {
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
             <Form.Group controlId="formBasicEmail">
-              <Form.Control className="form-controltextbox"
+              <Form.Control
+                className="form-controltextbox"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -40,7 +41,8 @@ const SignIn = () => {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Control className="form-controltextbox"
+              <Form.Control
+                className="form-controltextbox"
                 type="password"
                 placeholder="Password"
                 value={password}
