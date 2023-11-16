@@ -38,7 +38,7 @@ const Landing = () => {
         <main>
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
-              <Image src="/images/DALLEUHnify.png" alt="Main campus image" />
+              <Image src="/images/UHManoaLandingPage.png" alt="Main campus image" fluid/>
             </div>
           </Container>
           {/* Cards section */}
@@ -94,7 +94,7 @@ const Landing = () => {
           {/* Each Col component should span 4 grid units */}
           <Col xs={12} md={6} lg={4}>
             <Card>
-              <Card.Img src="images/DALLEUHnify.png" alt="Events" />
+              <Card.Img src="images/StudentsAtFootball.png" alt="Events" />
               <Card.Body>
                 <Card.Title>Events</Card.Title>
                 <Card.Text>Join the community in exciting events around campus.</Card.Text>
@@ -103,7 +103,7 @@ const Landing = () => {
           </Col>
           <Col xs={12} md={6} lg={4}>
             <Card>
-              <Card.Img src="images/DALLEUHnify.png" alt="Browse Clubs" />
+              <Card.Img src="images/KumbayaCircle2.png" alt="Browse Clubs" />
               <Card.Body>
                 <Card.Title>Browse Clubs</Card.Title>
                 <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>

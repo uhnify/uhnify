@@ -17,7 +17,11 @@ const NavBar = () => {
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          UHnify
+          <img
+            src="" // Replace with the actual path to your logo
+            alt="UHnify"
+            style={{ maxHeight: '150px', maxWidth: '150px', borderRadius: '10px' }} // Adjust the maxHeight to fit your navbar's height
+          />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
