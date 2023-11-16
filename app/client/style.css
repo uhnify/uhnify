@@ -68,7 +68,7 @@ h3 {
 
 p {
   font-size: 1rem;
-  color: var(--banana-leaf-green);
+  color: var(--coconut-white);
 }
 
 em {
@@ -95,7 +95,7 @@ em {
 .icon {
   width: 50px; /* Example size */
   height: auto;
-  fill: var(--banana-leaf-green);
+  fill: #707070;
   /* Add styles for your SVG icons */
 }
 
@@ -122,7 +122,7 @@ em {
 .card .card-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem; /* Adjust size as needed */
-  color: var(--banana-leaf-green);
+  color: #707070;
 }
 
 
@@ -245,15 +245,15 @@ em {
 .slider .owl-item.active.center .slider-card {
   transform: scale(1.15);
   opacity: 1;
-  background: #ff9966; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--coconut-white); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #FFFFF0, #4F7942); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #FFFFF0, #4F7942); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: #fff;
 }
 .slider-card {
   background: #fff;
   margin: 50px 15px 90px 15px;
-  border-radius: .5em;
+  border-radius: 1.4em;
   box-shadow: 0 15px 45px -20px rgb(0 0 0 / 73%);
   transform: scale(0.9);
   opacity: 0.5;
@@ -261,7 +261,7 @@ em {
 
 }
 .slider-card img {
-  border-radius: 5px 5px !important;
+  border-radius: 20px 20px !important;
 
 }
 .owl-nav .owl-prev {

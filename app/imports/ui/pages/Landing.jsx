@@ -38,13 +38,14 @@ const Landing = () => {
         <main>
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
-              <Image src="/images/UHManoaLandingPage.png" alt="Main campus image" fluid/>
+              <Image src="/images/UHManoaLandingPage.png" alt="Main campus image" fluid
+                     style={{ borderRadius: '50px' }}/>
             </div>
           </Container>
           {/* Cards section */}
           <section id="slider" className="pt-5">
             <div className="container">
-              <h1 className="text-center"><b>Responsive Owl Carousel</b></h1>
+              <h1 className="text-center"><b>Learn About UH Community</b></h1>
               <div className="slider">
                 <div className="owl-carousel">
                   <div className="slider-card">
