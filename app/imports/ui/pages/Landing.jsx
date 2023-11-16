@@ -49,35 +49,35 @@ const Landing = () => {
                 <div className="owl-carousel">
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
-                      <Image src="/images/DALLEUHnify.png" alt="" />
+                      <Image src="/images/SchoolSunet.png" alt="" />
                     </div>
                     <h5 className="mb-0 text-center"><b>HTML CSS3 Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
-                      <Image src="/images/DALLEUHnify.png" alt="" />
+                      <Image src="/images/Graduation.png" alt="" />
                     </div>
                     <h5 className="mb-0 text-center"><b>Wordpress Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
-                      <Image src="/images/DALLEUHnify.png" alt="" />
+                      <Image src="/images/PeopleSchool.png" alt="" />
                     </div>
                     <h5 className="mb-0 text-center"><b>PHP MySQL Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
-                      <Image src="/images/DALLEUHnify.png" alt="" />
+                      <Image src="/images/UniverstyFrontFace.png" alt="" />
                     </div>
                     <h5 className="mb-0 text-center"><b>Javascript Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
-                      <Image src="/images/DALLEUHnify.png" alt="" />
+                      <Image src="/images/PeopleSchool2.png" alt="" />
                     </div>
                     <h5 className="mb-0 text-center"><b>Bootstrap Tutorials</b></h5>
                     <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
@@ -112,7 +112,7 @@ const Landing = () => {
           </Col>
           <Col xs={12} md={6} lg={4}>
             <Card>
-              <Card.Img src="images/DALLEUHnify.png" alt="My Clubs" />
+              <Card.Img src="images/StudentsAtCafe.png" alt="My Clubs" />
               <Card.Body>
                 <Card.Title>My Clubs</Card.Title>
                 <Card.Text>View and manage your club memberships and activities.</Card.Text>
