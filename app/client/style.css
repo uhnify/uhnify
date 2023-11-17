@@ -455,3 +455,19 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
+/*Footer Button*/
+#homepagebutton{
+  --bs-btn-color: #D4EBC1;
+  --bs-btn-border-color:#D4EBC1;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: #D4EBC1;
+  --bs-btn-active-bg: #0A5421;
+}
+
+#chatbotbutton{
+  --bs-btn-color: #D4EBC1;
+  --bs-btn-border-color:#D4EBC1;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: #D4EBC1;
+  --bs-btn-active-bg: #0A5421;
+}

@@ -19,6 +19,7 @@ import ListClubs from '../pages/ListClubs';
 import ListEvents from '../pages/ListEvents';
 import ListClubAdmin from '../pages/ListClubAdmin';
 import ClubFinder from '../pages/ClubFinder';
+import Footer from '../components/Footer';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );
