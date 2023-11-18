@@ -455,7 +455,7 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-/*Footer Button*/
+/*Footer */
 #homepagebutton{
   --bs-btn-color: #D4EBC1;
   --bs-btn-border-color:#D4EBC1;
@@ -471,3 +471,11 @@ em {
   --bs-btn-hover-border-color: #D4EBC1;
   --bs-btn-active-bg: #0A5421;
 }
+
+footer{
+  border-top: #0A5421;
+  border-top-style: solid;
+  border-top-width: 3px;
+}
+
+/* Footer */
