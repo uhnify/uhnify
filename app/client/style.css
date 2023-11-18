@@ -342,6 +342,15 @@ em {
   margin-bottom: 1rem;
   white-space: nowrap;
 }
+.signin-call-to-action h1 {
+  text-align: center;
+  color: black;
+  font-size: 4rem; /* Size of the header */
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
 .signup-call-to-action p {
   text-align: center;
   font-size: 1.8rem; /* Size of the header */

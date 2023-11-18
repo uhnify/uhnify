@@ -5,7 +5,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -52,12 +52,14 @@ const SignUp = ({ location }) => {
         </Col>
 
         <Col md={8} className="signin-form-section">
-          <h2>Register your account</h2>
+          <div className="signin-call-to-action"><h1>Register your account</h1></div>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <TextField className="form-controltextbox" name="email" placeholder="E-mail address" />
-            <TextField className="form-controltextbox" name="password" placeholder="Password" type="password" />
+            <input className="form-controltextbox" name="email" placeholder="E-mail address" />
+            <input className="form-controltextbox" name="password" placeholder="Password" type="password" />
             <ErrorsField />
-            <SubmitField />
+            <Button variant="primary" type="submit" className="form-controlsubmit">
+              Submit
+            </Button>
           </AutoForm>
         </Col>
       </Row>
