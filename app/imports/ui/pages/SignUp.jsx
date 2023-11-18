@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField } from 'uniforms-bootstrap5';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -40,35 +40,27 @@ const SignUp = ({ location }) => {
     return <Navigate to={from} />;
   }
   return (
-    <Container id="signup-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center">
-            <h2>Register your account</h2>
-          </Col>
+    <Container fluid>
+      <Row className="min-vh-100">
+
+        <Col md={4} className="signup-call-to-action-section ">
+          <div className="signup-call-to-action">
+            <h1>One Of Us?</h1>
+            <p className="font-color-white">If you already have an account, just sign in. Time to socialize</p>
+            <Button variant="outline-light" href="/signup" className="form-controlsignup">Sign In</Button>
+          </div>
+        </Col>
+
+        <Col md={8} className="signin-form-section">
+          <div className="signin-call-to-action"><h1>Register your account</h1></div>
           <AutoForm schema={bridge} onSubmit={data => submit(data)}>
-            <Card>
-              <Card.Body>
-                <TextField name="email" placeholder="E-mail address" />
-                <TextField name="password" placeholder="Password" type="password" />
-                <ErrorsField />
-                <SubmitField />
-              </Card.Body>
-            </Card>
+            <input className="form-controltextbox" name="email" placeholder="E-mail address" />
+            <input className="form-controltextbox" name="password" placeholder="Password" type="password" />
+            <ErrorsField />
+            <Button variant="primary" type="submit" className="form-controlsubmit">
+              Submit
+            </Button>
           </AutoForm>
-          <Alert variant="light">
-            Already have an account? Login
-            {' '}
-            <Link to="/signin">here</Link>
-          </Alert>
-          {error === '' ? (
-            ''
-          ) : (
-            <Alert variant="danger">
-              <Alert.Heading>Registration was not successful</Alert.Heading>
-              {error}
-            </Alert>
-          )}
         </Col>
       </Row>
     </Container>

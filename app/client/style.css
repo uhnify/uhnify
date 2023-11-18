@@ -309,7 +309,7 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-.signin-form-section {
+.signin-form-section  {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -337,6 +337,15 @@ em {
   text-align: center;
   font-size: 4rem; /* Size of the header */
   color: #ffffff;
+  font-weight: 700;
+  width: 100%;
+  margin-bottom: 1rem;
+  white-space: nowrap;
+}
+.signin-call-to-action h1 {
+  text-align: center;
+  color: black;
+  font-size: 4rem; /* Size of the header */
   font-weight: 700;
   width: 100%;
   margin-bottom: 1rem;
