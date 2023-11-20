@@ -17,11 +17,7 @@ const NavBar = () => {
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <img
-            src="" // Replace with the actual path to your logo
-            alt="UHnify"
-            style={{ maxHeight: '150px', maxWidth: '150px', borderRadius: '10px' }} // Adjust the maxHeight to fit your navbar's height
-          />
+          UHnify
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -56,7 +52,7 @@ const NavBar = () => {
               <Button variant="outline-success"><Search /></Button>
             </Form>
             <NavDropdown title={<Person />} id="nav-dropdown-profile">
-              <NavDropdown.Item as={NavLink} to="/user/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/settings">
