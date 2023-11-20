@@ -47,7 +47,7 @@ const SignUp = ({ location }) => {
           <div className="signup-call-to-action">
             <h1>One Of Us?</h1>
             <p className="font-color-white">If you already have an account, just sign in. Time to socialize</p>
-            <Button variant="outline-light" href="/signup" className="form-controlsignup">Sign In</Button>
+            <Button variant="outline-light" href="/signin" className="form-controlsignup">Sign In</Button>
           </div>
         </Col>
 
