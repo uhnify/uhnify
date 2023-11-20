@@ -18,6 +18,7 @@ import ClubDetail from '../pages/ClubDetail';
 import ListClubs from '../pages/ListClubs';
 import ListEvents from '../pages/ListEvents';
 import ListClubAdmin from '../pages/ListClubAdmin';
+import Profiles from '../pages/Profile';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
+          <Route path="/profile" element={<Profiles />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/upcoming-events" element={<ListEvents />} />
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />

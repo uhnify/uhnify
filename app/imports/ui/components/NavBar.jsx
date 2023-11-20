@@ -52,7 +52,7 @@ const NavBar = () => {
               <Button variant="outline-success"><Search /></Button>
             </Form>
             <NavDropdown title={<Person />} id="nav-dropdown-profile">
-              <NavDropdown.Item as={NavLink} to="/user/profile">Profile</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/user/settings">
