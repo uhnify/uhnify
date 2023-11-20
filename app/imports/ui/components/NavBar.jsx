@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return (
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
-      <Container>
+      <Container >
         <Navbar.Brand as={NavLink} to="/">
           UHnify
         </Navbar.Brand>

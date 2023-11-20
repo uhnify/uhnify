@@ -208,10 +208,13 @@ em {
 @media (max-width: 991.98px) {
   /* Clear background for collapsed navbar */
   .navbar-collapse {
-    background-color: var(--navbar-bg-color);
+    background-color: white;
   }
 }
 
+#basic-navbar-nav{
+  border-radius: 25px;
+}
 
 /* Ensure that the dropdown menus have the appropriate styles as well */
 .navbar .dropdown-menu:hover,

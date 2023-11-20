@@ -6,7 +6,7 @@ import {Instagram, Twitter, Facebook, Linkedin } from 'react-bootstrap-icons';
 const Footer = () => (
   <footer className="mt-auto py-3 dark-green-navbar">
     <Container>
-      <Row>
+      <Row xs={1} md={1} lg={3}>
       <Col >
         <Row className="pb-3">
           <Image className="pt-3" src="images/UmifyLOGO.png" width="300" height="250"/>
