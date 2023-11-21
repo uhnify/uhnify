@@ -35,7 +35,6 @@ if (Clubs.collection.find().count() === 0) {
   }
 }
 
-
 // Initialize the EventsCollection if empty.
 if (Events.collection.find().count() === 0) {
   if (Meteor.settings.defaultEvent) {

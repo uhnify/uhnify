@@ -14,7 +14,7 @@ const formSchema = new SimpleSchema({
   Lastname: String,
   Email: {
     type: String,
-    regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
   },
   quantity: Number,
   condition: {
@@ -56,10 +56,11 @@ const Profile = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <Row><TextField name="Username"/></Row>
-                <Row><Col><TextField name="Firstname" label="First Name"/></Col>
-                  <Col><TextField name="Lastname" label="Last Name"/></Col></Row>
-                <Row><TextField name="Email"/></Row>
+                <Row><TextField name="Username" /></Row>
+                <Row><Col><TextField name="Firstname" label="First Name" /></Col>
+                  <Col><TextField name="Lastname" label="Last Name" /></Col>
+                </Row>
+                <Row><TextField name="Email" /></Row>
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SubmitField value="Submit" />

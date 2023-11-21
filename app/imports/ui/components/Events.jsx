@@ -8,7 +8,7 @@ const EventCard = ({ event }) => (
   <Card className="h-100">
     <Card.Header>
       {/* Replace with event.image if you have images for events */}
-      <Image src= 'images/codingWorkshop.png' width={75} />
+      <Image src="images/codingWorkshop.png" width={75} />
       <Card.Title>{event.title}</Card.Title>
       <Card.Subtitle>{event.date.toDateString()}</Card.Subtitle>
       <Card.Subtitle>{event.location}</Card.Subtitle>
