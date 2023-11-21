@@ -30,6 +30,8 @@ body {
 /* Modify or remove the dark-green-navbar if it is not used or needed anymore */
 .dark-green-navbar {
   background-color: var(--banana-leaf-green);
+  position: relative; /* or 'fixed' or 'absolute' as per your layout */
+  z-index: 1050;
 }
 
 
@@ -186,8 +188,6 @@ em {
 }
 
 /* Hover effect for nav items */
-.navbar .nav-link:hover,
-.navbar .navbar-brand:hover,
 .navbar .nav-item:hover .nav-link {
   box-shadow: var(--nav-item-hover-shadow);
   transform: translateY(-2px); /* Slightly raise the nav item */
