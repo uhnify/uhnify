@@ -9,7 +9,7 @@ const Footer = () => (
       <Row xs={1} md={1} lg={3}>
       <Col >
         <Row className="pb-3">
-          <Image className="pt-3" src="images/UmifyLOGO.png" width="300" height="250"/>
+          <Image className="pt-3" src="images/UmifyLOGO.png" width="100%" height="auto" alt="footerLogo"/>
         </Row>
         <Row>
         <Button variant="outline-primary" id="homepagebutton" href="https://uhnify.github.io/" width="100" height="100">
