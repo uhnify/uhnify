@@ -12,7 +12,7 @@ const Landing = () => {
       margin: 10,
       nav: true,
       autoplay: true,
-      autoplayTimeout: 3000,
+      autoplayTimeout: 5000,
       autoplayHoverPause: true,
       center: true,
       navText: [
