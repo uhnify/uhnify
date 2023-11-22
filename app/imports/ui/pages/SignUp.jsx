@@ -124,7 +124,7 @@ const SignUp = ({ location }) => {
           )}
           {currentStep === 2 && (
             <>
-            <div className="signin-call-to-action"><h1>What are your interests in clubs?</h1></div>
+            <div className="signin-call-to-action"><h1>What are your interests?</h1></div>
             <AutoForm schema={bridge} model={formData} onSubmit={data => submit(data)}>
               <div className="tag-container">
                 <input type="checkbox" id="tag1" className="tag-checkbox" onChange={handleCheckboxChange} />
