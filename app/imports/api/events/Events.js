@@ -14,6 +14,7 @@ class EventsCollection {
     this.schema = new SimpleSchema({
       title: String,
       description: {
+        eventID: integer,
         type: String,
         optional: true,
       },
