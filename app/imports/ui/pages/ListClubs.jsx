@@ -5,6 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../api/club/Club';
 import Club from '../components/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { ProfileClubs } from '../../api/profile/ProfileClubs';
 
 /* Renders a card containing all of the Clubs documents. Use <Club> to render each card. */
 const ListClub = () => {
@@ -13,7 +14,7 @@ const ListClub = () => {
     // Note that this subscription will get cleaned up
     // when your component is unmounted or deps change.
     // Get access to Club documents.
-    const subscription = Meteor.subscribe(Clubs.userPublicationName);
+    const subscription = Meteor.subscribe(ProfileClubs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Club documents

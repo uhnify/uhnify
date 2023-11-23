@@ -3,6 +3,7 @@ import { Roles } from 'meteor/alanning:roles';
 import { Stuffs } from '../../api/stuff/Stuff';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
+import { ProfileClubs } from '../../api/profile/ProfileClubs';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Stuffs.userPublicationName, function () {
@@ -16,7 +17,7 @@ Meteor.publish(Stuffs.userPublicationName, function () {
 Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Clubs.collection.find({ owner: username });
+    return Clubs.collection.find();
   }
   return this.ready();
 });
@@ -57,6 +58,21 @@ Meteor.publish(Events.userPublicationName, function () {
 Meteor.publish(Events.adminPublicationName, function () {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     return Events.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(ProfileClubs.userPublicationName, function () {
+  if (this.userId) {
+    const profileClubs = ProfileClubs.collection.find({ userId: this.userId }).fetch();
+    const clubIds = profileClubs.map(pc => pc.clubId);
+    console.log("Club IDs:", clubIds);  // Log the club IDs
+
+    const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
+    console.log("Clubs found:", clubs); // Log the found clubs
+
+    // Return the cursor, not the fetched array
+    return Clubs.collection.find({ _id: { $in: clubIds } });
   }
   return this.ready();
 });
