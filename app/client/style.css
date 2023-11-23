@@ -380,8 +380,8 @@ em {
   max-width: 320px;
 }
 
-.form-controltextbox {
-  width: 450px !important;
+ .form-control{
+  width: 400px !important;
   height: 60px !important;
   margin-bottom: 1rem !important;
   padding: 0.75rem 1rem !important;
@@ -390,13 +390,13 @@ em {
   background-color: #f0f0f0 !important;
 }
 
-.form-controltextbox:focus {
+
+.form-control:focus {
   background-color: #ffffff !important;
   border-color: #545d62 !important;
   outline: 0 !important;
   box-shadow: 0 0 0 0.2rem rgba(93, 92, 92, 0.22) !important;
 }
-
 
 
 .form-controlsubmit {
@@ -491,3 +491,32 @@ footer{
 }
 
 /* Footer */
+
+
+.tag-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-checkbox {
+  display: none;
+}
+
+.tag-label {
+  display: inline-block;
+  width: 88px;
+  height: 37px;
+  line-height: 40px;
+  border-radius: 2em;
+  border: 1px solid grey;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.tag-checkbox:checked + .tag-label {
+  border-color: deeppink;
+}

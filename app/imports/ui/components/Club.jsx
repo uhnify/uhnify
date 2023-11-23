@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
+import { Card, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /** Renders a card with club information. See pages/ListClubs.jsx. */
-const Club = ({ club }) => (
+const Club = ({ club, onAddToProfile }) => (
   <Card className="h-100">
     <Card.Header>
       <Image src={club.image} width={75} />
       <Card.Title>{club.name}</Card.Title>
       <Card.Subtitle>{club.meetingTime}</Card.Subtitle>
       <Card.Subtitle>{club.location}</Card.Subtitle>
+
     </Card.Header>
     <Card.Body>
       <Card.Text>{club.description}</Card.Text>
@@ -19,6 +20,7 @@ const Club = ({ club }) => (
         <span key={category} className="club-category-tag">{category}</span>
       ))}
       <Link to={`/edit/${club._id}`}>Edit</Link>
+      <Button onClick={onAddToProfile}>Add to My Clubs</Button>
     </Card.Body>
   </Card>
 
@@ -35,6 +37,7 @@ Club.propTypes = {
     meetingTime: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string), // Adding categories to PropTypes
   }).isRequired,
+  onAddToProfile: PropTypes.func, // Adding PropType for onAddToProfile
 };
 
 export default Club;
