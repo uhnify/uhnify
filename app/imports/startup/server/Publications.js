@@ -1,30 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Stuffs } from '../../api/stuff/Stuff';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
-import { Profiles } from '../../api/profile/Profile'; // Import Profiles collection
-import { Interests } from '../../api/interest/Interest'; // Import Interests collection
-import { ClubInterests } from '../../api/clubInterest/ClubInterest'; // Import ClubInterests collection
-import { EventsInterests } from '../../api/eventInterest/EventInterest'; // Import EventsInterests collection
-import { ProfilesInterests } from '../../api/profileInterest/ProfileInterest'; // Import ProfilesInterests collection
-
-// User-level publications for Stuffs
-Meteor.publish(Stuffs.userPublicationName, function () {
-  if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Stuffs.collection.find({ owner: username });
-  }
-  return this.ready();
-});
-
-// Admin-level publications for Stuffs
-Meteor.publish(Stuffs.adminPublicationName, function () {
-  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
-    return Stuffs.collection.find();
-  }
-  return this.ready();
-});
+import { Profiles } from '../../api/profiles/Profiles';
+import { Interests } from '../../api/interests/Interests';
+import { ClubInterests } from '../../api/club/ClubInterests';
+import { EventsInterests } from '../../api/events/EventsInterests';
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
+import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import ProfilesClub collection
+import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
+import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents collection
 
 // User-level publications for Clubs
 Meteor.publish(Clubs.userPublicationName, function () {
@@ -76,6 +61,11 @@ Meteor.publish(Profiles.adminPublicationName, function () {
   return this.ready();
 });
 
+// Publication for all Clubs
+Meteor.publish('clubs.all', function () {
+  return Clubs.collection.find();
+});
+
 // General publication for Interests
 Meteor.publish(Interests.publicationName, function () {
   return Interests.collection.find();
@@ -94,6 +84,21 @@ Meteor.publish(EventsInterests.publicationName, function () {
 // General publication for ProfilesInterests
 Meteor.publish(ProfilesInterests.publicationName, function () {
   return ProfilesInterests.collection.find();
+});
+
+// General publication for ProfilesClub
+Meteor.publish(ProfilesClub.publicationName, function () {
+  return ProfilesClub.collection.find();
+});
+
+// General publication for ProfilesEvents
+Meteor.publish(ProfilesEvents.publicationName, function () {
+  return ProfilesEvents.collection.find();
+});
+
+// General publication for ClubEvents
+Meteor.publish(ClubEvents.publicationName, function () {
+  return ClubEvents.collection.find();
 });
 
 // Roles publication

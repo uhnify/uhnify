@@ -12,7 +12,7 @@ class ClubsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      clubID: integer,
+      clubID: SimpleSchema.Integer,
       name: String,
       owner: String,
       description: String,

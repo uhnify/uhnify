@@ -1,11 +1,15 @@
 import React from 'react';
-import { Row, Container, Col, Button, Card, Image, Form } from 'react-bootstrap';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Row, Container, Col, Form } from 'react-bootstrap';
+import Club from '../components/Club.jsx'; // Import the Club component
+import { Clubs } from '/imports/api/club/Club.js'; // Import the Clubs collection
 
-const ClubFinder = () => (
+const ClubFinder = ({ clubs }) => (
   <Container className="py-3">
     <Col>
       <h2>Filter</h2>
       <Form>
+        {/* Add more filters as necessary */}
         <Form.Check label="sports" />
         <Form.Check label="games" />
       </Form>
@@ -16,32 +20,18 @@ const ClubFinder = () => (
       </Col>
     </Row>
     <Row xs={1} md={2} lg={3} className="g-4">
-      <Card className="h-100 card">
-        <Card.Header>
-          <Image width={100} src="https://upload.wikimedia.org/wikipedia/commons/f/f7/JaquesCookStaunton.jpg" />
-          <Card.Title>Chess Club</Card.Title>
-          <Card.Subtitle>8:00-9:00</Card.Subtitle>
-          <Card.Subtitle>Classroom</Card.Subtitle>
-        </Card.Header>
-        <Card.Body>
-          <Card.Text>We Play Chess</Card.Text>
-          <Button>Add to My Clubs</Button>
-        </Card.Body>
-      </Card>
-      <Card className="h-100 card">
-        <Card.Header>
-          <Image width={75} src="https://upload.wikimedia.org/wikipedia/commons/6/64/Football_signed_by_Gerald_R._Ford.jpg" />
-          <Card.Title>Football Club</Card.Title>
-          <Card.Subtitle>6:00-12:00pm</Card.Subtitle>
-          <Card.Subtitle>Football Field</Card.Subtitle>
-        </Card.Header>
-        <Card.Body>
-          <Card.Text>We Play Football</Card.Text>
-          <Button>Add to My Clubs</Button>
-        </Card.Body>
-      </Card>
+      {clubs.map(club => (
+        <Col key={club._id}>
+          <Club club={club} />
+        </Col>
+      ))}
     </Row>
   </Container>
 );
 
-export default ClubFinder;
+export default withTracker(() => {
+  const subscription = Meteor.subscribe('clubs.all');
+  return {
+    clubs: subscription.ready() ? Clubs.collection.find().fetch() : [],
+  };
+})(ClubFinder);

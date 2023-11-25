@@ -1,12 +1,11 @@
 import { Meteor } from 'meteor/meteor';
-import { Stuffs } from '../../api/stuff/Stuff.js';
 import { Clubs } from '../../api/club/Club.js';
 import { Events } from '../../api/events/Events';
-import { Profiles } from '../../api/profile/Profile.js'; // Import Profiles collection
-import { Interests } from '../../api/interest/Interest.js'; // Import Interests collection
-import { ClubInterests } from '../../api/clubInterest/ClubInterest.js'; // Import ClubInterests collection
-import { EventsInterests } from '../../api/eventInterest/EventInterest.js'; // Import EventsInterests collection
-import { ProfilesInterests } from '../../api/profileInterest/ProfileInterest.js'; // Import ProfilesInterests collection
+import { Profiles } from '../../api/profiles/Profiles.js'; // Import Profiles collection
+import { Interests } from '../../api/interests/Interests.js'; // Import Interests collection
+import { ClubInterests } from '../../api/club/ClubInterests.js'; // Import ClubInterests collection
+import { EventsInterests } from '../../api/events/EventsInterests.js'; // Import EventsInterests collection
+import { ProfilesInterests } from '../../api/profiles/ProfilesInterests.js'; // Import ProfilesInterests collection
 
 /* eslint-disable no-console */
 
@@ -69,7 +68,6 @@ const initializeCollection = (collection, defaultData, addFunction) => {
 };
 
 // Call the initialize function for each collection
-initializeCollection(Stuffs.collection, Meteor.settings.defaultData, addData);
 initializeCollection(Clubs.collection, Meteor.settings.defaultClub, addClub);
 initializeCollection(Events.collection, Meteor.settings.defaultEvent, addEvents);
 initializeCollection(Profiles.collection, Meteor.settings.defaultProfile, addProfiles);

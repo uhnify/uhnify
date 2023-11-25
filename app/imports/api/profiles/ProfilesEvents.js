@@ -2,28 +2,27 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The ClubEventsCollection. It encapsulates state and variable values
- * for the relationship between clubs and events.
+ * The ProfilesEventsCollection. It encapsulates state and variable values for the relationship between profiles and events.
  */
-class ClubEventsCollection {
+class ProfilesEventsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ClubEventsCollection';
+    this.name = 'ProfilesEventsCollection';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      clubId: {
-        type: String,
-        label: "Club ID",
-        // Consider adding custom validation or reference to the Clubs collection
+      profileId: {
+        type: SimpleSchema.Integer, // Assuming the UH_ID from Profiles is used here
+        label: "Profile ID",
+        // Consider adding custom validation or reference to the Profiles collection
       },
       eventId: {
-        type: String,
+        type: String, // Assuming a string identifier for events
         label: "Event ID",
         // Consider adding custom validation or reference to the Events collection
       },
-      // You can add additional fields if needed
+      // Additional fields can be added as needed, such as participation roles, dates, etc.
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against the schema.
     this.collection.attachSchema(this.schema);
@@ -34,7 +33,7 @@ class ClubEventsCollection {
 }
 
 /**
- * The singleton instance of the ClubEventsCollection.
- * @type {ClubEventsCollection}
+ * The singleton instance of the ProfilesEventsCollection.
+ * @type {ProfilesEventsCollection}
  */
-export const ClubEvents = new ClubEventsCollection();
+export const ProfilesEvents = new ProfilesEventsCollection();
