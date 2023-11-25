@@ -5,6 +5,7 @@
 /* Set up some CSS variables to theme the application. */
 :root {
   --banana-leaf-green: #4F7942;
+  --dark-banana-leaf-green: #3E6335;
   --light-tropical-green: #DAE8D4;
   --coconut-white: #FFFFF0;
   --pale-yellow: #feefd0;
@@ -761,34 +762,16 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-/*Footer */
-#homepagebutton{
-  --bs-btn-color: #D4EBC1;
-  --bs-btn-border-color:#D4EBC1;
-  --bs-btn-hover-bg: transparent;
-  --bs-btn-hover-border-color: #D4EBC1;
-  --bs-btn-active-bg: #0A5421;
-}
 
-#chatbotbutton{
-  --bs-btn-color: #D4EBC1;
-  --bs-btn-border-color:#D4EBC1;
-  --bs-btn-hover-bg: transparent;
-  --bs-btn-hover-border-color: #D4EBC1;
-  --bs-btn-active-bg: #0A5421;
-}
-
-footer{
-  border-top: #0A5421;
-  border-top-style: solid;
-  border-top-width: 3px;
-}
 
 /* Footer */
 /* Footer adjustments for responsiveness */
 .footer {
-  background-color: var(--dark-green); /* Example background color */
+  background-color: var(--banana-leaf-green)!important; /* Example background color */
   padding: 20px 0; /* Adjust padding as needed */
+  border-top: #0A5421;
+  border-top-style: solid;
+  border-top-width: 3px;
 }
 
 .footer .container {
@@ -824,8 +807,15 @@ footer{
     font-size: 0.9rem; /* Reduce font size */
   }
 
-  .footer .button {
-    padding: 5px 10px; /* Adjust button padding */
-    font-size: 0.8rem; /* Reduce button font size */
+  .footer-button {
+    --bs-btn-color: var(--coconut-white)!important;
+    --bs-btn-bg: var(--banana-leaf-green)!important;
+    --bs-btn-border-color: var(--banana-leaf-green)!important;
+    --bs-btn-hover-color: var(--coconut-white)!important;
+    --bs-btn-hover-bg: var(--dark-banana-leaf-green)!important;
+    --bs-btn-hover-border-color: var(--dark-banana-leaf-green)!important;
+    --bs-btn-active-color: var(--coconut-white)!important;
+    --bs-btn-active-bg: var(--dark-banana-leaf-green)!important;
+    --bs-btn-active-border-color: var(--dark-banana-leaf-green)!important;
   }
 }
