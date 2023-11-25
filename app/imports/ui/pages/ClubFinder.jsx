@@ -36,7 +36,7 @@ const ClubFinder = () => {
     };
   }, []);
   return (ready ? (
-    <Container className="py-3">
+    <Container id="browse-clubs-page" className="py-3">
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">

@@ -22,18 +22,18 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="ClubHub">
-              <NavDropdown.Item as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
+            <NavDropdown id="club-drop" title="ClubHub">
+              <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
             </NavDropdown>
 
             <NavDropdown title="Events" id="nav-dropdown-events">
-              <NavDropdown.Item as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
+              <NavDropdown.Item  id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
+            <Nav.Link id="my-clubs" as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
             {isAdmin && (
               <Nav.Link as={NavLink} to="/admin">Dashboard</Nav.Link>
             )}
@@ -60,9 +60,9 @@ const NavBar = () => {
               </NavDropdown.Item>
               <NavDropdown.Divider />
               {currentUser ? (
-                <NavDropdown.Item as={NavLink} to="/SignOut">Logout</NavDropdown.Item>
+                <NavDropdown.Item id="navbar-current-user" as={NavLink} to="/SignOut">Logout</NavDropdown.Item>
               ) : (
-                <NavDropdown.Item as={NavLink} to="/SignIn">Login</NavDropdown.Item>
+                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignIn">Login</NavDropdown.Item>
               )}
             </NavDropdown>
           </Nav>

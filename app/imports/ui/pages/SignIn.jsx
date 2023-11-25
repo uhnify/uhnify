@@ -25,12 +25,12 @@ const SignIn = () => {
   }
 
   return (
-    <Container fluid>
+    <Container id="sign-in" fluid>
       <Row className="min-vh-100">
         <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group  id="form-email" controlId="formBasicEmail">
               <Form.Control
                 className="form-controltextbox"
                 type="email"
@@ -40,7 +40,7 @@ const SignIn = () => {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group id="form-password" controlId="formBasicPassword">
               <Form.Control
                 className="form-controltextbox"
                 type="password"
