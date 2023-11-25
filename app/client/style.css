@@ -11,16 +11,35 @@
   --pale-yellow: #feefd0;
   --coral-pink: #FF9E80;
   --volcanic-grey: #707070;
+  --navbar-bg-color: rgba(255, 255, 255, 0); /* Clear background */
+  --nav-item-bg-color: rgba(255, 255, 255, 0.3); /* Semi-transparent for nav items */
+  --nav-item-border-radius: 1.2rem; /* Very rounded edges for nav items */
+  --nav-item-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Shadow on hover */
 }
 
 html {
   scroll-behavior: smooth;
 }
+
+html, body {
+  height: 100%; /* Make html and body take full height */
+  margin: 0; /* Reset default margin */
+}
+
+/* Make sure the main content pushes the footer down */
+#main-content {
+  flex: 1; /* Allows the main content to grow and occupy available space */
+}
+
+
 /* Define custom styles */
 body {
+  font-family: 'Open Sans', sans-serif;
   background-color: var(--coconut-white);
   color: var(--banana-leaf-green);
-  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* Stack children elements vertically */
 }
 
 .gray-background {
@@ -37,27 +56,10 @@ body {
   z-index: 1050;
 }
 
-
-/* Root variables for color scheme */
-:root {
-  --banana-leaf-green: #4F7942;
-  --light-tropical-green: #DAE8D4;
-  --coconut-white: #FFFFF0;
-  --pale-yellow: #feefd0;
-}
-
 /* Global resets */
 body, h1, h2, h3, p {
   margin: 0;
   padding: 0;
-}
-
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--coconut-white);
-  color: var(--banana-leaf-green);
-  line-height: 1.6;
 }
 
 /* Typography */
@@ -81,8 +83,6 @@ em {
   font-style: italic;
 }
 
-
-
 /* Utility Classes for Typography */
 .text-bold {
   font-weight: bold;
@@ -104,8 +104,6 @@ em {
   /* Add styles for your SVG icons */
 }
 
-
-
 /* Define a card component with rounded edges and shadows */
 .card {
   background-color: var(--coconut-white);
@@ -122,7 +120,6 @@ em {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
   transform: translateY(-4px); /* Slightly raise the card */
 }
-
 
 .card .card-text {
   font-family: 'Open Sans', sans-serif;
@@ -438,15 +435,6 @@ em {
 .dark-green-navbar .nav-item:focus .dropdown-menu {
   display: block;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-
-/* Additional CSS variables for the navbar */
-:root {
-  --navbar-bg-color: rgba(255, 255, 255, 0); /* Clear background */
-  --nav-item-bg-color: rgba(255, 255, 255, 0.3); /* Semi-transparent for nav items */
-  --nav-item-border-radius: 1.2rem; /* Very rounded edges for nav items */
-  --nav-item-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Shadow on hover */
 }
 
 /* Clear navbar styles */
@@ -772,10 +760,12 @@ em {
   border-top: #0A5421;
   border-top-style: solid;
   border-top-width: 3px;
+  margin-top: auto; /* Push the footer to the bottom */
 }
 
 .footer .container {
   max-width: 1200px; /* Adjust the max-width of the container if needed */
+  margin-bottom: 20px; /* Add space below each column */
 }
 
 /* Social icons adjustment */
@@ -783,9 +773,9 @@ em {
   margin: 0 10px; /* Space out the icons */
 }
 
-@media (max-width: 768px) {
-  .footer {
-    padding: 15px 0; /* Reduce padding on smaller screens */
+@media (min-width: 768px) {
+  .footer .container > .row {
+    justify-content: space-around; /* Evenly distribute space around columns */
   }
 
   .footer .container {
@@ -794,8 +784,9 @@ em {
   }
 
   .footer img {
-    max-width: 100px; /* Reduce image size on smaller screens */
+    max-width: 370px; /* Reduce image size on smaller screens */
     margin-bottom: 15px; /* Add margin below image */
+    border-radius: 40px;
   }
 
   .footer .social-icons svg {
@@ -810,12 +801,12 @@ em {
   .footer-button {
     --bs-btn-color: var(--coconut-white)!important;
     --bs-btn-bg: var(--banana-leaf-green)!important;
-    --bs-btn-border-color: var(--banana-leaf-green)!important;
+    --bs-btn-border-color: var(--light-tropical-green)!important;
     --bs-btn-hover-color: var(--coconut-white)!important;
-    --bs-btn-hover-bg: var(--dark-banana-leaf-green)!important;
-    --bs-btn-hover-border-color: var(--dark-banana-leaf-green)!important;
+    --bs-btn-hover-bg: var(--light-tropical-green)!important;
+    --bs-btn-hover-border-color: var(--light-tropical-green)!important;
     --bs-btn-active-color: var(--coconut-white)!important;
-    --bs-btn-active-bg: var(--dark-banana-leaf-green)!important;
-    --bs-btn-active-border-color: var(--dark-banana-leaf-green)!important;
+    --bs-btn-active-bg: var(--banana-leaf-green)!important;
+    --bs-btn-active-border-color: var(--banana-leaf-green)!important;
   }
 }

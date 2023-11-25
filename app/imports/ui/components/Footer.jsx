@@ -6,20 +6,20 @@ import { Instagram, Twitter, Facebook, Linkedin } from 'react-bootstrap-icons';
 const Footer = () => (
   <footer className="footer">
     <Container>
-      <Row className="row-cols-1 row-cols-lg-3">
-        <Col className="text-center text-lg-start">
+      <Row className="justify-content-between">
+        <Col lg={4} className="mb-3 mb-lg-0 text-center text-lg-start">
           <Image src="images/UmifyLOGO.png" fluid alt="footerLogo" className="pb-3"/>
           <Button className="w-100 footer-button" href="https://uhnify.github.io/">
             UHnify Homepage
           </Button>
         </Col>
-        <Col className="text-white text-center">
+        <Col lg={4} className="mb-3 mb-lg-0 text-white text-center">
           <h5>Description</h5>
           <p>
             UHnify: The Ultimate Student Club Experience for UH Manoa - A platform revolutionizing student connections at the University of Hawaii at Manoa. Empowering students with interactive tools, UHnify fosters club engagement, personalized experiences, and streamlined club management. Powered by Meteor and MongoDB, UHnify offers a unified ecosystem, making university life more vibrant and connected.
           </p>
         </Col>
-        <Col className="text-white text-center">
+        <Col lg={4} className="text-white text-center">
           <h5>Contact Us</h5>
           <p><strong>Email:</strong> Unify@hawaii.edu</p>
           <p><strong>Phone:</strong> (808) 956-8111</p>
