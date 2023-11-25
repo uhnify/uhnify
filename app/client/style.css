@@ -127,6 +127,93 @@ em {
   color: #707070;
 }
 
+/* Club Card Styling */
+.club-card {
+  background-color: var(--coconut-white);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.club-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Club Card Header */
+.club-card-header {
+  background-color: var(--light-tropical-green);
+  color: var(--banana-leaf-green);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.club-card-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.club-card-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.club-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.club-card-meeting-time {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Club Card Body */
+.club-card-body {
+  padding: 15px;
+}
+
+.club-card-description {
+  color: var(--banana-leaf-green);
+  margin-bottom: 15px;
+}
+
+/* Club Categories */
+.club-card-categories {
+  margin-bottom: 15px;
+}
+
+.club-category-tag {
+  background-color: var(--pale-yellow);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Link/Button Styling */
+.club-card-detail-link {
+  background-color: var(--banana-leaf-green);
+  color: var(--coconut-white);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.club-card-detail-link:hover {
+  background-color:var(--banana-leaf-green);
+  text-decoration: none;
+  color: var(--coconut-white);
+}
+
 
 .dark-green-navbar .dropdown-menu {
   border-radius: 0.5rem; /* Soft curved edges */
