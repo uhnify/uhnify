@@ -20,7 +20,7 @@ const SignUp = ({ location }) => {
     fName: '',
     lName: '',
   });
-// Add state for club interests
+  // Add state for club interests
   const [clubInterests, setClubInterests] = useState({
     academic: false,
     arts: false,
@@ -29,7 +29,6 @@ const SignUp = ({ location }) => {
     cultural: false,
     creativity: false,
   });
-
 
   // Handle change for checkboxes
   const handleCheckboxChange = (event) => {
@@ -45,7 +44,7 @@ const SignUp = ({ location }) => {
     sports: { type: Boolean, optional: true },
     social: { type: Boolean, optional: true },
     cultural: { type: Boolean, optional: true },
-    creativity: { type: Boolean, optional: true }
+    creativity: { type: Boolean, optional: true },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -110,52 +109,53 @@ const SignUp = ({ location }) => {
         <Col md={8} className="signin-form-section">
           {currentStep === 1 && (
             <>
-            <div className="signin-call-to-action"><h1>Register your account</h1></div>
-            <AutoForm schema={bridge} model={formData} onChangeModel={setFormData}>
-              <TextField name="email" placeholder="More Stuff" />
-              <TextField name="password" placeholder="MoreStuff" type="password" />
-              <TextField name="fName" placeholder="MoreStuff" />
-              <TextField name="lName" placeholder="More Stuff" />
-              <Button variant="primary" onClick={handleNext} className="form-controlsubmit">
-                Next
-              </Button>
-            </AutoForm>
+              <div className="signin-call-to-action"><h1>Register your account</h1></div>
+              <AutoForm schema={bridge} model={formData} onChangeModel={setFormData}>
+                <TextField name="email" placeholder="More Stuff" />
+                <TextField name="password" placeholder="MoreStuff" type="password" />
+                <TextField name="fName" placeholder="MoreStuff" />
+                <TextField name="lName" placeholder="More Stuff" />
+                <Button variant="primary" onClick={handleNext} className="form-controlsubmit">
+                  Next
+                </Button>
+              </AutoForm>
             </>
           )}
           {currentStep === 2 && (
             <>
-            <div className="signin-call-to-action"><h1>What are your interests?</h1></div>
-            <AutoForm schema={bridge} model={formData} onSubmit={data => submit(data)}>
-              <div className="tag-container">
-                <input type="checkbox" id="tag1" className="tag-checkbox" onChange={handleCheckboxChange} />
-                <label htmlFor="tag1" className="tag-label">Academic</label>
+              <div className="signin-call-to-action"><h1>What are your interests?</h1></div>
+              <AutoForm schema={bridge} model={formData} onSubmit={data => submit(data)}>
+                <div className="tag-container">
+                  <input type="checkbox" id="tag1" className="tag-checkbox" onChange={handleCheckboxChange} />
+                  <label htmlFor="tag1" className="tag-label">Academic</label>
 
-                <input type="checkbox" id="tag2" className="tag-checkbox" />
-                <label htmlFor="tag2" className="tag-label">Arts</label>
+                  <input type="checkbox" id="tag2" className="tag-checkbox" />
+                  <label htmlFor="tag2" className="tag-label">Arts</label>
 
-                <input type="checkbox" id="tag3" className="tag-checkbox" />
-                <label htmlFor="tag3" className="tag-label">Sports</label>
+                  <input type="checkbox" id="tag3" className="tag-checkbox" />
+                  <label htmlFor="tag3" className="tag-label">Sports</label>
 
-                <input type="checkbox" id="tag4" className="tag-checkbox" />
-                <label htmlFor="tag4" className="tag-label">Social</label>
+                  <input type="checkbox" id="tag4" className="tag-checkbox" />
+                  <label htmlFor="tag4" className="tag-label">Social</label>
 
-                <input type="checkbox" id="tag5" className="tag-checkbox" />
-                <label htmlFor="tag5" className="tag-label">Cultural</label>
+                  <input type="checkbox" id="tag5" className="tag-checkbox" />
+                  <label htmlFor="tag5" className="tag-label">Cultural</label>
 
-                <input type="checkbox" id="tag6" className="tag-checkbox" />
-                <label htmlFor="tag6" className="tag-label">Creativity</label>
+                  <input type="checkbox" id="tag6" className="tag-checkbox" />
+                  <label htmlFor="tag6" className="tag-label">Creativity</label>
 
-                <input type="checkbox" id="tag7" className="tag-checkbox" />
-                <label htmlFor="tag7" className="tag-label">Creativity</label>  </div>
-              <div className="d-flex justify-content-between">
-                <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
-                  Previous
-                </Button>
-                <Button variant="primary" type="submit" className="btn-sm form-controlsubmit">
-                  Submit
-                </Button>
-              </div>
-            </AutoForm>
+                  <input type="checkbox" id="tag7" className="tag-checkbox" />
+                  <label htmlFor="tag7" className="tag-label">Creativity</label>
+                </div>
+                <div className="d-flex justify-content-between">
+                  <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
+                    Previous
+                  </Button>
+                  <Button variant="primary" type="submit" className="btn-sm form-controlsubmit">
+                    Submit
+                  </Button>
+                </div>
+              </AutoForm>
             </>
           )}
         </Col>

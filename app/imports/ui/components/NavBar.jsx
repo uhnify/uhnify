@@ -15,7 +15,7 @@ const NavBar = () => {
 
   return (
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
-      <Container >
+      <Container>
         <Navbar.Brand as={NavLink} to="/">
           UHnify
         </Navbar.Brand>
@@ -29,7 +29,7 @@ const NavBar = () => {
             </NavDropdown>
 
             <NavDropdown title="Events" id="nav-dropdown-events">
-              <NavDropdown.Item  id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
+              <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
             </NavDropdown>

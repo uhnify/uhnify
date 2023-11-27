@@ -38,8 +38,12 @@ const Landing = () => {
         <main>
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
-              <Image src="/images/UHManoaLandingPage.png" alt="Main campus image" fluid
-                     style={{ borderRadius: '50px' }}/>
+              <Image
+                src="/images/UHManoaLandingPage.png"
+                alt="Main campus image"
+                fluid
+                style={{ borderRadius: '50px' }}
+              />
             </div>
           </Container>
           {/* Cards section */}

@@ -57,7 +57,7 @@ const AddClub = () => {
                 <TextField name="name" />
                 <TextField name="image" />
                 <TextField name="location" />
-                <LongTextField name={'description'} />
+                <LongTextField name="description" />
                 <TextField name="meetingTime" />
                 <SelectField name="categories" />
                 <SubmitField value="Submit" />

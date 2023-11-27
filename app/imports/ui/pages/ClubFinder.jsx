@@ -10,7 +10,7 @@ const ClubFinder = () => {
 
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
-    console.log("working");
+    console.log('working');
     Meteor.call('profileClubs.add', clubId, (error) => {
       if (error) {
         console.error('Error adding club to profile:', error);

@@ -30,7 +30,7 @@ const SignIn = () => {
         <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>
             <h1>Login to Your Account</h1>
-            <Form.Group  id="form-email" controlId="formBasicEmail">
+            <Form.Group id="form-email" controlId="formBasicEmail">
               <Form.Control
                 className="form-controltextbox"
                 type="email"
