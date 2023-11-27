@@ -4,9 +4,9 @@ import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
 import { Interests } from '../../api/interests/Interests';
 import { ClubInterests } from '../../api/club/ClubInterests';
-import { EventsInterests } from '../../api/events/EventsInterest';
+import { EventsInterests } from '../../api/events/EventsInterests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
-import { ProfilesClub } from '../../api/profiles/ProfilesClubs';
+import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { ClubEvents } from '../../api/club/ClubEvents';
 
