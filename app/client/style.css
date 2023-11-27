@@ -467,30 +467,64 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-/*Footer */
-#homepagebutton{
-  --bs-btn-color: #D4EBC1;
-  --bs-btn-border-color:#D4EBC1;
-  --bs-btn-hover-bg: transparent;
-  --bs-btn-hover-border-color: #D4EBC1;
-  --bs-btn-active-bg: #0A5421;
+/*Footer */ /*Footer */ /*Footer */ /*Footer */ /*Footer */
+.footer {
+  padding: 20px;
 }
 
-#chatbotbutton{
-  --bs-btn-color: #D4EBC1;
-  --bs-btn-border-color:#D4EBC1;
-  --bs-btn-hover-bg: transparent;
-  --bs-btn-hover-border-color: #D4EBC1;
-  --bs-btn-active-bg: #0A5421;
+.footer-column h2 {
+  color: #ffffff;
 }
 
-footer{
-  border-top: #0A5421;
-  border-top-style: solid;
-  border-top-width: 3px;
+.footer-column p {
+  margin-bottom: 5px;
 }
 
-/* Footer */
+.vertical-line {
+  border-left: 1px solid #fff;
+  height: 100%;
+  opacity: 1;
+}
+
+.vertical-line-container {
+  padding: 0;
+}
+
+/* Will hide the vertical line and stack the columns when minimized */
+@media (max-width: 767px) {
+  .vertical-line {
+    display: none;
+  }
+}
+
+.heading-underline {
+  width: 50%;
+  border: 0;
+  height: 1px;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+  opacity: 1;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #211d1d;
+}
+
+.social-icon {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icon:hover svg {
+  color: #211d1d;
+}
+
+/* Footer */ /*Footer */ /*Footer */ /*Footer */ /*Footer */
 
 
 .tag-container {
