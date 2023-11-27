@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { motion as m } from 'framer-motion';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -25,7 +26,7 @@ const SignIn = () => {
   }
 
   return (
-    <Container id="sign-in" fluid>
+    <m.Container initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75, ease: 'easeOut' }} id="sign-in" fluid>
       <Row className="min-vh-100">
         <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>
@@ -63,7 +64,7 @@ const SignIn = () => {
           </div>
         </Col>
       </Row>
-    </Container>
+    </m.Container>
   );
 };
 

@@ -7,6 +7,7 @@ import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Profile } from '../../api/profile/Profile';
+import { motion as m } from 'framer-motion';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -97,7 +98,7 @@ const SignUp = ({ location }) => {
   };
 
   return (
-    <Container fluid>
+    <m.Container initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.75, ease: 'easeOut' }} fluid>
       <Row className="min-vh-100">
         <Col md={4} className="signup-call-to-action-section ">
           <div className="signup-call-to-action">
@@ -160,7 +161,7 @@ const SignUp = ({ location }) => {
           )}
         </Col>
       </Row>
-    </Container>
+    </m.Container>
   );
 };
 /* Ensure that the React Router location object is available in case we need to redirect. */
