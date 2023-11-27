@@ -3,34 +3,106 @@
     "appId": "changeme",
     "appSecret": "changeme"
   },
-
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme"
+    }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultInterests": [
+    {
+      "interestID": 1,
+      "name": "Academic / Professional"
+    },
+    {
+      "interestID": 2,
+      "name": "Political"
+    },
+    {
+      "interestID": 3,
+      "name": "Sports / Leisure"
+    },
+    {
+      "interestID": 4,
+      "name": "Religious/Spiritual"
+    },
+    {
+      "interestID": 5,
+      "name": "Fraternity / Sorority"
+    },
+    {
+      "interestID": 6,
+      "name": "Service"
+    },
+    {
+      "interestID": 7,
+      "name": "Leisure / Recreational"
+    },
+    {
+      "interestID": 8,
+      "name": "Ethnic / Cultural"
+    },
+    {
+      "interestID": 9,
+      "name": "Honorary Society"
+    },
+    {
+      "interestID": 10,
+      "name": "Student Affairs"
+    }
   ],
-
+  "defaultProfiles": [
+    {
+      "UH_ID": 22400001,
+      "email": "john@foo.com",
+      "firstName": "John",
+      "lastName": "Doe",
+      "bio": "Enthusiastic software developer and tech enthusiast.",
+      "title": "Senior Developer",
+      "picture": "images/CampusFromADistance.png"
+    },
+    {
+      "UH_ID": 22400002,
+      "email": "admin@foo.com",
+      "firstName": "Admin",
+      "lastName": "User",
+      "bio": "Administrator of the platform.",
+      "title": "System Administrator",
+      "picture": "images/CampusFromADistance.png"
+    }
+  ],
   "defaultClub": [
-    {"name":  "Basketball Club", "description": "Basketball Club", "owner": "john@foo.com", "location":  "POST 319", "image": "https://img.freepik.com/premium-photo/close-up-basketball-player-running-with-ball-generative-ai_902846-38748.jpg?w=1060", "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm",  "categories": ["basketball", "sports"]},
-    {"name":  "Volleyball Club", "description": "Volleyball Club", "owner": "admin@foo.com", "location":  "POST 319", "image": "https://unblast.com/wp-content/uploads/2020/04/Volleyball-Vector-Illustration-1.jpg",
-      "meetingTime": "Every Wednesday 3:00 pm - 4:00 pm"}
+    {
+      "clubID": 1,
+      "name": "Basketball Club",
+      "owner": "john@foo.com",
+      "description": "A club for basketball enthusiasts looking to play and improve their skills.",
+      "location": "Campus Sports Center",
+      "image": "images/ChessClub.png",
+      "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm",
+      "contactInfo": "contact@basketballclub.com",
+      "categories": ["Sports", "Team Sports", "Basketball"]
+    },
+    {
+      "clubID": 2,
+      "name": "Volleyball Club",
+      "owner": "admin@foo.com",
+      "description": "Join our volleyball club to enjoy friendly matches and tournaments.",
+      "location": "Campus Gymnasium",
+      "image": "images/ChemistryClub.png",
+      "meetingTime": "Every Tuesday and Thursday 5:00 pm - 7:00 pm",
+      "contactInfo": "volleyball@clubexample.com",
+      "categories": ["Sports", "Team Sports", "Volleyball"]
+    }
   ],
   "defaultEvent": [
     {
-      "title": "Coding Workshop",
-      "description": "Join us for a beginner-friendly coding workshop focusing on web development basics.",
-      "date": "2023-12-01T18:00:00Z",
-      "location": "IT Building Room 101",
-      "createdBy": "admin@foo.com",
-      "image": "images/codingWorkshop.png"
-    },
-    {
+      "eventID": 101,
       "title": "Outdoor Yoga Session",
       "description": "A relaxing yoga session in the park. Suitable for all levels.",
       "date": "2023-11-15T07:00:00Z",
@@ -39,6 +111,7 @@
       "image": "images/codingWorkshop.png"
     },
     {
+      "eventID": 102,
       "title": "Art Exhibition Opening",
       "description": "Opening night for our community art exhibition, featuring local artists.",
       "date": "2023-11-20T19:00:00Z",
@@ -47,20 +120,43 @@
       "image": "images/codingWorkshop.png"
     },
     {
+      "eventID": 103,
       "title": "Live Concert: Indie Bands",
       "description": "An evening of live music from up-and-coming indie bands.",
       "date": "2023-12-05T20:00:00Z",
       "location": "Riverfront Amphitheater",
       "createdBy": "john@foo.com",
       "image": "images/codingWorkshop.png"
+    }
+  ],
+  "defaultProfilesClubs": [
+    {
+      "profileID": 22400001,
+      "clubID": 1
     },
     {
-      "title": "Community Beach Clean-Up",
-      "description": "Join us in making our beaches cleaner and safer for everyone. Supplies provided.",
-      "date": "2023-11-30T09:00:00Z",
-      "location": "Sunny Beach",
-      "createdBy": "john@foo.com",
-      "image": "/images/codingWorkshop.png"
+      "profileID": 22400002,
+      "clubID": 2
+    }
+  ],
+  "defaultProfilesEvents": [
+    {
+      "profileID": 22400001,
+      "eventID": 101
+    },
+    {
+      "profileID": 22400002,
+      "eventID": 102
+    }
+  ],
+  "defaultClubEvents": [
+    {
+      "clubID": 1,
+      "eventID": 103
+    },
+    {
+      "clubID": 2,
+      "eventID": 102
     }
   ]
 }

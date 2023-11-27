@@ -12,7 +12,7 @@ const Landing = () => {
       margin: 10,
       nav: true,
       autoplay: true,
-      autoplayTimeout: 5000,
+      autoplayTimeout: 15000,
       autoplayHoverPause: true,
       center: true,
       navText: [
@@ -34,16 +34,12 @@ const Landing = () => {
   }, []);
   return (
     <>
-      <Container id="landing-page" fluid className="p-0">
+      <Container fluid className="p-0">
         <main>
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
-              <Image
-                src="/images/UHManoaLandingPage.png"
-                alt="Main campus image"
-                fluid
-                style={{ borderRadius: '50px' }}
-              />
+              <Image src="/images/UHManoaLandingPage.png" alt="Main campus image" fluid
+                     style={{ borderRadius: '50px' }}/>
             </div>
           </Container>
           {/* Cards section */}

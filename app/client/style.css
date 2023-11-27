@@ -5,19 +5,41 @@
 /* Set up some CSS variables to theme the application. */
 :root {
   --banana-leaf-green: #4F7942;
+  --dark-banana-leaf-green: #3E6335;
   --light-tropical-green: #DAE8D4;
   --coconut-white: #FFFFF0;
   --pale-yellow: #feefd0;
+  --coral-pink: #FF9E80;
+  --volcanic-grey: #707070;
+  --navbar-bg-color: rgba(255, 255, 255, 0); /* Clear background */
+  --nav-item-bg-color: rgba(255, 255, 255, 0.3); /* Semi-transparent for nav items */
+  --nav-item-border-radius: 1.2rem; /* Very rounded edges for nav items */
+  --nav-item-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Shadow on hover */
 }
 
 html {
   scroll-behavior: smooth;
 }
+
+html, body {
+  height: 100%; /* Make html and body take full height */
+  margin: 0; /* Reset default margin */
+}
+
+/* Make sure the main content pushes the footer down */
+#main-content {
+  flex: 1; /* Allows the main content to grow and occupy available space */
+}
+
+
 /* Define custom styles */
 body {
+  font-family: 'Open Sans', sans-serif;
   background-color: var(--coconut-white);
   color: var(--banana-leaf-green);
-  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column; /* Stack children elements vertically */
 }
 
 .gray-background {
@@ -34,27 +56,10 @@ body {
   z-index: 1050;
 }
 
-
-/* Root variables for color scheme */
-:root {
-  --banana-leaf-green: #4F7942;
-  --light-tropical-green: #DAE8D4;
-  --coconut-white: #FFFFF0;
-  --pale-yellow: #feefd0;
-}
-
 /* Global resets */
 body, h1, h2, h3, p {
   margin: 0;
   padding: 0;
-}
-
-
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: var(--coconut-white);
-  color: var(--banana-leaf-green);
-  line-height: 1.6;
 }
 
 /* Typography */
@@ -78,8 +83,6 @@ em {
   font-style: italic;
 }
 
-
-
 /* Utility Classes for Typography */
 .text-bold {
   font-weight: bold;
@@ -101,8 +104,6 @@ em {
   /* Add styles for your SVG icons */
 }
 
-
-
 /* Define a card component with rounded edges and shadows */
 .card {
   background-color: var(--coconut-white);
@@ -120,13 +121,304 @@ em {
   transform: translateY(-4px); /* Slightly raise the card */
 }
 
-
 .card .card-text {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem; /* Adjust size as needed */
   color: #707070;
 }
 
+/* Club Card Styling */
+.club-card {
+  background-color: var(--coconut-white); /* White background for contrast */
+  border-radius: 20px!important; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.club-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover for 'pop' effect */
+}
+
+/* Club Card Header */
+.club-card-header {
+  background-color: var(--light-tropical-green)!important; /* Light tropical green for header */
+  color: var(--volcanic-grey)!important; /* Grey text for contrast */
+  display: flex!important;
+  align-items: center!important;
+  padding: 10px!important;
+  /* Maintain rounded corners at the top */
+  border-radius: 20px!important;
+}
+
+.club-card-image {
+  width: 80px; /* Controlled image size */
+  height: 80px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.club-card-title-area {
+  display: flex!important;
+  flex-direction: column!important;
+}
+
+.club-card-title {
+  font-size: 1.2rem!important;
+  font-weight: bold!important;
+  color: var(--banana-leaf-green)!important; /* Dark green for title */
+}
+
+.club-card-meeting-time {
+  font-size: 0.9rem!important;
+  color: var(--volcanic-grey)!important; /* Grey for less prominent details */
+}
+
+/* Club Card Body */
+.club-card-body {
+  padding: 15px;
+  border-bottom-left-radius: 20px; /* Maintain rounded corners at the bottom */
+  border-bottom-right-radius: 20px;
+}
+
+.club-card-description {
+  color: var(--volcanic-grey)!important; /* Grey for description text */
+  margin-bottom: 15px;
+}
+
+/* Club Categories */
+.club-card-categories {
+  display: flex; /* Flex layout for category tags */
+  flex-wrap: wrap; /* Allow wrapping for multiple tags */
+  margin-bottom: 15px;
+}
+
+.club-category-tag {
+  background-color: var(--pale-yellow)!important; /* Pale yellow for category tags */
+  border-radius: 10px!important;
+  padding: 5px 10px!important;
+  margin-right: 5px!important;
+  margin-bottom: 5px!important; /* Space between wrapped tags */
+  font-size: 0.8rem!important;
+}
+
+/* Link/Button Styling */
+.club-card-detail-link {
+  background-color: var(--coral-pink); /* Coral pink for the detail link */
+  color: var(--coconut-white);
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none; /* Remove underline from link */
+  transition: background-color 0.3s ease;
+}
+
+.club-card-detail-link:hover {
+  background-color:var(--banana-leaf-green);
+  text-decoration: none;
+  color: var(--coconut-white);
+}
+
+
+/* Event Card Styling */
+.event-card {
+  background-color: var(--coconut-white); /* White background for contrast */
+  border-radius: 20px!important; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.event-card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover for 'pop' effect */
+}
+
+/* Event Card Header */
+.event-card-header {
+  background-color: var(--light-tropical-green)!important; /* Light tropical green for header */
+  color: var(--volcanic-grey)!important; /* Grey text for contrast */
+  display: flex!important;
+  align-items: center!important;
+  padding: 10px!important;
+  border-radius: 20px!important; /* Maintain rounded corners at the top */
+}
+
+.event-card-image {
+  width: 80px; /* Controlled image size */
+  height: 80px;
+  border-radius: 50%; /* Circular image */
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.event-card-title-area {
+  display: flex!important;
+  flex-direction: column!important;
+}
+
+.event-card-title {
+  font-size: 1.2rem!important;
+  font-weight: bold!important;
+  color: var(--banana-leaf-green)!important; /* Dark green for title */
+}
+
+.event-card-date {
+  font-size: 0.9rem!important;
+  color: var(--volcanic-grey)!important; /* Grey for less prominent details */
+}
+
+/* Event Card Body */
+.event-card-body {
+  padding: 15px!important;
+  border-radius: 20px!important; /* Maintain rounded corners at the bottom */
+}
+
+.event-card-description {
+  color: var(--volcanic-grey)!important; /* Grey for description text */
+  margin-bottom: 15px;
+}
+
+/* Link/Button Styling */
+.event-card-edit-link {
+  background-color: var(--coral-pink); /* Coral pink for the edit link */
+  color: var(--coconut-white);
+  padding: 10px 30px;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none; /* Remove underline from link */
+  transition: background-color 0.3s ease;
+}
+
+.event-card-edit-link:hover {
+  background-color: var(--banana-leaf-green)!important; /* Darken the coral pink on hover */
+  color: var(--coconut-white);
+}
+
+/* Profile Card Styling */
+.profile-card {
+  background-color: var(--coconut-white);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 75%; /* Adjust width as needed */
+}
+
+.profile-card-header {
+  background-color: var(--light-tropical-green);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-header-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: var(--banana-leaf-green);
+}
+
+.profile-title {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.profile-bio {
+  color: var(--volcanic-grey);
+}
+
+.profile-card-body {
+  padding: 20px;
+  color: var(--banana-leaf-green);
+}
+
+.interest-tag {
+  background-color: var(--pale-yellow);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  .profile-card {
+    width: 100%;
+  }
+}
+
+/* Profile Page Styling */
+.profile-card {
+  background-color: var(--coconut-white);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card-header {
+  background-color: var(--light-tropical-green);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profile-header-info {
+  flex-grow: 1;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  color: var(--banana-leaf-green);
+}
+
+.profile-title {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.profile-bio {
+  color: var(--volcanic-grey);
+}
+
+.profile-card-body {
+  padding: 20px;
+  color: var(--banana-leaf-green);
+}
+
+.interest-tag {
+  background-color: var(--pale-yellow);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 0.8rem;
+  display: inline-block;
+}
 
 .dark-green-navbar .dropdown-menu {
   border-radius: 0.5rem; /* Soft curved edges */
@@ -143,15 +435,6 @@ em {
 .dark-green-navbar .nav-item:focus .dropdown-menu {
   display: block;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-}
-
-
-/* Additional CSS variables for the navbar */
-:root {
-  --navbar-bg-color: rgba(255, 255, 255, 0); /* Clear background */
-  --nav-item-bg-color: rgba(255, 255, 255, 0.3); /* Semi-transparent for nav items */
-  --nav-item-border-radius: 1.2rem; /* Very rounded edges for nav items */
-  --nav-item-hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Shadow on hover */
 }
 
 /* Clear navbar styles */
@@ -380,8 +663,8 @@ em {
   max-width: 320px;
 }
 
- .form-control{
-  width: 400px !important;
+.form-controltextbox {
+  width: 450px !important;
   height: 60px !important;
   margin-bottom: 1rem !important;
   padding: 0.75rem 1rem !important;
@@ -390,13 +673,13 @@ em {
   background-color: #f0f0f0 !important;
 }
 
-
-.form-control:focus {
+.form-controltextbox:focus {
   background-color: #ffffff !important;
   border-color: #545d62 !important;
   outline: 0 !important;
   box-shadow: 0 0 0 0.2rem rgba(93, 92, 92, 0.22) !important;
 }
+
 
 
 .form-controlsubmit {
@@ -467,95 +750,63 @@ em {
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/ /*SIGN IN PAGE*/
 
-/*Footer */ /*Footer */ /*Footer */ /*Footer */ /*Footer */
+
+
+/* Footer */
+/* Footer adjustments for responsiveness */
 .footer {
-  padding: 20px;
+  background-color: var(--banana-leaf-green)!important; /* Example background color */
+  padding: 20px 0; /* Adjust padding as needed */
+  border-top: #0A5421;
+  border-top-style: solid;
+  border-top-width: 3px;
+  margin-top: auto; /* Push the footer to the bottom */
 }
 
-.footer-column h2 {
-  color: #ffffff;
+.footer .container {
+  max-width: 1200px; /* Adjust the max-width of the container if needed */
+  margin-bottom: 20px; /* Add space below each column */
 }
 
-.footer-column p {
-  margin-bottom: 5px;
+/* Social icons adjustment */
+.social-icons svg {
+  margin: 0 10px; /* Space out the icons */
 }
 
-.vertical-line {
-  border-left: 1px solid #fff;
-  height: 100%;
-  opacity: 1;
-}
-
-.vertical-line-container {
-  padding: 0;
-}
-
-/* Will hide the vertical line and stack the columns when minimized */
-@media (max-width: 767px) {
-  .vertical-line {
-    display: none;
+@media (min-width: 768px) {
+  .footer .container > .row {
+    justify-content: space-around; /* Evenly distribute space around columns */
   }
-}
 
-.heading-underline {
-  width: 50%;
-  border: 0;
-  height: 1px;
-  background-color: #ffffff;
-  margin-bottom: 15px;
-  opacity: 1;
-}
+  .footer .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
-.footer-link {
-  color: #ffffff;
-  text-decoration: none;
-}
+  .footer img {
+    max-width: 370px; /* Reduce image size on smaller screens */
+    margin-bottom: 15px; /* Add margin below image */
+    border-radius: 40px;
+  }
 
-.footer-link:hover {
-  color: #211d1d;
-}
+  .footer .social-icons svg {
+    margin: 0 5px; /* Reduce space between icons on smaller screens */
+    width: 25px; /* Reduce icon size */
+  }
 
-.social-icon {
-  color: white;
-  transition: color 0.3s ease-in-out;
-}
+  .footer h5, .footer p {
+    font-size: 0.9rem; /* Reduce font size */
+  }
 
-.social-icon:hover svg {
-  color: #211d1d;
-}
-
-/* Footer */ /*Footer */ /*Footer */ /*Footer */ /*Footer */
-.club-detail-container p {
-  color: black;
-font-size: 1.2rem;
-}
-
-
-
-.tag-container {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tag-checkbox {
-  display: none;
-}
-
-.tag-label {
-  display: inline-block;
-  width: 88px;
-  height: 37px;
-  line-height: 40px;
-  border-radius: 2em;
-  border: 1px solid grey;
-  background-color: white;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  transition: border-color 0.3s;
-}
-
-.tag-checkbox:checked + .tag-label {
-  border-color: deeppink;
+  .footer-button {
+    --bs-btn-color: var(--coconut-white)!important;
+    --bs-btn-bg: var(--banana-leaf-green)!important;
+    --bs-btn-border-color: var(--light-tropical-green)!important;
+    --bs-btn-hover-color: var(--coconut-white)!important;
+    --bs-btn-hover-bg: var(--light-tropical-green)!important;
+    --bs-btn-hover-border-color: var(--light-tropical-green)!important;
+    --bs-btn-active-color: var(--coconut-white)!important;
+    --bs-btn-active-bg: var(--banana-leaf-green)!important;
+    --bs-btn-active-border-color: var(--banana-leaf-green)!important;
+  }
 }

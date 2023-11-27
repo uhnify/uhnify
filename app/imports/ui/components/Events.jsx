@@ -3,20 +3,20 @@ import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-/** Renders a card with event information */
 const EventCard = ({ event }) => (
-  <Card className="h-100">
-    <Card.Header>
-      {/* Replace with event.image if you have images for events */}
-      <Image src= 'images/codingWorkshop.png' width={75} />
-      <Card.Title>{event.title}</Card.Title>
-      <Card.Subtitle>{event.date.toDateString()}</Card.Subtitle>
-      <Card.Subtitle>{event.location}</Card.Subtitle>
+  <Card className="event-card"> {/* Add class for styling */}
+    <Card.Header className="event-card-header"> {/* Add class for styling */}
+      {/* Use event image or a default one */}
+      <Image src={event.image || 'images/default-event.jpg'} width={75} alt={event.title} className="event-card-image" />
+      <div className="event-card-title-area"> {/* Div for title and date */}
+        <Card.Title className="event-card-title">{event.title}</Card.Title>
+        <Card.Subtitle className="event-card-date">{event.date.toDateString()}</Card.Subtitle>
+      </div>
     </Card.Header>
-    <Card.Body>
-      <Card.Text>{event.description}</Card.Text>
-      <Link to={`/edit/event/${event._id}`}>Edit</Link>
-      {/* Adjust the link as needed for your routing */}
+    <Card.Body className="event-card-body"> {/* Add class for body styling */}
+      <Card.Text className="event-card-description">{event.description}</Card.Text>
+      {/* Conditionally render Edit link based on user's permission */}
+      <Link to={`/edit/event/${event.eventID}`} className="event-card-edit-link">Description</Link>
     </Card.Body>
   </Card>
 );
@@ -25,11 +25,12 @@ const EventCard = ({ event }) => (
 EventCard.propTypes = {
   event: PropTypes.shape({
     title: PropTypes.string,
-    image: PropTypes.string,
     description: PropTypes.string,
     date: PropTypes.instanceOf(Date),
     location: PropTypes.string,
-    _id: PropTypes.string,
+    createdBy: PropTypes.string, // Assuming createdBy is a string
+    eventID: PropTypes.number, // Assuming eventID is a number as per your schema
+    image: PropTypes.string, // Assuming you have an image field
     // Add other fields as necessary
   }).isRequired,
 };

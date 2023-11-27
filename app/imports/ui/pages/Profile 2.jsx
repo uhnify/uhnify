@@ -5,11 +5,16 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Stuffs } from '../../api/stuff/Stuff';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  name: String,
+  Username: String,
+  Firstname: String,
+  Lastname: String,
+  Email: {
+    type: String,
+    regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+  },
   quantity: Number,
   condition: {
     type: String,
@@ -21,14 +26,14 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const AddStuff = () => {
+const Profile = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, quantity, condition } = data;
+    const { Username, Firstname, Lastname, Email, quantity, condition } = data;
     const owner = Meteor.user().username;
     Stuffs.collection.insert(
-      { name, quantity, condition, owner },
+      { Username, Firstname, Lastname, Email, quantity, condition, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -46,11 +51,14 @@ const AddStuff = () => {
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Stuff</h2></Col>
+          <Col className="text-center"><h2>Account Details</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
+                <Row><TextField name="Username"/></Row>
+                <Row><Col><TextField name="Firstname" label="First Name"/></Col>
+                  <Col><TextField name="Lastname" label="Last Name"/></Col></Row>
+                <Row><TextField name="Email"/></Row>
                 <NumField name="quantity" decimal={null} />
                 <SelectField name="condition" />
                 <SubmitField value="Submit" />
@@ -61,7 +69,8 @@ const AddStuff = () => {
         </Col>
       </Row>
     </Container>
+
   );
 };
 
-export default AddStuff;
+export default Profile;
