@@ -4,6 +4,7 @@ import { Stuffs } from '../../api/stuff/Stuff';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
+import { Profile } from '../../api/profile/Profile';
 // User-level publication.
 // If logged in, then publish documents owned by this user. Otherwise, publish nothing.
 Meteor.publish(Stuffs.userPublicationName, function () {
@@ -18,6 +19,14 @@ Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
     return Clubs.collection.find();
+  }
+  return this.ready();
+});
+
+Meteor.publish(Profile.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return Profile.collection.find();
   }
   return this.ready();
 });

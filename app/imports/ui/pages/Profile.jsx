@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Stuffs } from '../../api/stuff/Stuff';
+import { Profile } from '../../api/profile/Profile';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -16,25 +17,19 @@ const formSchema = new SimpleSchema({
     type: String,
     regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
   },
-  quantity: Number,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 /* Renders the AddStuff page for adding a document. */
-const Profile = () => {
+const Profiles = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { Username, Firstname, Lastname, Email, quantity, condition } = data;
+    const { Username, Firstname, Lastname, Email } = data;
     const owner = Meteor.user().username;
-    Stuffs.collection.insert(
-      { Username, Firstname, Lastname, Email, quantity, condition, owner },
+    Profile.collection.insert(
+      { Username, Firstname, Lastname, Email, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -61,8 +56,6 @@ const Profile = () => {
                   <Col><TextField name="Lastname" label="Last Name" /></Col>
                 </Row>
                 <Row><TextField name="Email" /></Row>
-                <NumField name="quantity" decimal={null} />
-                <SelectField name="condition" />
                 <SubmitField value="Submit" />
                 <ErrorsField />
               </Card.Body>
@@ -75,4 +68,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profiles;
