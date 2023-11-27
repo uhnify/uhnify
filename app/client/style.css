@@ -525,6 +525,11 @@ em {
 }
 
 /* Footer */ /*Footer */ /*Footer */ /*Footer */ /*Footer */
+.club-detail-container p {
+  color: black;
+font-size: 1.2rem;
+}
+
 
 
 .tag-container {
