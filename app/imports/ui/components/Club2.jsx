@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 /** Renders a card with club information. */
-const Club2 = ({ club, onRemoveFromProfile }) => (
-  <Card className="club-card"> {/* Add class for styling */}
-    <Card.Header className="club-card-header"> {/* Add class for styling */}
-      <Image src={club.image} className="club-card-image" alt={club.name} /> {/* Add class for image styling */}
-      <div className="club-card-title-area"> {/* Div for title and meeting time */}
+const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => (
+  <Card className="club-card">
+    <Card.Header className="club-card-header">
+      <Image src={club.image} className="club-card-image" alt={club.name} />
+      <div className="club-card-title-area">
         <Card.Title className="club-card-title">{club.name}</Card.Title>
         <Card.Subtitle className="club-card-meeting-time">{club.meetingTime}</Card.Subtitle>
       </div>
     </Card.Header>
-    <Card.Body className="club-card-body"> {/* Add class for body styling */}
+    <Card.Body className="club-card-body">
       <Card.Text className="club-card-description">{club.description}</Card.Text>
-      <div className="club-card-categories"> {/* Div for categories */}
+      <div className="club-card-categories">
         {club.categories && club.categories.map(category => (
           <span key={category} className="club-category-tag">{category}</span>
         ))}
       </div>
-      <Link to={`/clubdetail/${club.clubID}`} className="club-card-detail-link">View Details</Link> {/* Add class for link/button styling */}
+      {/* Changed from Link to Button */}
+      <button onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+        View Details
+      </button>
       <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3" variant="danger">
         Remove from My Clubs
       </Button>
@@ -28,19 +30,15 @@ const Club2 = ({ club, onRemoveFromProfile }) => (
   </Card>
 );
 
-// PropTypes to match ClubsCollection schema
+// PropTypes
 Club2.propTypes = {
   club: PropTypes.shape({
-    clubID: PropTypes.number, // Assuming clubID is a number as per your schema
+    clubID: PropTypes.number,
     name: PropTypes.string,
-    owner: PropTypes.string,
-    description: PropTypes.string,
-    location: PropTypes.string,
-    image: PropTypes.string,
-    meetingTime: PropTypes.string,
-    contactInfo: PropTypes.string,
-    categories: PropTypes.arrayOf(PropTypes.string), // Array of strings for categories
+    // ... other prop types ...
   }).isRequired,
+  onRemoveFromProfile: PropTypes.func.isRequired,
+  onViewDetails: PropTypes.func.isRequired, // Add this
 };
 
 export default Club2;

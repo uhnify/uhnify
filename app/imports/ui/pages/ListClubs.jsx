@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../api/club/Club';
 import Club2 from '../components/Club2';
+import ClubDetailsModal from '../components/ClubDetailsModal';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
-
 /* Renders a card containing all of the Clubs documents. Use <Club> to render each card. */
 const ListClub = () => {
   const onRemoveFromProfile = (clubId) => {
@@ -20,6 +20,19 @@ const ListClub = () => {
       }
     });
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedClub, setSelectedClub] = useState(null);
+
+  const handleViewDetails = (club) => {
+    setSelectedClub(club);
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, clubs } = useTracker(() => {
     // Note that this subscription will get cleaned up
@@ -43,10 +56,15 @@ const ListClub = () => {
             <h2>My Clubs</h2>
           </Col>
           <Row xs={1} md={2} lg={4}>
-            {clubs.map((club) => (<Col key={club._id}><Club2 club={club} onRemoveFromProfile={() => onRemoveFromProfile(club._id)} /></Col>))}
+            {clubs.map((club) => (<Col key={club._id}><Club2 club={club} onRemoveFromProfile={() => onRemoveFromProfile(club._id)} onViewDetails={() => handleViewDetails(club)}/></Col>))}
           </Row>
         </Col>
       </Row>
+      <ClubDetailsModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        club={selectedClub}
+      />
     </Container>
   ) : <LoadingSpinner />);
 };
