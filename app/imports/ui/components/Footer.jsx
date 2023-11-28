@@ -9,7 +9,7 @@ const Footer = () => (
     <footer className="mt-auto py-3 dark-green-navbar">
       <Container fluid className="footer">
         <Row className="justify-content-center">
-          <Col md={1} className="footer-column">
+          <Col lg={2} className="footer-column">
             <h2>SOCIALS</h2>
             <hr className="heading-underline" />
             <a href="https://www.facebook.com/uhmanoa/" target="_blank" rel="noopener noreferrer" className="social-icon">
@@ -26,7 +26,7 @@ const Footer = () => (
             </a>
           </Col>
 
-          <Col md={1} className="footer-column">
+          <Col lg={2} className="footer-column">
             <h2>ABOUT</h2>
             <hr className="heading-underline" />
             <div><Link to="https://uhnify.github.io/" className="footer-link">GITHUB HOMEPAGE</Link></div>
@@ -36,11 +36,11 @@ const Footer = () => (
             <a href="mailto:juncellv@hawaii.edu" className="footer-link">CONTACT</a>
           </Col>
 
-          <Col md={1} className="d-none d-md-block vertical-line-container">
+          <Col lg={1} className="d-none d-md-block vertical-line-container">
             <div className="vertical-line"></div>
           </Col>
 
-          <Col md={2} className="footer-column">
+          <Col lg={2} className="footer-column">
             <p>  <strong>UHnify</strong>: The Ultimate Student Club Experience for UH Manoa - A platform revolutionizing student connections at the University of Hawaii at Manoa. Empowering students with interactive tools, UHnify fosters club engagement, personalized experiences, and streamlined club management. Powered by Meteor and MongoDB, UHnify offers a unified ecosystem, making university life more vibrant and connected.</p>
             <p className="py-5"><strong>© 2023 by UHnify</strong></p>
           </Col>
