@@ -3,8 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { Meteor } from 'meteor/meteor';
-import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import { Bell, Person, Gear, Search } from 'react-bootstrap-icons';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Person, Gear } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 const NavBar = () => {
@@ -30,7 +30,6 @@ const NavBar = () => {
               </NavDropdown>
             )}
 
-
             {currentUser && (
               <NavDropdown title="Events" id="nav-dropdown-events">
                 <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
@@ -47,18 +46,18 @@ const NavBar = () => {
             )}
           </Nav>
           <Nav>
-            {/*<Nav.Link as={NavLink} to="/notifications" className="no-shadow">*/}
-            {/*  <Bell />*/}
-            {/*</Nav.Link>*/}
-            {/*<Form className="d-flex">*/}
-            {/*  <FormControl*/}
-            {/*    type="search"*/}
-            {/*    placeholder="Search"*/}
-            {/*    className="me-2"*/}
-            {/*    aria-label="Search"*/}
-            {/*  />*/}
-            {/*  <Button variant="outline-success"><Search /></Button>*/}
-            {/*</Form>*/}
+            {/* <Nav.Link as={NavLink} to="/notifications" className="no-shadow"> */}
+            {/*  <Bell /> */}
+            {/* </Nav.Link> */}
+            {/* <Form className="d-flex"> */}
+            {/*  <FormControl */}
+            {/*    type="search" */}
+            {/*    placeholder="Search" */}
+            {/*    className="me-2" */}
+            {/*    aria-label="Search" */}
+            {/*  /> */}
+            {/*  <Button variant="outline-success"><Search /></Button> */}
+            {/* </Form> */}
             <NavDropdown title={<Person />} id="nav-dropdown-profile">
               {currentUser ? (
                 // These items will only be shown when there is a logged-in user
@@ -75,8 +74,8 @@ const NavBar = () => {
               ) : (
                 // This item will be shown when there is no logged-in user
                 <>
-                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignIn">Sign In</NavDropdown.Item>
-                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignUp">Sign Up</NavDropdown.Item>
+                  <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignIn">Sign In</NavDropdown.Item>
+                  <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignUp">Sign Up</NavDropdown.Item>
                 </>
               )}
             </NavDropdown>
