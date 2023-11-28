@@ -1,37 +1,57 @@
 import React from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Row, Container, Col, Form } from 'react-bootstrap';
-import Club from '../components/Club.jsx'; // Import the Club component
-import { Clubs } from '/imports/api/club/Club.js'; // Import the Clubs collection
+import { Meteor } from 'meteor/meteor';
+import { Col, Container, Row } from 'react-bootstrap';
+import { useTracker } from 'meteor/react-meteor-data';
+import { Clubs } from '../../api/club/Club';
+import Club from '../components/Club';
+import LoadingSpinner from '../components/LoadingSpinner';
 
-const ClubFinder = ({ clubs }) => (
-  <Container className="py-3">
-    <Col>
-      <h2>Filter</h2>
-      <Form>
-        {/* Add more filters as necessary */}
-        <Form.Check label="sports" />
-        <Form.Check label="games" />
-      </Form>
-    </Col>
-    <Row className="justify-content-center">
-      <Col className="text-center">
-        <h2>Clubs</h2>
-      </Col>
-    </Row>
-    <Row xs={1} md={2} lg={3} className="g-4">
-      {clubs.map(club => (
-        <Col key={club._id}>
-          <Club club={club} />
-        </Col>
-      ))}
-    </Row>
-  </Container>
-);
+const ClubFinder = () => {
 
-export default withTracker(() => {
-  const subscription = Meteor.subscribe('clubs.all');
-  return {
-    clubs: subscription.ready() ? Clubs.collection.find().fetch() : [],
+  // ... code to fetch clubs ...
+  const addClubToProfile = (clubId) => {
+    Meteor.call('profileClubs.add', clubId, (error) => {
+      if (error) {
+        console.error('Error adding club to profile:', error);
+      } else {
+        console.log('Club added to profile successfully');
+      }
+    });
   };
-})(ClubFinder);
+
+  // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
+  const { ready, clubs } = useTracker(() => {
+    // Note that this subscription will get cleaned up
+    // when your component is unmounted or deps change.
+    // Get access to Club documents.
+    const subscription = Meteor.subscribe(Clubs.userPublicationName);
+    // Determine if the subscription is ready
+    const rdy = subscription.ready();
+    // Get the Club documents
+    const clubItems = Clubs.collection.find({}).fetch();
+    return {
+      clubs: clubItems,
+      ready: rdy,
+    };
+  }, []);
+  return (ready ? (
+    <Container id="browse-clubs-page" className="py-3">
+      <Row className="justify-content-center">
+        <Col>
+          <Col className="text-center">
+            <h2>My Clubs</h2>
+          </Col>
+          <Row xs={1} md={2} lg={4}>
+            {clubs.map((club) => (
+              <Col key={club._id}>
+                <Club club={club} onAddToProfile={() => addClubToProfile(club._id)} />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+    </Container>
+  ) : <LoadingSpinner />);
+};
+
+export default ClubFinder;

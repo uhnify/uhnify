@@ -4,7 +4,7 @@ import { Card, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /** Renders a card with club information. */
-const Club = ({ club, onAddToProfile }) => (
+const Club2 = ({ club, onRemoveFromProfile }) => (
   <Card className="club-card"> {/* Add class for styling */}
     <Card.Header className="club-card-header"> {/* Add class for styling */}
       <Image src={club.image} className="club-card-image" alt={club.name} /> {/* Add class for image styling */}
@@ -21,13 +21,15 @@ const Club = ({ club, onAddToProfile }) => (
         ))}
       </div>
       <Link to={`/clubdetail/${club.clubID}`} className="club-card-detail-link">View Details</Link> {/* Add class for link/button styling */}
-      <Button onClick={onAddToProfile} className="mt-3" variant="success"> Add to My Clubs</Button>
+      <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3" variant="danger">
+        Remove from My Clubs
+      </Button>
     </Card.Body>
   </Card>
 );
 
 // PropTypes to match ClubsCollection schema
-Club.propTypes = {
+Club2.propTypes = {
   club: PropTypes.shape({
     clubID: PropTypes.number, // Assuming clubID is a number as per your schema
     name: PropTypes.string,
@@ -41,4 +43,4 @@ Club.propTypes = {
   }).isRequired,
 };
 
-export default Club;
+export default Club2;

@@ -8,6 +8,7 @@ import { ClubInterests } from '../../api/club/ClubInterests';
 import { EventsInterests } from '../../api/events/EventsInterests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import ProfilesClub collection
+import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
 import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents collection
 
@@ -15,7 +16,7 @@ import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents col
 Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Clubs.collection.find({ owner: username });
+    return Clubs.collection.find();
   }
   return this.ready();
 });
@@ -105,6 +106,21 @@ Meteor.publish(ClubEvents.publicationName, function () {
 Meteor.publish(null, function () {
   if (this.userId) {
     return Meteor.roleAssignment.find({ 'user._id': this.userId });
+  }
+  return this.ready();
+});
+
+Meteor.publish(ProfileClubs.userPublicationName, function () {
+  if (this.userId) {
+    const profileClubs = ProfileClubs.collection.find({ userId: this.userId }).fetch();
+    const clubIds = profileClubs.map(pc => pc.clubId);
+    console.log("Club IDs:", clubIds);  // Log the club IDs
+
+    const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
+    console.log("Clubs found:", clubs); // Log the found clubs
+
+    // Return the cursor, not the fetched array
+    return Clubs.collection.find({ _id: { $in: clubIds } });
   }
   return this.ready();
 });

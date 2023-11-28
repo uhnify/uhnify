@@ -7,6 +7,7 @@ import { ClubInterests } from '../../api/club/ClubInterests';
 import { EventsInterests } from '../../api/events/EventsInterests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesClub } from '../../api/profiles/ProfilesClub';
+import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { ClubEvents } from '../../api/club/ClubEvents';
 
@@ -46,6 +47,46 @@ Meteor.methods({
     const eventID = Events.collection.insert({ title, description, date, location, createdBy });
     interests.forEach((interest) => EventsInterests.collection.insert({ event: eventID, interest }));
     return eventID;
+  },
+});
+
+Meteor.methods({
+  'profileClubs.remove'(clubId) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    // Check if the club exists for the user
+    const exists = ProfileClubs.collection.findOne({ userId: this.userId, clubId: clubId });
+
+    // If it exists, remove it
+    if (exists) {
+      ProfileClubs.collection.remove({ userId: this.userId, clubId: clubId });
+      console.log("Club removed successfully");
+    } else {
+      console.log("Club does not exist in profile");
+    }
+  },
+
+  'profileClubs.add'(clubId) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    // Check if the club already exists for the user
+    const exists = ProfileClubs.collection.findOne({ userId: this.userId, clubId: clubId });
+
+    // If it doesn't exist, insert it
+    if (!exists) {
+      ProfileClubs.collection.insert({
+        userId: this.userId,
+        clubId: clubId,
+      });
+    }
+    else
+    {
+      console.log("already exists");
+    }
   },
 });
 
