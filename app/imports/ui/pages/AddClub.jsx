@@ -50,7 +50,7 @@ const AddClub = () => {
     <Container id="add-clubs" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Add Club</h2></Col>
+          <Col className="text-center"><h2>Start Club</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
