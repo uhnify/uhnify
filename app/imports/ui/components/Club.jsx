@@ -39,6 +39,12 @@ Club.propTypes = {
     contactInfo: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string), // Array of strings for categories
   }).isRequired,
+  onAddToProfile: PropTypes.func, // Validates the onAddToProfile prop
+};
+
+// DefaultProps
+Club.defaultProps = {
+  onAddToProfile: () => {},
 };
 
 export default Club;
