@@ -19,6 +19,7 @@ import ListClubAdmin from '../pages/ListClubAdmin';
 import ClubFinder from '../pages/ClubFinder';
 import Footer from '../components/Footer';
 import Profile from '../pages/Profile';
+import AddClub from '../pages/AddClub';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/clubdetail" element={<ProtectedRoute><ClubDetail /></ProtectedRoute>} />
+          <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
