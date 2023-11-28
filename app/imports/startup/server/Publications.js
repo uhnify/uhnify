@@ -15,7 +15,7 @@ import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents col
 // User-level publications for Clubs
 Meteor.publish(Clubs.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
+    // const username = Meteor.users.findOne(this.userId).username;
     return Clubs.collection.find();
   }
   return this.ready();
