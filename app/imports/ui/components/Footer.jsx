@@ -42,7 +42,7 @@ const Footer = () => (
 
           <Col lg={2} className="footer-column">
             <p>  <strong>UHnify</strong>: The Ultimate Student Club Experience for UH Manoa - A platform revolutionizing student connections at the University of Hawaii at Manoa. Empowering students with interactive tools, UHnify fosters club engagement, personalized experiences, and streamlined club management. Powered by Meteor and MongoDB, UHnify offers a unified ecosystem, making university life more vibrant and connected.</p>
-            <p className="py-5"><strong>© 2023 by UHnify</strong></p>
+            <p className="pt-4"><strong>© 2023 by UHnify</strong></p>
           </Col>
         </Row>
       </Container>
