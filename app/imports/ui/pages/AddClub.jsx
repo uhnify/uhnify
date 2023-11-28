@@ -47,20 +47,20 @@ const AddClub = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return (
-    <Container className="py-3">
+    <Container id="add-clubs" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Add Club</h2></Col>
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <TextField name="name" />
-                <TextField name="image" />
-                <TextField name="location" />
-                <LongTextField name="description" />
-                <TextField name="meetingTime" />
+                <TextField id="name" name="name" />
+                <TextField id="image" name="image" />
+                <TextField id="location" name="location" />
+                <LongTextField id="description" name="description" />
+                <TextField id="meetingTime" name="meetingTime" />
                 <SelectField name="categories" />
-                <SubmitField value="Submit" />
+                <SubmitField id="submit" value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>

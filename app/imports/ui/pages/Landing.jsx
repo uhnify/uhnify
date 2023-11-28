@@ -34,7 +34,7 @@ const Landing = () => {
   }, []);
   return (
     <>
-      <Container fluid className="p-0">
+      <Container id="landing-page" fluid className="p-0">
         <main>
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
