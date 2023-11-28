@@ -8,7 +8,7 @@ const Footer = () => (
     <Container>
       <Row className="justify-content-between">
         <Col lg={4} className="mb-3 mb-lg-0 text-center text-lg-start">
-          <Image src="images/UmifyLOGO.png" fluid alt="footerLogo" className="pb-3"/>
+          <Image src="images/UmifyLOGO.png" fluid alt="footerLogo" className="pb-3" />
           <Button className="w-100 footer-button" href="https://uhnify.github.io/">
             UHnify Homepage
           </Button>
@@ -23,14 +23,14 @@ const Footer = () => (
           <h5>Contact Us</h5>
           <p><strong>Email:</strong> Unify@hawaii.edu</p>
           <p><strong>Phone:</strong> (808) 956-8111</p>
-          <Button className="footer-button" href="#">
-            Unify chatbot
-          </Button>
+          <br />
+
+          <h5 className="pt-3">Follow Us</h5>
           <div className="social-icons pt-3">
-            <Facebook size={30}/>
-            <Instagram size={30}/>
-            <Twitter size={30}/>
-            <Linkedin size={30}/>
+            <Facebook size={30} />
+            <Instagram size={30} />
+            <Twitter size={30} />
+            <Linkedin size={30} />
           </div>
         </Col>
       </Row>
