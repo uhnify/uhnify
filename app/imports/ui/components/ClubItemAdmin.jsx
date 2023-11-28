@@ -33,6 +33,7 @@ ClubItemAdmin.propTypes = {
     _id: PropTypes.string,
     meetingTime: PropTypes.string,
     owner: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
 };
 
