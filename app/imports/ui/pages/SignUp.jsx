@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
+import {  Button, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField } from 'uniforms-bootstrap5';
 import { Profile } from '../../api/profile/Profile';
 
 /**
@@ -55,35 +55,28 @@ const SignUp = ({ location }) => {
     }
   };
 
-  const handleChange = (name, value) => {
-    setFormData({ ...formData, [name]: value });
-  };
-
   /* Handle SignUp submission. Create user account and a profile entry, then redirect to the home page. */
-  const submit = (doc) => {
+  const submit = async (doc) => {
     // Combine formData from the first step with the data from the second step
     const finalData = { ...formData, ...doc, ...clubInterests };
     const { email, password, fName, lName } = finalData;
 
-    Accounts.createUser({ email, username: email, password }, (err, userId) => {
-      if (err) {
-        swal('Error', err.reason, 'error');
-      } else {
-        swal('Success', 'Registration successful!', 'success');
-        // After successful account creation, insert the profile.
-        Profile.collection.insert({
-          fName: fName,
-          lName: lName,
-        }, (profileErr) => {
-          if (profileErr) {
-            setError(profileErr.reason);
-          } else {
-            setRedirectToRef(true);
-          }
-        });
-      }
-    });
+    try {
+      await Accounts.createUser({ email, username: email, password });
+      await swal('Success', 'Registration successful!', 'success');
+
+      // After successful account creation, insert the profile.
+      await Profile.collection.insert({
+        fName: fName,
+        lName: lName,
+      });
+
+      setRedirectToRef(true);
+    } catch (err) {
+      await swal('Error', err.reason, 'error');
+    }
   };
+
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/add' } };
