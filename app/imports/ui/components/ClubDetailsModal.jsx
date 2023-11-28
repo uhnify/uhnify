@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal, Button } from 'react-bootstrap';
 
 const ClubDetailsModal = ({ show, handleClose, club }) => {
@@ -28,6 +29,20 @@ const ClubDetailsModal = ({ show, handleClose, club }) => {
       </Modal.Footer>
     </Modal>
   );
+};
+
+ClubDetailsModal.propTypes = {
+  show: PropTypes.bool.isRequired, // this is a boolean right
+  handleClose: PropTypes.func.isRequired,
+  club: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+
+  }),
+};
+
+ClubDetailsModal.defaultProps = {
+  club: {},
 };
 
 export default ClubDetailsModal;
