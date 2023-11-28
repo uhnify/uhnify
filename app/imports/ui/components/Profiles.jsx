@@ -65,4 +65,10 @@ ProfileCard.propTypes = {
   })),
 };
 
+ProfileCard.defaultProps = {
+  clubs: [], // Default values for club, event, and interest arrays
+  events: [],
+  interests: [],
+};
+
 export default ProfileCard;
