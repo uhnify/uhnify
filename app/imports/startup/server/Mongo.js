@@ -9,11 +9,12 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests.js'; // 
 
 /* eslint-disable no-console */
 
+// Uncomment or remove if you are not using addData
 // Function to add default data to Stuffs
-const addData = (data) => {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
-  Stuffs.collection.insert(data);
-};
+// const addData = (data) => {
+//  console.log(`  Adding: ${data.name} (${data.owner})`);
+//  Stuffs.collection.insert(data);
+// };
 
 // Function to add default data to Clubs
 const addClub = (data) => {
