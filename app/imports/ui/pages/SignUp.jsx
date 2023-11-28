@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import { Alert, Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, TextField } from 'uniforms-bootstrap5';
 import { Profile } from '../../api/profile/Profile';
 
 /**
@@ -20,7 +20,7 @@ const SignUp = ({ location }) => {
     fName: '',
     lName: '',
   });
-// Add state for club interests
+  // Add state for club interests
   const [clubInterests, setClubInterests] = useState({
     academic: false,
     arts: false,
@@ -29,7 +29,6 @@ const SignUp = ({ location }) => {
     cultural: false,
     creativity: false,
   });
-
 
   // Handle change for checkboxes
   const handleCheckboxChange = (event) => {
@@ -45,7 +44,7 @@ const SignUp = ({ location }) => {
     sports: { type: Boolean, optional: true },
     social: { type: Boolean, optional: true },
     cultural: { type: Boolean, optional: true },
-    creativity: { type: Boolean, optional: true }
+    creativity: { type: Boolean, optional: true },
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -124,7 +123,7 @@ const SignUp = ({ location }) => {
             <>
               <div className="signin-call-to-action"><h1>Register your account</h1></div>
               <AutoForm schema={bridge} model={formData} onChangeModel={setFormData}>
-                <TextField name="fName" placeholder="First Name" label="First Name"/>
+                <TextField name="fName" placeholder="First Name" label="First Name" />
                 <TextField name="lName" placeholder="Last Name" label="Last Name" />
                 <div className="d-flex justify-content-between">
                   <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
@@ -161,7 +160,8 @@ const SignUp = ({ location }) => {
                   <label htmlFor="tag6" className="tag-label">Creativity</label>
 
                   <input type="checkbox" id="tag7" className="tag-checkbox" />
-                  <label htmlFor="tag7" className="tag-label">Creativity</label>  </div>
+                  <label htmlFor="tag7" className="tag-label">Creativity</label>
+                </div>
                 <div className="d-flex justify-content-between mt-5">
                   <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
                     Previous
