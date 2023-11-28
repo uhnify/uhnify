@@ -26,7 +26,7 @@ const SignIn = () => {
   }
 
   return (
-    <m.Container initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.75, ease: 'easeOut' }} id="sign-in" fluid>
+    <m.Container initial={{ x: '-100%' }} animate={{ x: '0%' }} exit={{ x: 100 }} transition={{ duration: 0.75, ease: 'easeOut' }}  id="sign-in" fluid>
       <Row className="min-vh-100">
         <Col md={8} className="signin-form-section">
           <Form onSubmit={handleSubmit}>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Landing from '../pages/Landing';
 import EditStuff from '../pages/EditStuff';
@@ -34,8 +34,8 @@ const App = () => {
     <Router>
       <div className="d-flex flex-column min-vh-100">
         <NavBar />
-        <Routes>
-          <AnimatePresence exitBeforeEnter>
+        <AnimatePresence exitBeforeEnter>
+          <Routes location={location} key={location.key}>
             <Route exact path="/" element={<Landing />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
@@ -51,8 +51,8 @@ const App = () => {
             <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
             <Route path="/notauthorized" element={<NotAuthorized />} />
             <Route path="*" element={<NotFound />} />
-          </AnimatePresence>
-        </Routes>
+          </Routes>
+        </AnimatePresence>
         <Footer />
       </div>
     </Router>
