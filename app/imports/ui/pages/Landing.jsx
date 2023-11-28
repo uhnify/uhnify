@@ -56,36 +56,36 @@ const Landing = () => {
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/SchoolSunet.png" alt="" />
                     </div>
-                    <h5 className="mb-0 text-center"><b>HTML CSS3 Tutorials</b></h5>
-                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+                    <h5 className="mb-0 text-center"><b>Embrace the Aloha Spirit</b></h5>
+                    <p className="text-center p-4">Dive into the heart of UH Manoa&apos;s vibrant student life, where the aloha spirit thrives in every club and event, fostering a welcoming community for all.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/Graduation.png" alt="" />
                     </div>
-                    <h5 className="mb-0 text-center"><b>Wordpress Tutorials</b></h5>
-                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+                    <h5 className="mb-0 text-center"><b>Discover Your Passion</b></h5>
+                    <p className="text-center p-4">With an array of clubs at UH Manoa, from technology to arts, find the perfect group that aligns with your interests and kick-start your personal and professional growth.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/PeopleSchool.png" alt="" />
                     </div>
-                    <h5 className="mb-0 text-center"><b>PHP MySQL Tutorials</b></h5>
-                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+                    <h5 className="mb-0 text-center"><b>Cultural Celebrations</b></h5>
+                    <p className="text-center p-4">Celebrate the rich cultural tapestry of UH Manoa through student-led events that honor our diverse backgrounds, traditions, and shared love for learning.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/UniverstyFrontFace.png" alt="" />
                     </div>
-                    <h5 className="mb-0 text-center"><b>Javascript Tutorials</b></h5>
-                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+                    <h5 className="mb-0 text-center"><b>Green and White Pride</b></h5>
+                    <p className="text-center p-4">Join fellow Warriors in green and white, and immerse yourself in school spirit through sports, academic societies, and volunteer organizations that shape leaders of tomorrow.</p>
                   </div>
                   <div className="slider-card">
                     <div className="d-flex justify-content-center align-items-center mb-4">
                       <Image src="/images/PeopleSchool2.png" alt="" />
                     </div>
-                    <h5 className="mb-0 text-center"><b>Bootstrap Tutorials</b></h5>
-                    <p className="text-center p-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam temporibus quidem magni qui doloribus quasi natus inventore nisi velit minima.</p>
+                    <h5 className="mb-0 text-center"><b>Connect and Collaborate</b></h5>
+                    <p className="text-center p-4">UH Manoa&apos;s interactive platform connects you with like-minded peers, mentors, and alumni, opening doors to collaborative opportunities and lifelong friendships.</p>
                   </div>
                 </div>
               </div>
