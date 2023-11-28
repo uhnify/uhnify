@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -51,6 +52,7 @@ Meteor.methods({
 
 Meteor.methods({
   'profileClubs.remove'(clubId) {
+    check(clubId, String);
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
@@ -68,6 +70,7 @@ Meteor.methods({
   },
 
   'profileClubs.add'(clubId) {
+    check(clubId, String);
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
