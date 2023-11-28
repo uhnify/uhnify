@@ -29,7 +29,7 @@ class NavBar {
     }
     await testController.click('#nav-dropdown-profile');
     const loggedInUser = Selector('#navbar-current-user').innerText;
-    await testController.expect(loggedInUser).eql("Logout");
+    await testController.expect(loggedInUser).eql('Logout');
   }
 
   /** Check that someone is logged in, then click items to logout. */
@@ -52,6 +52,7 @@ class NavBar {
     await testController.click('#login-dropdown');
     await testController.click('#login-dropdown-sign-up');
   }
+
   async gotoBrowseClubsPage(testController) {
     await testController.click('#club-drop');
     await testController.click('#browse-clubs');
@@ -64,6 +65,11 @@ class NavBar {
   async gotoMyEventsPage(testController) {
     await testController.click('#nav-dropdown-events');
     await testController.click('#my-events');
+  }
+
+  async gotoAddClubsPage(testController) {
+    await testController.click('#club-drop');
+    await testController.click('#add-clubs');
   }
 }
 
