@@ -56,7 +56,7 @@ const ListClub = () => {
             <h2>My Clubs</h2>
           </Col>
           <Row xs={1} md={2} lg={4}>
-            {clubs.map((club) => (<Col key={club._id}><Club2 club={club} onRemoveFromProfile={() => onRemoveFromProfile(club._id)} onViewDetails={() => handleViewDetails(club)}/></Col>))}
+            {clubs.map((club) => (<Col key={club._id}><Club2 club={club} onRemoveFromProfile={() => onRemoveFromProfile(club._id)} onViewDetails={() => handleViewDetails(club)} /></Col>))}
           </Row>
         </Col>
       </Row>

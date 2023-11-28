@@ -15,12 +15,12 @@ class ClubEventsCollection {
     this.schema = new SimpleSchema({
       clubId: {
         type: String,
-        label: "Club ID",
+        label: 'Club ID',
         // Consider adding custom validation or reference to the Clubs collection
       },
       eventId: {
         type: String,
-        label: "Event ID",
+        label: 'Event ID',
         // Consider adding custom validation or reference to the Events collection
       },
       // You can add additional fields if needed

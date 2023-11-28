@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Card, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 /** Renders a card with club information. See pages/ListClubs.jsx. */
 const ClubAddItem = ({ club }) => (

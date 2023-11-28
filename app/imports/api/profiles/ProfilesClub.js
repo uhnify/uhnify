@@ -14,12 +14,12 @@ class ProfilesClubCollection {
     this.schema = new SimpleSchema({
       profileId: {
         type: SimpleSchema.Integer, // Assuming the UH_ID from Profiles is used here
-        label: "Profile ID",
+        label: 'Profile ID',
         // Consider adding custom validation or reference to the Profiles collection
       },
       clubId: {
         type: String, // Assuming the clubID from Clubs is used here
-        label: "Club ID",
+        label: 'Club ID',
         // Consider adding custom validation or reference to the Clubs collection
       },
       // You can add additional fields if needed, such as roles or dates of joining

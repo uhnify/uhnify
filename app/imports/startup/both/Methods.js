@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
-import { Interests } from '../../api/interests/Interests';
 import { ClubInterests } from '../../api/club/ClubInterests';
 import { EventsInterests } from '../../api/events/EventsInterests';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
@@ -62,9 +61,9 @@ Meteor.methods({
     // If it exists, remove it
     if (exists) {
       ProfileClubs.collection.remove({ userId: this.userId, clubId: clubId });
-      console.log("Club removed successfully");
+      console.log('Club removed successfully');
     } else {
-      console.log("Club does not exist in profile");
+      console.log('Club does not exist in profile');
     }
   },
 
@@ -82,10 +81,8 @@ Meteor.methods({
         userId: this.userId,
         clubId: clubId,
       });
-    }
-    else
-    {
-      console.log("already exists");
+    } else {
+      console.log('already exists');
     }
   },
 });

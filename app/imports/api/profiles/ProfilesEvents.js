@@ -14,12 +14,12 @@ class ProfilesEventsCollection {
     this.schema = new SimpleSchema({
       profileId: {
         type: SimpleSchema.Integer, // Assuming the UH_ID from Profiles is used here
-        label: "Profile ID",
+        label: 'Profile ID',
         // Consider adding custom validation or reference to the Profiles collection
       },
       eventId: {
         type: String, // Assuming a string identifier for events
-        label: "Event ID",
+        label: 'Event ID',
         // Consider adding custom validation or reference to the Events collection
       },
       // Additional fields can be added as needed, such as participation roles, dates, etc.

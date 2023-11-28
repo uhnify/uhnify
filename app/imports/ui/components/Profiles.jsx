@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, ListGroup } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 /** Renders a large card with profile information */
 const ProfileCard = ({ profile, clubs, events, interests }) => (

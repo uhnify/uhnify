@@ -12,12 +12,12 @@ class EventsInterestsCollection {
     this.schema = new SimpleSchema({
       eventId: {
         type: String,
-        label: "Event ID",
+        label: 'Event ID',
         // Consider adding custom validation or reference to the Events collection
       },
       interestId: {
         type: String,
-        label: "Interest ID",
+        label: 'Interest ID',
         // Consider adding custom validation or reference to the Interests collection
       },
       // You can add additional fields if needed
