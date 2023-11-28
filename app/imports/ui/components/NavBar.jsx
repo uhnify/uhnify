@@ -22,47 +22,62 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown id="club-drop" title="ClubHub">
-              <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
-              <NavDropdown.Item id="add-clubs" as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
-            </NavDropdown>
+            {currentUser && (
+              <NavDropdown id="club-drop" title="ClubHub">
+                <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
+                <NavDropdown.Item id="add-clubs" as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
+              </NavDropdown>
+            )}
 
-            <NavDropdown title="Events" id="nav-dropdown-events">
-              <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link id="my-clubs" as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
+
+            {currentUser && (
+              <NavDropdown title="Events" id="nav-dropdown-events">
+                <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
+              </NavDropdown>
+            )}
+            {currentUser && (
+              <Nav.Link id="my-clubs" as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
+            )}
+
             {isAdmin && (
               <Nav.Link as={NavLink} to="/admin">Dashboard</Nav.Link>
             )}
           </Nav>
           <Nav>
-            <Nav.Link as={NavLink} to="/notifications" className="no-shadow">
-              <Bell />
-            </Nav.Link>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success"><Search /></Button>
-            </Form>
+            {/*<Nav.Link as={NavLink} to="/notifications" className="no-shadow">*/}
+            {/*  <Bell />*/}
+            {/*</Nav.Link>*/}
+            {/*<Form className="d-flex">*/}
+            {/*  <FormControl*/}
+            {/*    type="search"*/}
+            {/*    placeholder="Search"*/}
+            {/*    className="me-2"*/}
+            {/*    aria-label="Search"*/}
+            {/*  />*/}
+            {/*  <Button variant="outline-success"><Search /></Button>*/}
+            {/*</Form>*/}
             <NavDropdown title={<Person />} id="nav-dropdown-profile">
-              <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/user/settings">
-                <Gear /> Customize
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
               {currentUser ? (
-                <NavDropdown.Item id="navbar-current-user" as={NavLink} to="/SignOut">Logout</NavDropdown.Item>
+                // These items will only be shown when there is a logged-in user
+                <>
+                  <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/user/settings">
+                    <Gear /> Customize
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item id="navbar-current-user" as={NavLink} to="/SignOut">Logout</NavDropdown.Item>
+                </>
               ) : (
-                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignIn">Login</NavDropdown.Item>
+                // This item will be shown when there is no logged-in user
+                <>
+                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignIn">Sign In</NavDropdown.Item>
+                <NavDropdown.Item id="nav-dropdown-profile-sign-in" as={NavLink} to="/SignUp">Sign Up</NavDropdown.Item>
+                </>
               )}
             </NavDropdown>
           </Nav>

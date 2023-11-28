@@ -50,7 +50,7 @@ const SignUp = ({ location }) => {
   const bridge = new SimpleSchema2Bridge(schema);
 
   const handleNext = () => {
-    if (currentStep < 2) {
+    if (currentStep < 3) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -112,10 +112,8 @@ const SignUp = ({ location }) => {
             <>
               <div className="signin-call-to-action"><h1>Register your account</h1></div>
               <AutoForm schema={bridge} model={formData} onChangeModel={setFormData}>
-                <TextField name="email" placeholder="More Stuff" />
-                <TextField name="password" placeholder="MoreStuff" type="password" />
-                <TextField name="fName" placeholder="MoreStuff" />
-                <TextField name="lName" placeholder="More Stuff" />
+                <TextField name="email" placeholder="Email" />
+                <TextField name="password" placeholder="Password" type="password" />
                 <Button variant="primary" onClick={handleNext} className="form-controlsubmit">
                   Next
                 </Button>
@@ -124,7 +122,24 @@ const SignUp = ({ location }) => {
           )}
           {currentStep === 2 && (
             <>
-              <div className="signin-call-to-action"><h1>What are your interests?</h1></div>
+              <div className="signin-call-to-action"><h1>Register your account</h1></div>
+              <AutoForm schema={bridge} model={formData} onChangeModel={setFormData}>
+                <TextField name="fName" placeholder="First Name" label="First Name"/>
+                <TextField name="lName" placeholder="Last Name" label="Last Name" />
+                <div className="d-flex justify-content-between">
+                  <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
+                    Previous
+                  </Button>
+                  <Button variant="secondary" onClick={handleNext} className="form-controlsubmit">
+                    Next
+                  </Button>
+                </div>
+              </AutoForm>
+            </>
+          )}
+          {currentStep === 3 && (
+            <>
+              <div className="signin-call-to-action"><h1 className="mb-5">What are your interests?</h1></div>
               <AutoForm schema={bridge} model={formData} onSubmit={data => submit(data)}>
                 <div className="tag-container">
                   <input type="checkbox" id="tag1" className="tag-checkbox" onChange={handleCheckboxChange} />
@@ -147,7 +162,7 @@ const SignUp = ({ location }) => {
 
                   <input type="checkbox" id="tag7" className="tag-checkbox" />
                   <label htmlFor="tag7" className="tag-label">Creativity</label>  </div>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between mt-5">
                   <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
                     Previous
                   </Button>
