@@ -98,7 +98,13 @@ const SignUp = ({ location }) => {
   };
 
   return (
-    <m.Container initial={{ x: '100%' }} animate={{ x: '0%' }} exit={{ x: '-100' }} transition={{ duration: 0.75, ease: 'easeOut' }}  fluid>
+    <m.Container
+      initial={{ x: '100%' }}
+      animate={{ x: '0%' }}
+      exit={{ position: 'absolute', width: '100%', opacity: 1 }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+      fluid
+    >
       <Row className="min-vh-100">
         <Col md={4} className="signup-call-to-action-section ">
           <div className="signup-call-to-action">
