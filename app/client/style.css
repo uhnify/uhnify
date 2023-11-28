@@ -752,64 +752,73 @@ em {
 
 
 
-/* Footer */
-/* Footer adjustments for responsiveness */
+/* FOOTER START */ /* FOOTER START */ /* FOOTER START */ /* FOOTER START */
 .footer {
-  background-color: var(--banana-leaf-green)!important; /* Example background color */
-  padding: 20px 0; /* Adjust padding as needed */
-  border-top: #0A5421;
-  border-top-style: solid;
-  border-top-width: 3px;
-  margin-top: auto; /* Push the footer to the bottom */
+  padding: 20px;
 }
 
-.footer .container {
-  max-width: 1200px; /* Adjust the max-width of the container if needed */
-  margin-bottom: 20px; /* Add space below each column */
+
+.footer-column h2 {
+  color: #ffffff;
 }
 
-/* Social icons adjustment */
-.social-icons svg {
-  margin: 0 10px; /* Space out the icons */
+
+.footer-column p {
+  margin-bottom: 5px;
 }
 
-@media (min-width: 768px) {
-  .footer .container > .row {
-    justify-content: space-around; /* Evenly distribute space around columns */
-  }
 
-  .footer .container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+.vertical-line {
+  border-left: 1px solid #fff;
+  height: 100%;
+  opacity: 1;
+}
 
-  .footer img {
-    max-width: 370px; /* Reduce image size on smaller screens */
-    margin-bottom: 15px; /* Add margin below image */
-    border-radius: 40px;
-  }
 
-  .footer .social-icons svg {
-    margin: 0 5px; /* Reduce space between icons on smaller screens */
-    width: 25px; /* Reduce icon size */
-  }
+.vertical-line-container {
+  padding: 0;
+}
 
-  .footer h5, .footer p {
-    font-size: 0.9rem; /* Reduce font size */
-  }
 
-  .footer-button {
-    --bs-btn-color: var(--coconut-white)!important;
-    --bs-btn-bg: var(--banana-leaf-green)!important;
-    --bs-btn-border-color: var(--light-tropical-green)!important;
-    --bs-btn-hover-color: var(--coconut-white)!important;
-    --bs-btn-hover-bg: var(--light-tropical-green)!important;
-    --bs-btn-hover-border-color: var(--light-tropical-green)!important;
-    --bs-btn-active-color: var(--coconut-white)!important;
-    --bs-btn-active-bg: var(--banana-leaf-green)!important;
-    --bs-btn-active-border-color: var(--banana-leaf-green)!important;
+/* Will hide the vertical line and stack the columns when minimized */
+@media (max-width: 767px) {
+  .vertical-line {
+    display: none;
   }
 }
+
+
+.heading-underline {
+  width: 50%;
+  border: 0;
+  height: 1px;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+  opacity: 1;
+}
+
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+.footer-link:hover {
+  color: #211d1d;
+}
+
+
+.social-icon {
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+
+.social-icon:hover svg {
+  color: #211d1d;
+}
+/* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/
 
 .tag-container {
   display: flex;
