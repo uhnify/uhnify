@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Landing from '../pages/Landing';
 import EditStuff from '../pages/EditStuff';
 import NotFound from '../pages/NotFound';
@@ -42,23 +42,25 @@ const AnimatedRoutes = () => {
 
   return (
     <AnimatePresence>
-      <Routes location={location} key={location.pathname}>
-        <Route exact path="/" element={<Landing />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signout" element={<SignOut />} />
-        <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
-        <Route path="/upcoming-events" element={<ListEvents />} />
-        <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
-        <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/clubdetail" element={<ClubDetail />} />
-        <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
-        <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
-        <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
-        <Route path="/notauthorized" element={<NotAuthorized />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <motion.div key={location.pathname}>
+        <Routes location={location}>
+          <Route exact path="/" element={<Landing />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signout" element={<SignOut />} />
+          <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
+          <Route path="/upcoming-events" element={<ListEvents />} />
+          <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
+          <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/clubdetail" element={<ClubDetail />} />
+          <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditStuff /></ProtectedRoute>} />
+          <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
+          <Route path="/notauthorized" element={<NotAuthorized />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </motion.div>
     </AnimatePresence>
   );
 };

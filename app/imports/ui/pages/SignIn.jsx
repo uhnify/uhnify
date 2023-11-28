@@ -26,10 +26,10 @@ const SignIn = () => {
   }
 
   return (
-    <m.Container
-      initial={{ x: '-100%' }}
-      animate={{ x: '0%' }}
-      exit={{ x: '-100%', position: 'absolute', width: '100%', opacity: 1 }}
+    <m.div
+      initial={{ x: '-100%', opacity: 0 }}
+      animate={{ x: '0%', opacity: 1 }}
+      exit={{ x: '-100%', position: 'absolute', width: '100%', opacity: 0 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       id="sign-in"
       fluid
@@ -71,7 +71,7 @@ const SignIn = () => {
           </div>
         </Col>
       </Row>
-    </m.Container>
+    </m.div>
   );
 };
 

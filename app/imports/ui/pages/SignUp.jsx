@@ -98,10 +98,10 @@ const SignUp = ({ location }) => {
   };
 
   return (
-    <m.Container
-      initial={{ x: '100%' }}
-      animate={{ x: '0%' }}
-      exit={{ position: 'absolute', width: '100%', opacity: 1 }}
+    <m.div
+      initial={{ x: '100%', opacity: 0 }}
+      animate={{ x: '0%', opacity: 1 }}
+      exit={{ position: 'absolute', width: '100%', opacity: 0 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       fluid
     >
@@ -167,7 +167,7 @@ const SignUp = ({ location }) => {
           )}
         </Col>
       </Row>
-    </m.Container>
+    </m.div>
   );
 };
 /* Ensure that the React Router location object is available in case we need to redirect. */
