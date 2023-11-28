@@ -20,7 +20,7 @@ const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => (
         ))}
       </div>
       {/* Changed from Link to Button */}
-      <button onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+      <button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
         View Details
       </button>
       <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3" variant="danger">
@@ -35,10 +35,13 @@ Club2.propTypes = {
   club: PropTypes.shape({
     clubID: PropTypes.number,
     name: PropTypes.string,
-    // ... other prop types ...
+    image: PropTypes.string,
+    meetingTime: PropTypes.string,
+    description: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   onRemoveFromProfile: PropTypes.func.isRequired,
-  onViewDetails: PropTypes.func.isRequired, // Add this
+  onViewDetails: PropTypes.func.isRequired,
 };
 
 export default Club2;
