@@ -810,3 +810,77 @@ em {
     --bs-btn-active-border-color: var(--banana-leaf-green)!important;
   }
 }
+
+.tag-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-checkbox {
+  display: none;
+}
+
+.tag-label {
+  display: inline-block;
+  width: 88px;
+  height: 37px;
+  line-height: 40px;
+  border-radius: 2em;
+  border: 1px solid grey;
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.tag-checkbox:checked + .tag-label {
+  border-color: deeppink;
+}
+
+.form-control{
+  width: 400px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: #f0f0f0 !important;
+}
+
+
+.form-control:focus {
+  background-color: #ffffff !important;
+  border-color: #545d62 !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(93, 92, 92, 0.22) !important;
+}
+
+
+.form-controlsubmit {
+  width: 200px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: var(--banana-leaf-green) !important;
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+}
+
+.form-controlsignup {
+  width: 200px !important;
+  height: 60px !important;
+  margin-bottom: 1rem !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 100px !important;
+  border: 1px solid #ced4da !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+
+}

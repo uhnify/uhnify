@@ -20,7 +20,7 @@ const SignUp = ({ location }) => {
     fName: '',
     lName: '',
   });
-  // Add state for club interests
+// Add state for club interests
   const [clubInterests, setClubInterests] = useState({
     academic: false,
     arts: false,
@@ -29,6 +29,7 @@ const SignUp = ({ location }) => {
     cultural: false,
     creativity: false,
   });
+
 
   // Handle change for checkboxes
   const handleCheckboxChange = (event) => {
@@ -44,7 +45,7 @@ const SignUp = ({ location }) => {
     sports: { type: Boolean, optional: true },
     social: { type: Boolean, optional: true },
     cultural: { type: Boolean, optional: true },
-    creativity: { type: Boolean, optional: true },
+    creativity: { type: Boolean, optional: true }
   });
   const bridge = new SimpleSchema2Bridge(schema);
 
@@ -145,8 +146,7 @@ const SignUp = ({ location }) => {
                   <label htmlFor="tag6" className="tag-label">Creativity</label>
 
                   <input type="checkbox" id="tag7" className="tag-checkbox" />
-                  <label htmlFor="tag7" className="tag-label">Creativity</label>
-                </div>
+                  <label htmlFor="tag7" className="tag-label">Creativity</label>  </div>
                 <div className="d-flex justify-content-between">
                   <Button variant="secondary" onClick={handlePrevious} className="form-controlsubmit">
                     Previous
