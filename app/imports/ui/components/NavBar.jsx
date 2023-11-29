@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { Meteor } from 'meteor/meteor';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 import { Person, Gear } from 'react-bootstrap-icons';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Profiles } from '../../api/profiles/Profiles';
+import LoadingSpinner from './LoadingSpinner'; // Import Bootstrap CSS
 
 const NavBar = () => {
   const { currentUser, isAdmin } = useTracker(() => ({
@@ -13,7 +15,16 @@ const NavBar = () => {
     isAdmin: Roles.userIsInRole(Meteor.userId(), 'admin'),
   }), []);
 
-  return (
+  const { ready, profile } = useTracker(() => {
+    const subscription = Meteor.subscribe(Profiles.userPublicationName);
+    const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
+    return {
+      ready: subscription.ready(),
+      profile: userProfile
+    };
+  }, []);
+
+  return ready ? (
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
@@ -58,9 +69,16 @@ const NavBar = () => {
             {/*  /> */}
             {/*  <Button variant="outline-success"><Search /></Button> */}
             {/* </Form> */}
-            <NavDropdown title={<Person />} id="nav-dropdown-profile">
+            <NavDropdown title={
+              currentUser ? (
+                <Image src={profile.picture} className="profilePicture" />
+              ) : (
+                <Image src="images/default-profile.png" className="profilePicture" />
+              )
+            } id="nav-dropdown-profile">
               {currentUser ? (
-                // These items will only be shown when there is a logged-in user
+                // These items will only be shown when there is a logged-in user\
+
                 <>
                   <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
                   <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
@@ -83,7 +101,6 @@ const NavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  ) : <LoadingSpinner />; // Render a loading spinner while data is being fetched
 };
-
 export default NavBar;

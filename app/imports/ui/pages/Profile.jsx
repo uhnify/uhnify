@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
+import { Buffer } from 'buffer';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -23,7 +24,31 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 const Profile = () => {
 
-  // On submit, insert the data.
+  const [imagePreview, setImagePreview] = useState('');
+  const fileInput = useRef(null); // Initialize fileInput with useRef
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('image')) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        // Use the Buffer from the 'buffer' package
+        const buffer = Buffer.from(e.target.result);
+        const imageName = `${Meteor.userId()}-${file.name}`;
+
+        Meteor.call('uploadProfilePicture', Meteor.userId(), buffer, imageName, (error, result) => {
+          if (error) {
+            console.error('Error uploading image:', error);
+          } else {
+            setImagePreview(`/images/${imageName}`);
+          }
+        });
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+  };
   const submit = (data, formRef) => {
     const { Firstname, Lastname, Email } = data;
 
@@ -61,6 +86,21 @@ const Profile = () => {
   };
   return ready ? (
     <Container className="py-3">
+      <div className="profile-picture-container">
+        {/* Display the selected image if available, otherwise the default one */}
+        <img className="profile-picture" src={profile.picture} alt="Profile" />
+        {console.log(profile.picture)}
+        <button className="edit-profile-picture" onClick={() => fileInput.current.click()}>
+          Edit Profile Picture
+        </button>
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInput}
+          onChange={handleImageChange}
+          style={{ display: 'none' }}
+        />
+      </div>
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Account Details</h2></Col>

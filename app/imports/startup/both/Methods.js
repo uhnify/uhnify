@@ -10,7 +10,8 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { ClubEvents } from '../../api/club/ClubEvents';
-
+import fs from 'fs';
+import path from 'path';
 const updateProfileMethod = 'Profiles.update';
 
 Meteor.methods({
@@ -128,5 +129,38 @@ Meteor.methods({
     }
   },
 });
+
+Meteor.methods({
+  uploadProfilePicture(userId, imageBuffer, imageName) {
+    check(userId, String);
+    check(imageName, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('not-logged-in', 'You must be logged in to perform this action');
+    }
+
+    // Ensure user is updating their own profile
+    if (this.userId !== userId) {
+      throw new Meteor.Error('not-authorized', 'You are not authorized to perform this action');
+    }
+
+    const imagePath = path.join('../../../../../public/images/', imageName);
+
+    try {
+      // Write the image buffer to the public directory
+      fs.writeFileSync(imagePath, imageBuffer);
+
+      // Update the user's profile picture in the database
+      Profiles.collection.update(
+        { userId },
+        { $set: { picture: `/images/${imageName}` } }
+      );
+    } catch (err) {
+      console.error('Error uploading image:', err);
+      throw new Meteor.Error('file-upload-failed', 'Failed to upload image');
+    }
+  },
+});
+
 
 export { updateProfileMethod, addClubMethod, addEventMethod };

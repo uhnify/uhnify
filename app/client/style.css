@@ -893,3 +893,10 @@ em {
   font-weight: bold !important;
 
 }
+
+.profilePicture
+{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
