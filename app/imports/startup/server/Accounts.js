@@ -15,14 +15,15 @@ const generateUH_ID = () => {
 };
 
 // Function to create a profile for the new user
-const createUserProfile = (userId, email) => {
+const createUserProfile = (userId, email, firstName, lastName) => {
   const UH_ID = generateUH_ID();
   Profiles.collection.insert({
-    UH_ID,
+    //UH_ID,
+    userId,
     email,
     // Set other fields to default values or leave them to be updated later
-    firstName: '',
-    lastName: '',
+    firstName: firstName,
+    lastName: lastName,
     bio: '',
     title: '',
     picture: '/images/default-profile.png', // Default profile picture
@@ -59,3 +60,6 @@ if (Meteor.users.find().count() === 0) {
     console.log('Cannot initialize the database! Please invoke meteor with a settings file.');
   }
 }
+
+
+
