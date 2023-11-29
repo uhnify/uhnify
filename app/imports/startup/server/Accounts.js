@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Roles } from 'meteor/alanning:roles';
-import { Profiles } from '/imports/api/profiles/Profiles'; // Adjust the import path as needed
-
+import { Profiles } from '../../api/profiles/Profiles';
 /* eslint-disable no-console */
 
 // Function to generate a UH_ID for a new profile

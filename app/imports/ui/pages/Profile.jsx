@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { AutoForm, ErrorsField, NumField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -21,7 +21,6 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-/* Renders the AddStuff page for adding a document. */
 const Profile = () => {
 
   // On submit, insert the data.
@@ -54,6 +53,7 @@ const Profile = () => {
   if (!ready || !profile) {
     return <LoadingSpinner />; // or some other indication that data is loading
   }
+  //use this to pass into schema because userId doenst work
   const transformedProfile = {
     Firstname: profile.firstName,
     Lastname: profile.lastName,
