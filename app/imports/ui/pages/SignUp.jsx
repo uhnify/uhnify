@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, TextField } from 'uniforms-bootstrap5';
 import { Profile } from '../../api/profile/Profile';
 
+
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
  */
@@ -64,14 +65,15 @@ const SignUp = ({ location }) => {
     try {
       await Accounts.createUser({ email, username: email, password });
       await swal('Success', 'Registration successful!', 'success');
-
-      // After successful account creation, insert the profile.
-      await Profile.collection.insert({
-        fName: fName,
-        lName: lName,
+      console.log(Meteor.userId())
+      Meteor.call('createUserProfile', Meteor.userId(), email, fName, lName, (error) => {
+        if (error) {
+          swal('Error', error.reason, 'error');
+        } else {
+          setRedirectToRef(true);
+          console.log("successful user Profile")
+        }
       });
-
-      setRedirectToRef(true);
     } catch (err) {
       await swal('Error', err.reason, 'error');
     }

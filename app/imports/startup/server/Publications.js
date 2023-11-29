@@ -49,7 +49,7 @@ Meteor.publish(Events.adminPublicationName, function () {
 // User-level publications for Profiles
 Meteor.publish(Profiles.userPublicationName, function () {
   if (this.userId) {
-    return Profiles.collection.find({ userId: this.userId });
+    return Profiles.collection.find();
   }
   return this.ready();
 });
@@ -124,3 +124,4 @@ Meteor.publish(ProfileClubs.userPublicationName, function () {
   }
   return this.ready();
 });
+

@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { check } from 'meteor/check'
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -49,6 +50,45 @@ Meteor.methods({
   },
 });
 
+Meteor.methods({
+  'createUserProfile': function (userId, email, firstName, lastName) {
+    //const UH_ID = generateUH_ID();
+    Profiles.collection.insert({
+      //UH_ID,
+      userId,
+      email,
+      // Set other fields to default values or leave them to be updated later
+      firstName: firstName,
+      lastName: lastName,
+      bio: '',
+      title: '',
+      picture: '/images/default-profile.png', // Default profile picture
+    });
+    //console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
+  },
+});
+
+Meteor.methods({
+  updateUserProfile(userId, profileData) {
+    check(userId, String);
+    check(profileData, {
+      Firstname: String,
+      Lastname: String,
+      Email: String
+    });
+
+    // Ensure the user is logged in and updating their own profile
+    if (this.userId !== userId) {
+      throw new Meteor.Error('not-authorized', 'You are not authorized to perform this action');
+    }
+
+    // Update the user's profile
+    Profiles.collection.update(
+      { userId: userId },
+      { $set: { firstName: profileData.Firstname, lastName: profileData.Lastname, email: profileData.Email } }
+    );
+  }
+});
 Meteor.methods({
   'profileClubs.remove'(clubId) {
     if (!this.userId) {
