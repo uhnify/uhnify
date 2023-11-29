@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
@@ -86,24 +86,26 @@ const Profile = () => {
   };
   return ready ? (
     <Container className="py-3">
-      <div className="profile-picture-container">
-        {/* Display the selected image if available, otherwise the default one */}
-        <img className="profile-picture" src={profile.picture} alt="Profile" />
-        {console.log(profile.picture)}
-        <button className="edit-profile-picture" onClick={() => fileInput.current.click()}>
-          Edit Profile Picture
-        </button>
-        <input
-          type="file"
-          accept="image/*"
-          ref={fileInput}
-          onChange={handleImageChange}
-          style={{ display: 'none' }}
-        />
-      </div>
+
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Account Details</h2></Col>
+          <Row>
+            <div className="profile-picture-container d-flex flex-column align-items-center">
+              {/* Display the selected image if available, otherwise the default one */}
+              <img className="profile-picture" src={profile.picture} alt="Profile" />
+              <Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
+                Edit Profile Picture
+              </Button>
+              <input
+                type="file"
+                accept="image/*"
+                ref={fileInput}
+                onChange={handleImageChange}
+                style={{ display: 'none' }}
+              />
+            </div>
+          </Row>
           <AutoForm
             ref={ref => { fRef = ref; }}
             schema={bridge}
