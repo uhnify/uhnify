@@ -11,6 +11,31 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import Profil
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
 import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents collection
+import { WebApp } from 'meteor/webapp';
+import fs from 'fs';
+import path from 'path';
+
+const imagesPath = '../../../../../public/images/'; // Replace with your actual path
+// Set up a middleware in the Meteor server to handle HTTP requests for '/images' URL path.
+WebApp.connectHandlers.use('/images', (req, res, next) => {
+  // Construct the full path of the requested image using the base directory and the URL path.
+  const imagePath = path.join(imagesPath, req.url);
+
+  // Read the file asynchronously from the file system.
+  fs.readFile(imagePath, (err, data) => {
+    // Check if there was an error, such as the file not being found.
+    if (err) {
+      // If an error occurred, send a 404 (Not Found) HTTP status code.
+      res.writeHead(404);
+      // End the response with a message indicating the image was not found.
+      return res.end('Image not found');
+    }
+    // If the file was successfully read, send a 200 (OK) HTTP status code.
+    res.writeHead(200);
+    // End the response by sending the image data.
+    res.end(data);
+  });
+});
 
 // User-level publications for Clubs
 Meteor.publish(Clubs.userPublicationName, function () {

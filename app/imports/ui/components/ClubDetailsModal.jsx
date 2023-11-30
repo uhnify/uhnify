@@ -10,6 +10,8 @@ const ClubDetailsModal = ({ show, handleClose, club }) => {
         <Modal.Title>{club.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <p style={{ color: 'black' }}><b><i>Meeting Time: </i></b>{club.meetingTime}</p>
+        <p style={{ color: 'black' }}><b><i>Location: </i></b>{club.location}</p>
         <p style={{ color: 'black' }}>{club.description}</p>
         {/* Add more details as needed */}
       </Modal.Body>
