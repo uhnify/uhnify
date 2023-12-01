@@ -616,7 +616,6 @@ em {
   width: 100%;
   margin-bottom: 2rem;
   white-space: nowrap; /* Make sure the header is in one line */
-  margin-left: 0px;
   margin-right: 300px; /* Center the login header, idk ehy text center wasnt working. */
 }
 .signup-call-to-action h1 {
@@ -819,6 +818,24 @@ em {
   color: #211d1d;
 }
 /* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/ /* FOOTER END*/
+
+/* CLUB DESC*/ /* CLUB DESC*/ /* CLUB DESC*/ /* CLUB DESC*/ /* CLUB DESC*/
+
+/* Style for the card header */
+.my-container .card-title {
+  font-size: 2.2em !important; /* Adjust the font size of the header as needed */
+  color: #030000;
+}
+
+/* Adjust the paragraph size and color */
+.my-container .card-text {
+  color: black; /* Ensures text is black */
+  font-size: 1.5em; /* Adjust the font size of the text as needed */
+  margin-top: 15px; /* Optional: adds some space between the header and text */
+}
+
+
+/* CLUB DESC END*/ /* CLUB DESC END*/ /* CLUB DESC END*/ /* CLUB DESC END*/
 
 .tag-container {
   display: flex;
