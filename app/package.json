@@ -1,5 +1,5 @@
 {
-  "name": "uhnify",
+  "name": "meteor-application-template-react",
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.23.4",
