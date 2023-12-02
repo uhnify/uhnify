@@ -6,10 +6,9 @@ import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
+import { Buffer } from 'buffer';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
-import { Buffer } from 'buffer';
-
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -70,7 +69,7 @@ const Profile = () => {
     const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
     return {
       ready: subscription.ready(),
-      profile: userProfile
+      profile: userProfile,
     };
   }, []);
   console.log(profile); // Log to check the structure of the profile data
@@ -79,7 +78,7 @@ const Profile = () => {
   if (!ready || !profile) {
     return <LoadingSpinner />; // or some other indication that data is loading
   }
-  //use this to pass into schema because userId doenst work
+  // use this to pass into schema because userId doenst work
   const transformedProfile = {
     Firstname: profile.firstName,
     Lastname: profile.lastName,

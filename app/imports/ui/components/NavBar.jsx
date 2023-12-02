@@ -20,7 +20,7 @@ const NavBar = () => {
     const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
     return {
       ready: subscription.ready(),
-      profile: userProfile
+      profile: userProfile,
     };
   }, []);
 
@@ -69,15 +69,18 @@ const NavBar = () => {
             {/*  /> */}
             {/*  <Button variant="outline-success"><Search /></Button> */}
             {/* </Form> */}
-            <NavDropdown title={
-              currentUser ? (
-                <Image src={profile.picture} className="profilePicture" />
-              ) : (
-                <Image src="images/default-profile.png" className="profilePicture" />
-              )
-            } id="nav-dropdown-profile">
+            <NavDropdown
+              title={
+                currentUser ? (
+                  <Image src={profile.picture} className="profilePicture" />
+                ) : (
+                  <Image src="images/default-profile.png" className="profilePicture" />
+                )
+              }
+              id="nav-dropdown-profile"
+            >
               {currentUser ? (
-                // These items will only be shown when there is a logged-in user\
+              // These items will only be shown when there is a logged-in user\
 
                 <>
                   <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>

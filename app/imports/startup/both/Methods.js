@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import fs from 'fs';
+import path from 'path';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -10,8 +12,7 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { ClubEvents } from '../../api/club/ClubEvents';
-import fs from 'fs';
-import path from 'path';
+
 const updateProfileMethod = 'Profiles.update';
 
 Meteor.methods({
@@ -52,10 +53,10 @@ Meteor.methods({
 });
 
 Meteor.methods({
-  'createUserProfile': function (userId, email, firstName, lastName) {
-    //const UH_ID = generateUH_ID();
+  createUserProfile: function (userId, email, firstName, lastName) {
+    // const UH_ID = generateUH_ID();
     Profiles.collection.insert({
-      //UH_ID,
+      // UH_ID,
       userId,
       email,
       // Set other fields to default values or leave them to be updated later
@@ -65,7 +66,7 @@ Meteor.methods({
       title: '',
       picture: '/images/default-profile.png', // Default profile picture
     });
-    //console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
+    // console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
   },
 });
 
@@ -75,7 +76,7 @@ Meteor.methods({
     check(profileData, {
       Firstname: String,
       Lastname: String,
-      Email: String
+      Email: String,
     });
 
     // Ensure the user is logged in and updating their own profile
@@ -86,9 +87,9 @@ Meteor.methods({
     // Update the user's profile
     Profiles.collection.update(
       { userId: userId },
-      { $set: { firstName: profileData.Firstname, lastName: profileData.Lastname, email: profileData.Email } }
+      { $set: { firstName: profileData.Firstname, lastName: profileData.Lastname, email: profileData.Email } },
     );
-  }
+  },
 });
 Meteor.methods({
   'profileClubs.remove'(clubId) {
@@ -153,7 +154,7 @@ Meteor.methods({
       // Update the user's profile picture in the database
       Profiles.collection.update(
         { userId },
-        { $set: { picture: `/images/${imageName}` } }
+        { $set: { picture: `/images/${imageName}` } },
       );
     } catch (err) {
       console.error('Error uploading image:', err);
@@ -161,6 +162,5 @@ Meteor.methods({
     }
   },
 });
-
 
 export { updateProfileMethod, addClubMethod, addEventMethod };

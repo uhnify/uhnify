@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-import {  Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, TextField } from 'uniforms-bootstrap5';
 import { Profile } from '../../api/profile/Profile';
-
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -64,20 +63,19 @@ const SignUp = ({ location }) => {
     try {
       await Accounts.createUser({ email, username: email, password });
       await swal('Success', 'Registration successful!', 'success');
-      console.log(Meteor.userId())
+      console.log(Meteor.userId());
       Meteor.call('createUserProfile', Meteor.userId(), email, fName, lName, (error) => {
         if (error) {
           swal('Error', error.reason, 'error');
         } else {
           setRedirectToRef(true);
-          console.log("successful user Profile")
+          console.log('successful user Profile');
         }
       });
     } catch (err) {
       await swal('Error', err.reason, 'error');
     }
   };
-
 
   /* Display the signup form. Redirect to add page after successful registration and login. */
   const { from } = location?.state || { from: { pathname: '/add' } };
