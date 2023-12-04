@@ -20,6 +20,7 @@ import ClubFinder from '../pages/ClubFinder';
 import Footer from '../components/Footer';
 import Profile from '../pages/Profile';
 import AddClub from '../pages/AddClub';
+import ListEventsCalender from '../pages/ListEventsCalender';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/upcoming-events" element={<ListEvents />} />
+          <Route path="/calender-events" element={<ListEventsCalender />} />
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profile" element={<Profile />} />
