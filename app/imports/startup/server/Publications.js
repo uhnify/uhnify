@@ -58,10 +58,12 @@ Meteor.publish(Clubs.adminPublicationName, function () {
 Meteor.publish(Events.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;
-    return Events.collection.find({ createdBy: username });
+    return Events.collection.find();
   }
   return this.ready();
 });
+
+
 
 // Admin-level publications for Events
 Meteor.publish(Events.adminPublicationName, function () {
@@ -150,3 +152,7 @@ Meteor.publish(ProfileClubs.userPublicationName, function () {
   return this.ready();
 });
 
+Meteor.publish('events', function publishEvents() {
+  console.log('Publishing events'); // To check if the publication function is called
+  return Events.find({}, { sort: { date: 1 } });
+});

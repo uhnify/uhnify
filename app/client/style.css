@@ -917,3 +917,8 @@ em {
   width: 50px;
   border-radius: 50%;
 }
+/* Add this to your CSS file */
+.red-title-background {
+  background-color: red !important; /* Use !important to override any existing styles */
+  color: white; /* Optional: Change text color to white for better visibility */
+}

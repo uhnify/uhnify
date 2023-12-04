@@ -44,6 +44,7 @@ const NavBar = () => {
             {currentUser && (
               <NavDropdown title="Events" id="nav-dropdown-events">
                 <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Event Finder</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/calender-events">Event Calendar</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/todays-events">My Events</NavDropdown.Item>
                 <NavDropdown.Item as={NavLink} to="/create-event">Start Event</NavDropdown.Item>
               </NavDropdown>
@@ -69,7 +70,11 @@ const NavBar = () => {
             <NavDropdown
               title={
                 currentUser ? (
-                  <Image src={profile.picture} className="profilePicture" />
+                  profile ? (
+                    <Image src={profile.picture || "images/default-profile.png"} className="profilePicture" />
+                  ) : (
+                    <Image src="images/default-profile.png" className="profilePicture" />
+                  )
                 ) : (
                   <Image src="images/default-profile.png" className="profilePicture" />
                 )

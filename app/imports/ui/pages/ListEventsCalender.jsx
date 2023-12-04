@@ -1,34 +1,49 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import Calendar from 'react-calendar';
-import { Events } from '../../api/events/Events'; // Adjust the path as necessary
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import LoadingSpinner from '../components/LoadingSpinner';
-
-const ListEventsCalender = () => {
-  const { events, isLoading } = useTracker(() => {
-    // Fetch and sort events from EventsCollection
-    const fetchedEvents = Events.collection.find({}, { sort: { date: 1 } }).fetch();
-    return { events: fetchedEvents, isLoading: !Meteor.subscribe('events').ready() };
+import { Events } from '../../api/events/Events';
+const ListEventsCalendar = () => {
+  const { ready, events } = useTracker(() => {
+    const subscription = Meteor.subscribe(Events.userPublicationName);
+    const rdy = subscription.ready();
+    const eventItems = Events.collection.find({}).fetch();
+    return {
+      events: eventItems,
+      ready: rdy,
+    };
   }, []);
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
+  // Format the events for FullCalendar
+  const formattedEvents = events.map((event) => ({
+    title: event.title, // Set the title to "Meeting"
+    start: new Date(event.date), // Use the date from your collection
+    description: event.description,
+    color: "#FFA500",
+    eventClassNames: ['red-title-background'], // Add this line
+  }));
 
-  return (
+  return ready ? (
     <Container>
-      <Row>
-        <Col>
-          <Calendar
-            // Calendar-specific props, like setting value to dates of events
-            value={events.map(event => new Date(event.date))}
-          />
-        </Col>
-      </Row>
+      <div>
+        <h1>Event Calendar</h1>
+        <FullCalendar
+          plugins={[dayGridPlugin]}
+          initialView='dayGridMonth'
+          events={formattedEvents}
+          headerToolbar={{
+            start: 'today prev,next', // will normally be on the left. if RTL, will be on the right
+            center: 'title',
+            end: 'dayGridMonth,dayGridWeek,dayGridDay' // will normally be on the right. if RTL, will be on the left
+          }}
+        />
+      </div>
     </Container>
-  );
+  ) : <LoadingSpinner />;
 };
 
-export default ListEventsCalender;
+export default ListEventsCalendar;
+
