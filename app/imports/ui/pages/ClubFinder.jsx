@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { AutoForm, SubmitField, TextField } from 'uniforms-bootstrap5';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -57,10 +57,12 @@ const ClubFinder = () => {
             <h2>Club Finder</h2>
           </Col>
           <Row>
-            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-              <TextField name="name" />
-              <SubmitField id="submit" value="submit" />
+            <Card>
+              <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+              <TextField name="name"/>
+              <SubmitField id="submit" value="submit"/>
             </AutoForm>
+            </Card>
           </Row>
           <Row xs={1} md={2} lg={4}>
             {clubs.map((club) => (
