@@ -6,6 +6,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/events/Events';
+
 const ListEventsCalendar = () => {
   const { ready, events } = useTracker(() => {
     const subscription = Meteor.subscribe(Events.userPublicationName);
@@ -22,7 +23,7 @@ const ListEventsCalendar = () => {
     title: event.title, // Set the title to "Meeting"
     start: new Date(event.date), // Use the date from your collection
     description: event.description,
-    color: "#FFA500",
+    color: '#FFA500',
     eventClassNames: ['red-title-background'], // Add this line
   }));
 
@@ -32,12 +33,12 @@ const ListEventsCalendar = () => {
         <h1>Event Calendar</h1>
         <FullCalendar
           plugins={[dayGridPlugin]}
-          initialView='dayGridMonth'
+          initialView="dayGridMonth"
           events={formattedEvents}
           headerToolbar={{
             start: 'today prev,next', // will normally be on the left. if RTL, will be on the right
             center: 'title',
-            end: 'dayGridMonth,dayGridWeek,dayGridDay' // will normally be on the right. if RTL, will be on the left
+            end: 'dayGridMonth,dayGridWeek,dayGridDay', // will normally be on the right. if RTL, will be on the left
           }}
         />
       </div>
@@ -46,4 +47,3 @@ const ListEventsCalendar = () => {
 };
 
 export default ListEventsCalendar;
-
