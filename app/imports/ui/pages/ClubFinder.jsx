@@ -2,12 +2,27 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { AutoForm, SubmitField, TextField } from 'uniforms-bootstrap5';
+import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
+import SimpleSchema from 'simpl-schema';
 import { Clubs } from '../../api/club/Club';
 import Club from '../components/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
 
+// Create a schema to specify the structure of the data to appear in the form.
+const formSchema = new SimpleSchema({
+  name: String,
+});
+
+const bridge = new SimpleSchema2Bridge(formSchema);
+
 const ClubFinder = () => {
 
+  // On submit, insert the data.
+  const submit = (data, formRef) => {
+    const { name } = data;
+    const owner = Meteor.user().username;
+  };
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
     Meteor.call('profileClubs.add', clubId, (error) => {
@@ -41,6 +56,12 @@ const ClubFinder = () => {
           <Col className="text-center">
             <h2>Club Finder</h2>
           </Col>
+          <Row>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
+              <TextField name="name" />
+              <SubmitField id="submit" value="submit" />
+            </AutoForm>
+          </Row>
           <Row xs={1} md={2} lg={4}>
             {clubs.map((club) => (
               <Col key={club._id}>
