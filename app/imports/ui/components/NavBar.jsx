@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { Meteor } from 'meteor/meteor';
 import { Container, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
-import { Person, Gear } from 'react-bootstrap-icons';
+import { Gear } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Profiles } from '../../api/profiles/Profiles';
 import LoadingSpinner from './LoadingSpinner'; // Import Bootstrap CSS
@@ -36,20 +36,17 @@ const NavBar = () => {
             {currentUser && (
               <NavDropdown id="club-drop" title="ClubHub">
                 <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/club-recommendations">Picks for You</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
                 <NavDropdown.Item id="add-clubs" as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
               </NavDropdown>
             )}
 
             {currentUser && (
               <NavDropdown title="Events" id="nav-dropdown-events">
-                <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Coming Up</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/todays-events">On Today</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/create-event">Organize</NavDropdown.Item>
+                <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Event Finder</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/todays-events">My Events</NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/create-event">Start Event</NavDropdown.Item>
               </NavDropdown>
-            )}
-            {currentUser && (
-              <Nav.Link id="my-clubs" as={NavLink} to="/my-clubs" className="no-shadow">My Clubs</Nav.Link>
             )}
 
             {isAdmin && (

@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/clubdetail" element={<ProtectedRoute><ClubDetail /></ProtectedRoute>} />
+          <Route path="/clubdetail" element={<ClubDetail />} />
           <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
