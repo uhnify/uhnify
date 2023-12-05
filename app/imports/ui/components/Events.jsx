@@ -31,6 +31,7 @@ EventCard.propTypes = {
     createdBy: PropTypes.string, // Assuming createdBy is a string
     eventID: PropTypes.number, // Assuming eventID is a number as per your schema
     image: PropTypes.string, // Assuming you have an image field
+    clubID: PropTypes.number, // Assuming clubID is a number as per your schema
     // Add other fields as necessary
   }).isRequired,
 };

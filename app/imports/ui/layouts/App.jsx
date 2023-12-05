@@ -20,9 +20,7 @@ import ClubFinder from '../pages/ClubFinder';
 import Footer from '../components/Footer';
 import Profile from '../pages/Profile';
 import AddClub from '../pages/AddClub';
-
 import MyEvents from '../pages/MyEvents';
-
 import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */

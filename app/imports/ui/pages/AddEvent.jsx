@@ -10,6 +10,7 @@ import { Events } from '../../api/events/Events';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   eventID: SimpleSchema.Integer,
+  clubID: SimpleSchema.Integer,
   title: String,
   description: {
     type: String,
@@ -29,11 +30,11 @@ const AddEvent = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { title, description, date, meetingTime, location, createdBy, image, eventID } = data;
+    const { title, description, date, meetingTime, location, createdBy, image, eventID, clubID } = data;
     const owner = Meteor.user().username;
 
     Events.collection.insert(
-      { title, description, date, meetingTime, location, createdBy, owner, image, eventID },
+      { title, description, date, meetingTime, location, createdBy, owner, image, eventID, clubID },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -56,6 +57,7 @@ const AddEvent = () => {
             <Card>
               <Card.Body>
                 <NumField id="eventID" name="eventID" />
+                <NumField id="clubID" name="clubID" />
                 <TextField id="title" name="title" />
                 <TextField id="image" name="image" />
                 <TextField id="location" name="location" />

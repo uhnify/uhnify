@@ -12,6 +12,7 @@ class EventsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
+      clubID: SimpleSchema.Integer,
       eventID: SimpleSchema.Integer,
       title: String,
       description: {
