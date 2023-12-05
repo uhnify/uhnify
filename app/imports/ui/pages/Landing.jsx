@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Image, Container, Row, Col, Card } from 'react-bootstrap';
 import 'owl.carousel';
 /* A simple static component to render some text for the landing page. */
@@ -99,37 +99,42 @@ const Landing = () => {
         <Row className="gx-5">
           {/* Each Col component should span 4 grid units */}
           <Col xs={12} md={6} lg={4}>
-            <Link to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <Card>
+            <NavLink to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Card className="club-card">
                 <Card.Img src="images/StudentsAtFootball.png" alt="Events" />
                 <Card.Body>
                   <Card.Title>Events</Card.Title>
                   <Card.Text>Join the community in exciting events around campus.</Card.Text>
                 </Card.Body>
               </Card>
-            </Link>
+            </NavLink>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <Link to="/search-clubs" style={{ textDecoration: 'none', color: 'inherit' }}><Card>
-              <Card.Img src="images/KumbayaCircle2.png" alt="Browse Clubs"/>
-              <Card.Body>
-                <Card.Title>Browse Clubs</Card.Title>
-                <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>
-              </Card.Body>
-            </Card></Link>
+            <NavLink to="/search-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Card className="club-card">
+                <Card.Img src="images/KumbayaCircle2.png" alt="Browse Clubs" />
+                <Card.Body>
+                  <Card.Title>Browse Clubs</Card.Title>
+                  <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>
+                </Card.Body>
+              </Card>
+            </NavLink>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <Link to="/my-clubs" style={{ textDecoration: 'none', color: 'inherit' }}><Card>
-              <Card.Img src="images/StudentsAtCafe.png" alt="My Clubs"/>
-              <Card.Body>
-                <Card.Title>My Clubs</Card.Title>
-                <Card.Text>View and manage your club memberships and activities.</Card.Text>
-              </Card.Body>
-            </Card></Link>
+            <NavLink to="/my-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Card className="club-card">
+                <Card.Img src="images/StudentsAtCafe.png" alt="My Clubs" />
+                <Card.Body>
+                  <Card.Title>My Clubs</Card.Title>
+                  <Card.Text>View and manage your club memberships and activities.</Card.Text>
+                </Card.Body>
+              </Card>
+            </NavLink>
           </Col>
         </Row>
       </Container>
     </>
   );
 };
+
 export default Landing;
