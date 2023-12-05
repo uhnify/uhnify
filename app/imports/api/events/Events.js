@@ -20,7 +20,9 @@ class EventsCollection {
       },
       date: Date,
       location: String,
-      createdBy: String, // Consider using this to store Meteor.userId() of the creator
+      createdBy: String,
+      image: String,
+      // Consider using this to store Meteor.userId() of the creator
       // Add other fields as necessary, like 'image' or 'attendees'
     });
     // Attach the schema to the collection.
