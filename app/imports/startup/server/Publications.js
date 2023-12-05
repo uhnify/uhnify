@@ -10,7 +10,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import ProfilesClub collection
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
-import { ClubEvents } from '../../api/club/ClubEvents'; // Import ClubEvents collection
+import { EventClubs } from '../../api/events/EventClubs';
 import { WebApp } from 'meteor/webapp';
 import fs from 'fs';
 import path from 'path';
@@ -124,11 +124,6 @@ Meteor.publish(ProfilesEvents.publicationName, function () {
   return ProfilesEvents.collection.find();
 });
 
-// General publication for ClubEvents
-Meteor.publish(ClubEvents.publicationName, function () {
-  return ClubEvents.collection.find();
-});
-
 // Roles publication
 Meteor.publish(null, function () {
   if (this.userId) {
@@ -152,7 +147,22 @@ Meteor.publish(ProfileClubs.userPublicationName, function () {
   return this.ready();
 });
 
-Meteor.publish('events', function publishEvents() {
-  console.log('Publishing events'); // To check if the publication function is called
-  return Events.find({}, { sort: { date: 1 } });
+
+Meteor.publish(EventClubs.userPublicationName, function () {
+  if (!this.userId) {
+    return this.ready();
+  }
+
+  // Fetch the clubs associated with the user
+  const profileClubs = ProfileClubs.collection.find({ userId: this.userId }).fetch();
+  const clubIds = profileClubs.map(pc => pc.clubId);
+
+  // Fetch the clubs to get their clubIDs
+  const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
+  const clubIDs = clubs.map(club => club.clubID); // Assuming 'clubID' is the field in Clubs collection
+
+
+  const eventsCursor = Events.collection.find().fetch();
+  console.log(Events.collection.find({ eventID: { $in: clubIDs } }).fetch());
+  return Events.collection.find({ eventID: { $in: clubIDs } });
 });

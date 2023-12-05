@@ -11,7 +11,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
-import { ClubEvents } from '../../api/club/ClubEvents';
+import { EventClubs } from '../../api/events/EventClubs';
 
 const updateProfileMethod = 'Profiles.update';
 
@@ -91,6 +91,14 @@ Meteor.methods({
     );
   },
 });
+function getEventIdsForClub(clubId) {
+  check(clubId, String);
+
+  const events = Events.collection.find({ eventId: clubId }).fetch();
+  console.log(events + "aaaaaaa")
+  return events.map(event => event._id);
+}
+
 Meteor.methods({
   'profileClubs.remove'(clubId) {
     check(clubId, String);
@@ -128,6 +136,25 @@ Meteor.methods({
     } else {
       console.log('already exists');
     }
+  },
+  'eventClubs.add'(clubId) {
+    check(clubId, String);
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    // Logic to determine which events to link to the club
+    const eventIds = getEventIdsForClub(clubId); // Implement this function based on your application logic
+
+    eventIds.forEach(eventId => {
+      const exists = EventClubs.collection.findOne({ eventId: eventId, clubId: clubId });
+      if (!exists) {
+        EventClubs.collection.insert({
+          userId: this.userId,
+          clubId: clubId,
+        });
+      }
+    });
   },
 });
 

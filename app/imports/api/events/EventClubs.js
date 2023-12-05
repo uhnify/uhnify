@@ -2,29 +2,19 @@ import { Mongo } from 'meteor/mongo';
 import SimpleSchema from 'simpl-schema';
 
 /**
- * The ClubsCollection. It encapsulates state and variable values for club.
+ * The ProfileCollection. It encapsulates state and variable values for club.
  */
-class ClubsCollection {
+class EventClubsCollection {
   constructor() {
     // The name of this collection.
-    this.name = 'ClubsCollection';
+    this.name = 'EventClubs';
     // Define the Mongo collection.
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      clubID: SimpleSchema.Integer,
-      name: String,
-      owner: String,
-      description: String,
-      location: String,
-      image: String,
-      meetingTime: String,
-      // contactInfo: String,
-      categories: {
-        type: Array,
-        optional: true, // make it optional if not all clubs have categories
-      },
-      'categories.$': String, // Define the type of the array elements
+      userId: String,
+      eventId: String,
+      clubId: String,
     });
     // Attach the schema to the collection, so all attempts to insert a document are checked against schema.
     this.collection.attachSchema(this.schema);
@@ -36,6 +26,6 @@ class ClubsCollection {
 
 /**
  * The singleton instance of the ClubsCollection.
- * @type {ClubsCollection}
+ * @type {EventClubsCollection}
  */
-export const Clubs = new ClubsCollection();
+export const EventClubs = new EventClubsCollection();
