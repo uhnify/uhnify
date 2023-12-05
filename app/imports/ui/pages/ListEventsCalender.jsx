@@ -29,20 +29,20 @@ const ListEventsCalendar = () => {
   }));
 
   return ready ? (
-    <Container>
-      <div>
+    <Container className="calendar-container">
+      <div className="calendar-header">
         <h1>Event Calendar</h1>
-        <FullCalendar
-          plugins={[dayGridPlugin]}
-          initialView="dayGridMonth"
-          events={formattedEvents}
-          headerToolbar={{
-            start: 'today prev,next', // will normally be on the left. if RTL, will be on the right
-            center: 'title',
-            end: 'dayGridMonth,dayGridWeek,dayGridDay', // will normally be on the right. if RTL, will be on the left
-          }}
-        />
       </div>
+      <FullCalendar
+        plugins={[dayGridPlugin]}
+        initialView="dayGridMonth"
+        events={formattedEvents}
+        headerToolbar={{
+          start: 'today prev,next',
+          center: 'title',
+          end: 'dayGridMonth,dayGridWeek,dayGridDay',
+        }}
+      />
     </Container>
   ) : <LoadingSpinner />;
 };

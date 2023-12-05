@@ -359,6 +359,47 @@ em {
   border: 5px solid var(--banana-leaf-green);
 }
 
+/* Styles for day labels (Monday-Sunday) */
+.fc-col-header-cell-cushion {
+  color: #4F7942 !important; /* Banana Leaf Green */
+  text-decoration: none !important;
+}
+.fc-button-active {
+  background-color: #4F7942 !important;
+}
+
+/* Styles for buttons at the top */
+.fc .fc-button {
+  background-color: #DAE8D4; /* Light Tropical Green */
+  color: #707070; /* Volcanic Gray */
+  border: 1px solid #707070; /* Optional, for button borders */
+}
+
+.fc-button-primary:hover {
+  background-color: #FF9E80 !important; /* Coral Pink for hover state */
+}
+
+/* Styles for numbers in calendar days */
+.fc .fc-daygrid-day-number {
+  color: #FF9E80;
+  text-decoration: none !important;
+}
+
+.calendar-container {
+  color: #707070; /* Volcanic Gray */
+  border-radius: 20px!important;
+}
+
+.calendar-header {
+  color: #4F7942; /* Banana Leaf Green */
+}
+
+.event-style {
+  border-color: #FF9E80; /* Coral Pink */
+  background-color: #feefd0; /* Pale Yellow */
+}
+
+
 .edit-profile-picture {
   background-color: var(--coral-pink);
   color: var(--coconut-white);
