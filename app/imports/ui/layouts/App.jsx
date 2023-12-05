@@ -23,7 +23,7 @@ import AddClub from '../pages/AddClub';
 import MyEvents from '../pages/MyEvents';
 import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
-import RandomPromoContainer from '../components/RandomPromoContainer';
+import RandomPromoContainer from '../components/ClubCarousel';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {

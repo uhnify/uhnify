@@ -895,6 +895,28 @@ em {
   font-size: ;
 }
 
+.carousel-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carousel-background {
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-caption-container {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  color: #ffffff;
+  padding: 20px;
+}
+
+/* Ensure your button is positioned at the bottom of the column */
+.carousel-caption-container .btn {
+  align-self: center; /* Center button horizontally */
+  margin-top: auto; /* Push button to the bottom */
+  /*background-color: var(--banana-leaf-green);*/
+}
 
 /*RandomPromoContainer END*/ /*RandomPromoContainer END*/ /*RandomPromoContainer END*/ /*RandomPromoContainer END*/
 
