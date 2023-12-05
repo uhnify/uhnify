@@ -31,6 +31,10 @@ html, body {
   flex: 1; /* Allows the main content to grow and occupy available space */
 }
 
+.navbar .dropdown-toggle::after {
+  display: none;
+}
+
 /* Modal Styles */
 .modal-header {
   background-color: var(--light-tropical-green);
@@ -148,6 +152,7 @@ em {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
   transform: translateY(-4px); /* Slightly raise the card */
 }
+
 
 .card .card-text {
   font-family: 'Open Sans', sans-serif;
