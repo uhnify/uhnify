@@ -6,10 +6,11 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Events } from '../../api/events/Events';
+import { EventClubs } from '../../api/events/EventClubs';
 
 const ListEventsCalendar = () => {
   const { ready, events } = useTracker(() => {
-    const subscription = Meteor.subscribe(Events.userPublicationName);
+    const subscription = Meteor.subscribe(EventClubs.userPublicationName);
     const rdy = subscription.ready();
     const eventItems = Events.collection.find({}).fetch();
     return {
