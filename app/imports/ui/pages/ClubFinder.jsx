@@ -68,6 +68,7 @@ const ClubFinder = () => {
                 id={category}
                 checked={selectedCategories.includes(category)}
                 onChange={(e) => handleCategoryChange(e, category)}
+                className="form-check-input"
               />
               <label htmlFor={category}>{category}</label>
             </div>
