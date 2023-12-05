@@ -121,7 +121,7 @@ const Profile = () => {
                 <Row>
                   <TextField name="Email" />
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField value="Update" />
                 <ErrorsField />
               </Card.Body>
             </Card>
