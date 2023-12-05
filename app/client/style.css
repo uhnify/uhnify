@@ -372,7 +372,7 @@ em {
 .fc .fc-button {
   background-color: #DAE8D4; /* Light Tropical Green */
   color: #707070; /* Volcanic Gray */
-  border: 1px solid #707070; /* Optional, for button borders */
+  border: none; /* Optional, for button borders */
 }
 
 .fc-button-primary:hover {
