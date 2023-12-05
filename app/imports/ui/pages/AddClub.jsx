@@ -50,18 +50,18 @@ const AddClub = () => {
     <Container id="add-clubs" className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
-          <Col className="text-center"><h2>Start Club</h2></Col>
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-            <Card>
+          <h2 className="text-center heading">Start Club</h2>
+          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} className="form">
+            <Card className="theme-card">
               <Card.Body>
-                <TextField id="name" name="name" />
-                <TextField id="image" name="image" />
-                <TextField id="location" name="location" />
-                <LongTextField id="description" name="description" />
-                <TextField id="meetingTime" name="meetingTime" />
-                <SelectField name="categories" />
-                <SubmitField id="submit" value="Submit" />
-                <ErrorsField />
+                <TextField id="name" name="name" className="theme-text-field" />
+                <TextField id="image" name="image" className="theme-text-field" />
+                <TextField id="location" name="location" className="theme-text-field" />
+                <LongTextField id="description" name="description" className="theme-text-field" />
+                <TextField id="meetingTime" name="meetingTime" className="theme-text-field" />
+                <SelectField name="categories" className="theme-select-field" />
+                <SubmitField id="submit" value="Submit" className="submit-button" />
+                <ErrorsField className="error-field" />
               </Card.Body>
             </Card>
           </AutoForm>

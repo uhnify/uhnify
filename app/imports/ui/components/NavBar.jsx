@@ -86,8 +86,8 @@ const NavBar = () => {
 
                 <>
                   <NavDropdown.Item as={NavLink} to="/Profilez">Profile</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/calender-events">Agenda</NavDropdown.Item>
                   <NavDropdown.Item as={NavLink} to="/profile">
                     <Gear /> Customize
                   </NavDropdown.Item>

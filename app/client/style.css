@@ -142,6 +142,7 @@ em {
   width: 100%;
 }
 
+
 /* Define the hover effect for the card to make it appear to "lift" off the page */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3); /* A larger shadow to create the lifting effect */
