@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Card, Col, Container, Row, Button, Image } from 'react-bootstrap';
+import { Card, Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { AutoForm, ErrorsField, SubmitField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
