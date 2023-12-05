@@ -16,6 +16,17 @@ const ClubFinder = () => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
 
+
+  // ... code to fetch clubs ...
+  const addClubToProfile = (clubId) => {
+    Meteor.call('profileClubs.add', clubId, (error) => {
+      if (error) {
+        console.error('Error adding club to profile:', error);
+      } else {
+        console.log('Club added to profile successfully');
+      }
+    });
+  };
   // Fetch clubs and set up subscription
   const { ready, clubs } = useTracker(() => {
     const subscription = Meteor.subscribe(Clubs.userPublicationName);

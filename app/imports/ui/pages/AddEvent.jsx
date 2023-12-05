@@ -10,7 +10,6 @@ import { Events } from '../../api/events/Events';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   eventID: SimpleSchema.Integer,
-  clubID: SimpleSchema.Integer,
   title: String,
   description: {
     type: String,
@@ -57,7 +56,6 @@ const AddEvent = () => {
             <Card>
               <Card.Body>
                 <NumField id="eventID" name="eventID" />
-                <NumField id="clubID" name="clubID" />
                 <TextField id="title" name="title" />
                 <TextField id="image" name="image" />
                 <TextField id="location" name="location" />
