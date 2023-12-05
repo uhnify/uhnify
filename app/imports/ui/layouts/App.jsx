@@ -20,6 +20,7 @@ import ClubFinder from '../pages/ClubFinder';
 import Footer from '../components/Footer';
 import Profile from '../pages/Profile';
 import AddClub from '../pages/AddClub';
+import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/clubdetail" element={<ClubDetail />} />
           <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
+          <Route path="/create-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
