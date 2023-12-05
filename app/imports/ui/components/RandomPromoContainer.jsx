@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Image } from 'react-bootstrap';
+import { Container, Carousel, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from './LoadingSpinner';
 
-const ClubRandom = () => {
+const ClubCarousel = () => {
   // Fetch clubs and set up subscription
   const { ready, clubs } = useTracker(() => {
     const subscription = Meteor.subscribe(Clubs.userPublicationName);
@@ -16,38 +16,37 @@ const ClubRandom = () => {
     };
   }, []);
 
-  // Function to get a random club
-  const getRandomClub = (clubsArray) => {
-    if (clubsArray.length === 0) return null;
-    const randomIndex = Math.floor(Math.random() * clubsArray.length);
-    return clubsArray[randomIndex];
-  };
+  // Function to get two random clubs
+  const getRandomClubs = (clubsArray, numClubs) => clubsArray.sort(() => 0.5 - Math.random()).slice(0, numClubs);
 
-  // Get one random club from the list
-  const randomClub = ready ? getRandomClub(clubs) : null;
+  // Get two random clubs from the list
+  const randomClubs = ready ? getRandomClubs(clubs, 2) : [];
 
   return ready ? (
-    <Container className="py-3">
-      {randomClub ? (
-        <Container className="random-club-container">
-          <Row noGutters>
-            <Col md={6}>
-              <Image src={randomClub.image} alt={randomClub.name} fluid />
-            </Col>
-            <Col md={6}>
-              <h2>{randomClub.name}</h2>
-              <p>{randomClub.description}</p>
-              <p>Meeting Time: {randomClub.meetingTime}</p>
-            </Col>
-          </Row>
-        </Container>
-      ) : (
-        <p>No clubs available.</p>
-      )}
+    <Container className="py-5">
+      <Carousel>
+        {randomClubs.map((club, idx) => (
+          <Carousel.Item key={idx} interval={3000}>
+            <div
+              className="d-block w-100 carousel-background"
+              style={{ backgroundImage: `url(${club.image})` }}
+            >
+              <div className="carousel-caption-container">
+                <h3 className="pb-3">{club.name}</h3>
+                <p>{club.description}</p>
+                <p>Meeting Time: {club.meetingTime}</p>
+              </div>
+              <div className="carousel-button-container">
+                <Button variant="primary">Join Club</Button>
+              </div>
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
     </Container>
   ) : (
     <LoadingSpinner />
   );
 };
 
-export default ClubRandom;
+export default ClubCarousel;
