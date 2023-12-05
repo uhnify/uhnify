@@ -23,6 +23,7 @@ import AddClub from '../pages/AddClub';
 import MyEvents from '../pages/MyEvents';
 import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
+import RandomPromoContainer from '../components/RandomPromoContainer';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <RandomPromoContainer />
         <Footer />
       </div>
     </Router>
