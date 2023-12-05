@@ -95,7 +95,6 @@ function getEventIdsForClub(clubId) {
   check(clubId, String);
 
   const events = Events.collection.find({ eventId: clubId }).fetch();
-  console.log(events + "aaaaaaa")
   return events.map(event => event._id);
 }
 
