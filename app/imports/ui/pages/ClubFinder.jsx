@@ -16,19 +16,13 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-const nameCheck = (name) => {
-  if(name.isEmpty) {
-    return
-  }
-};
-
 // On submit, insert the data.
 const submit = (data, formRef) => {
   const { name } = data;
   const owner = Meteor.user().username;
 };
 
-const ClubFinder = (cName) => {
+const ClubFinder = () => {
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
     Meteor.call('profileClubs.add', clubId, (error) => {
@@ -49,7 +43,7 @@ const ClubFinder = (cName) => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Club documents
-    const clubItems = Clubs.collection.filter(nameCheck).find({}).fetch();
+    const clubItems = Clubs.collection.find({}).fetch();
     return {
       clubs: clubItems,
       ready: rdy,
