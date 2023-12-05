@@ -299,6 +299,63 @@ em {
   color: var(--coconut-white);
 }
 
+.card-container {
+  background-color: var(--coconut-white);
+  border: 1px solid var(--light-tropical-green);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--volcanic-grey);
+}
+
+.profile-picture {
+  border: 5px solid var(--banana-leaf-green);
+}
+
+.edit-profile-picture {
+  background-color: var(--coral-pink);
+  color: var(--coconut-white);
+  border: none;
+  margin-top: 10px;
+}
+
+.small-card {
+  background-color: var(--coconut-white);
+  border: 1px solid var(--light-tropical-green);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px var(--volcanic-grey);
+}
+
+.small-card .card-title {
+  color: var(--banana-leaf-green);
+}
+
+.small-card .card-text {
+  color: var(--volcanic-grey);
+}
+
+.text-display {
+  color: var(--volcanic-grey); /* Text color */
+  background-color: var(--pale-yellow); /* Background color */
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid var(--banana-leaf-green);
+}
+
+.text-field {
+  border-color: var(--banana-leaf-green);
+}
+
+.submit-field {
+  background-color: var(--dark-banana-leaf-green);
+  color: var(--coconut-white);
+}
+
+.error-field {
+  color: var(--coral-pink);
+}
+
+
+
 /* Profile Card Styling */
 .profile-card {
   background-color: var(--coconut-white);
@@ -315,6 +372,14 @@ em {
   padding: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+
+.rounded-banner {
+  border-radius: 25px; /* Highly rounded edges for the banner */
+}
+
+.card-container, .small-card {
+  border-radius: 40px!important; /* Highly rounded edges for all cards */
 }
 
 .profile-picture {

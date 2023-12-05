@@ -102,7 +102,8 @@
   ],
   "defaultEvent": [
     {
-      "eventID": 101,
+      "clubID": 1,
+      "eventID": 1,
       "title": "Outdoor Yoga Session",
       "description": "A relaxing yoga session in the park. Suitable for all levels.",
       "date": "2023-11-15T07:00:00Z",
@@ -111,7 +112,8 @@
       "image": "images/codingWorkshop.png"
     },
     {
-      "eventID": 102,
+      "club": 2,
+      "eventID": 2,
       "title": "Art Exhibition Opening",
       "description": "Opening night for our community art exhibition, featuring local artists.",
       "date": "2023-11-20T19:00:00Z",
@@ -120,7 +122,8 @@
       "image": "images/codingWorkshop.png"
     },
     {
-      "eventID": 103,
+      "clubID": 3,
+      "eventID": 3,
       "title": "Live Concert: Indie Bands",
       "description": "An evening of live music from up-and-coming indie bands.",
       "date": "2023-12-05T20:00:00Z",

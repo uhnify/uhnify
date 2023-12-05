@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
-import { Card, Col, Container, Row, Button } from 'react-bootstrap';
+import { Card, Col, Container, Row, Button, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SubmitField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -22,7 +22,7 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-const Profile = () => {
+const Profilez = () => {
 
   const [imagePreview, setImagePreview] = useState('');
   const fileInput = useRef(null); // Initialize fileInput with useRef
@@ -37,7 +37,7 @@ const Profile = () => {
         const buffer = Buffer.from(e.target.result);
         const imageName = `${Meteor.userId()}-${file.name}`;
 
-        Meteor.call('uploadProfilePicture', Meteor.userId(), buffer, imageName, (error, result) => {
+        Meteor.call('uploadProfilePicture', Meteor.userId(), buffer, imageName, (error) => {
           if (error) {
             console.error('Error uploading image:', error);
           } else {
@@ -63,7 +63,6 @@ const Profile = () => {
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
-  let fRef = null;
   const { ready, profile } = useTracker(() => {
     const subscription = Meteor.subscribe(Profiles.userPublicationName);
     const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
@@ -86,50 +85,61 @@ const Profile = () => {
   };
   return ready ? (
     <Container className="py-3">
-
-      <Row className="justify-content-center">
-        <Col xs={5}>
-          <Col className="text-center"><h2>Account Details</h2></Col>
-          <Row>
-            <div className="d-flex flex-column align-items-center">
-              {/* Display the selected image if available, otherwise the default one */}
-              <img className="profile-picture" src={profile.picture} alt="Profile" />
-              <Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
-                Edit Profile Picture
-              </Button>
-              <input
-                type="file"
-                accept="image/*"
-                ref={fileInput}
-                onChange={handleImageChange}
-                style={{ display: 'none' }}
-              />
-            </div>
-          </Row>
-          <AutoForm
-            ref={ref => { fRef = ref; }}
-            schema={bridge}
-            onSubmit={data => submit(data, fRef)}
-            model={transformedProfile} // Autofill the form with profile data
-          >
-            <Card>
-              <Card.Body>
-                <Row>
-                  <Col><TextField name="Firstname" label="First Name" /></Col>
-                  <Col><TextField name="Lastname" label="Last Name" /></Col>
-                </Row>
-                <Row>
-                  <TextField name="Email" />
-                </Row>
-                <SubmitField value="Update" />
-                <ErrorsField />
-              </Card.Body>
-            </Card>
-          </AutoForm>
+      <Row className="justify-content-center mb-4" >
+        <Col>
+          {/* Assuming your image is placed in the public/images directory */}
+          <Image src="/images/Header.png" fluid alt="Banner" className="rounded-banner" />
         </Col>
       </Row>
+      <Row className="justify-content-center">
+        {/* Left Card for Information */}
+        <Col md={4}>
+          <Card className="card-container">
+            <Card.Body>
+              {/* Replace text fields with simple text display */}
+              <div className="text-display">Firstname: {transformedProfile.Firstname}</div>
+              <div className="text-display">Lastname: {transformedProfile.Lastname}</div>
+              <div className="text-display">Email: {transformedProfile.Email}</div>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Center Card with Profile Picture */}
+        <Col md={4}>
+          <Card className="card-container">
+            <Card.Body className="text-center">
+              <img src={imagePreview || profile.picture} alt="Profile" className="profile-picture rounded-circle" />
+              <input type="file" accept="image/*" ref={fileInput} onChange={handleImageChange} style={{ display: 'none' }} />
+            </Card.Body>
+          </Card>
+        </Col>
+
+        {/* Right Card for the Form */}
+        <Col md={4}>
+          <Card>
+            <Card.Body>
+
+            </Card.Body>
+          </Card>
+        </Col>
+
+      </Row>{/* New Row for small cards */}
+      <Row className="justify-content-center pt-4">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Col key={index} xs={12} sm={6} md={2} className="pb-3">
+            <Card className="small-card">
+              <Card.Body className="text-center">
+                <Card.Title>Card {index + 1}</Card.Title>
+                <Card.Text>
+                  Some details
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+))}
+      </Row>
     </Container>
-  ) : <LoadingSpinner />; // Render a loading spinner while data is being fetched
+  ) : <LoadingSpinner />;
 };
 
-export default Profile;
+export default Profilez;

@@ -85,10 +85,10 @@ const NavBar = () => {
               // These items will only be shown when there is a logged-in user\
 
                 <>
-                  <NavDropdown.Item as={NavLink} to="/profile">Profile</NavDropdown.Item>
+                  <NavDropdown.Item as={NavLink} to="/Profilez">Profile</NavDropdown.Item>
                   <NavDropdown.Item as={NavLink} to="/user/my-clubs">My Clubs</NavDropdown.Item>
                   <NavDropdown.Item as={NavLink} to="/user/my-events">Agenda</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/user/settings">
+                  <NavDropdown.Item as={NavLink} to="/profile">
                     <Gear /> Customize
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
