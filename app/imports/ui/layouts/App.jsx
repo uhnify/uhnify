@@ -24,6 +24,7 @@ import MyEvents from '../pages/MyEvents';
 import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
 import Profilez from '../pages/Profilez';
+import ClubCarousel from '../components/ClubCarousel';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <ClubCarousel />
         <Footer />
       </div>
     </Router>

@@ -946,6 +946,90 @@ em {
 
 /* CLUB DESC END*/ /* CLUB DESC END*/ /* CLUB DESC END*/ /* CLUB DESC END*/
 
+/*RandomPromoContainer*/ /*RandomPromoContainer*/ /*RandomPromoContainer*/ /*RandomPromoContainer*/
+/* Adjust the carousel container */
+.carousel {
+  width: 100%;
+  margin: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .carousel-item {
+    height: 300px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .carousel {
+    width: 110%;
+  }
+}
+
+@media (min-width: 992px) {
+  .carousel {
+    width: 100%;
+    max-width: 7000px;
+  }
+}
+
+
+/* Adjust each carousel item */
+.carousel-item {
+  height: 500px;
+}
+
+.carousel-item .carousel-background {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-caption-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  padding: 20px;
+  border-radius: 0;
+}
+
+.carousel-caption-container h3,
+.carousel-caption-container p {
+  color: #ffffff;
+}
+.carousel-caption-container2 p {
+  color: #ffffff;
+  font-size: ;
+}
+
+.carousel-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.carousel-background {
+  background-size: cover;
+  background-position: center;
+}
+
+.carousel-caption-container {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  color: #ffffff;
+  padding: 20px;
+}
+
+/* Ensure your button is positioned at the bottom of the column */
+.carousel-caption-container .btn {
+  align-self: center; /* Center button horizontally */
+  margin-top: auto; /* Push button to the bottom */
+  /*background-color: var(--banana-leaf-green);*/
+}
+
+/*RandomPromoContainer END*/ /*RandomPromoContainer END*/ /*RandomPromoContainer END*/ /*RandomPromoContainer END*/
+
+
 .tag-container {
   display: flex;
   gap: 10px;
