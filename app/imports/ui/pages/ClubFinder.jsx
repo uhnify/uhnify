@@ -16,13 +16,19 @@ const formSchema = new SimpleSchema({
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
-const ClubFinder = () => {
+const nameCheck = (name) => {
+  if(name.isEmpty) {
+    return
+  }
+};
 
-  // On submit, insert the data.
-  const submit = (data, formRef) => {
-    const { name } = data;
-    const owner = Meteor.user().username;
-  };
+// On submit, insert the data.
+const submit = (data, formRef) => {
+  const { name } = data;
+  const owner = Meteor.user().username;
+};
+
+const ClubFinder = (cName) => {
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
     Meteor.call('profileClubs.add', clubId, (error) => {
@@ -43,7 +49,7 @@ const ClubFinder = () => {
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the Club documents
-    const clubItems = Clubs.collection.find({}).fetch();
+    const clubItems = Clubs.collection.filter(nameCheck).find({}).fetch();
     return {
       clubs: clubItems,
       ready: rdy,
@@ -59,9 +65,9 @@ const ClubFinder = () => {
           <Row>
             <Card>
               <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
-              <TextField name="name"/>
-              <SubmitField id="submit" value="submit"/>
-            </AutoForm>
+                <TextField name="name" />
+                <SubmitField id="submit" value="submit" />
+              </AutoForm>
             </Card>
           </Row>
           <Row xs={1} md={2} lg={4}>
