@@ -31,6 +31,33 @@ html, body {
   flex: 1; /* Allows the main content to grow and occupy available space */
 }
 
+/* Modal Styles */
+.modal-header {
+  background-color: var(--light-tropical-green);
+  color: var(--dark-banana-leaf-green);
+  border-bottom: 2px solid var(--coconut-white);
+}
+
+.modal-body {
+  background-color: var(--coconut-white);
+  color: var(--volcanic-grey);
+}
+
+.modal-footer {
+  background-color: var(--pale-yellow);
+}
+
+.close-button {
+  background-color: var(--coral-pink);
+  color: var(--coconut-white);
+  border: none;
+  border-radius: var(--nav-item-border-radius);
+  box-shadow: var(--nav-item-hover-shadow);
+}
+
+.close-button:hover {
+  background-color: var(--dark-banana-leaf-green);
+}
 
 /* Define custom styles */
 body {
@@ -204,22 +231,38 @@ em {
   font-size: 0.8rem!important;
 }
 
-/* Link/Button Styling */
-.club-card-detail-link {
-  background-color: var(--coral-pink); /* Coral pink for the detail link */
-  color: var(--coconut-white);
-  padding: 8px 15px;
-  border-radius: 10px;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none; /* Remove underline from link */
-  transition: background-color 0.3s ease;
+.club-card-remove-link {
+  background-color: var(--coral-pink)!important;
+  color: var(--coconut-white)!important;
+  padding: 8px 15px!important;
+  border-radius: 10px!important;
+  text-align: center!important;
+  display: inline-block!important;
+  text-decoration: none!important; /* Remove underline from link */
+  transition: background-color 0.3s ease!important;
+  outline: none!important; /* Removes the outline */
+  border: none!important;
 }
 
+/* Link/Button Styling */
+.club-card-detail-link {
+  background-color: var(--banana-leaf-green)!important; /* Coral pink for the detail link */
+  color: var(--coconut-white)!important;
+  padding: 8px 15px!important;
+  border-radius: 10px!important;
+  text-align: center!important;
+  display: inline-block!important;
+  text-decoration: none!important; /* Remove underline from link */
+  transition: background-color 0.3s ease!important;
+  outline: none!important; /* Removes the outline */
+  border: none!important;
+}
+
+
 .club-card-detail-link:hover {
-  background-color:var(--banana-leaf-green);
-  text-decoration: none;
-  color: var(--coconut-white);
+  background-color:var(--banana-leaf-green)!important;
+  text-decoration: none!important;
+  color: var(--coconut-white)!important;
 }
 
 

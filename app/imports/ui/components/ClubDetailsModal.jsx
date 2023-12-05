@@ -25,7 +25,7 @@ const ClubDetailsModal = ({ show, handleClose, club }) => {
     <Modal show={show} onHide={handleClose}>
       {modalContent}
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button className="mt-3 club-card-remove-link" onClick={handleClose}>
           Close
         </Button>
       </Modal.Footer>

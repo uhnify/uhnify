@@ -20,7 +20,7 @@ const Club = ({ club, onAddToProfile }) => (
           <span key={category} className="club-category-tag">{category}</span>
         ))}
       </div>
-      <Button onClick={onAddToProfile} className="mt-3" variant="success"> Add to My Clubs</Button>
+      <Button onClick={onAddToProfile} className="mt-3 club-card-detail-link"> Add to My Clubs</Button>
     </Card.Body>
   </Card>
 );

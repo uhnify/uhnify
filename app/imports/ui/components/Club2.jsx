@@ -20,10 +20,10 @@ const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => (
         ))}
       </div>
       {/* Changed from Link to Button */}
-      <button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+      <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
         View Details
-      </button>
-      <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3" variant="danger">
+      </Button>
+      <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3 club-card-remove-link">
         Remove from My Clubs
       </Button>
     </Card.Body>
