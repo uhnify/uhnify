@@ -28,7 +28,7 @@ const NavBar = () => {
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <img src="/images/UHnifyLogoz.png" alt="UHnify Logo" width="250" />
+          <img src="/images/UHnifyLogozz.png" alt="UHnify Logo" width="250" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

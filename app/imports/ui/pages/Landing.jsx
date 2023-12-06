@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Image, Container, Row, Col, Card } from 'react-bootstrap';
 import 'owl.carousel';
-/* A simple static component to render some text for the landing page. */
 import $ from 'jquery';
+import ClubCarousel from '../components/ClubCarousel';
+/* A simple static component to render some text for the landing page. */
 
 const Landing = () => {
   useEffect(() => {
@@ -132,6 +133,8 @@ const Landing = () => {
             </NavLink>
           </Col>
         </Row>
+        {/* Club Carousel component */}
+        <ClubCarousel />
       </Container>
     </>
   );
