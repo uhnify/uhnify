@@ -1,13 +1,12 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Modal, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { CiFilter } from 'react-icons/ci';
 import { Clubs } from '../../api/club/Club';
 import Club from '../components/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { Modal, Button } from 'react-bootstrap';
-import { CiFilter } from "react-icons/ci";
+
 const ClubFinder = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -15,7 +14,6 @@ const ClubFinder = () => {
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-
 
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
@@ -48,7 +46,6 @@ const ClubFinder = () => {
     setCategories([...uniqueCategories]);
   }, [clubs]);
 
-
   const handleCategoryChange = (event, category) => {
     if (event.target.checked) {
       setSelectedCategories([...selectedCategories, category]);
@@ -59,7 +56,6 @@ const ClubFinder = () => {
   const filteredClubs = selectedCategories.length > 0
     ? clubs.filter(club => club.categories.some(category => selectedCategories.includes(category)))
     : clubs;
-
 
   return (ready ? (
     <Container id="browse-clubs-page" className="py-3">

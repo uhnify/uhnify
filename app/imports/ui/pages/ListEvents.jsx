@@ -16,13 +16,12 @@ const ListEvents = () => {
     const rdy = subscription.ready();
     // Get the Event documents
     const eventItems = Events.collection.find({}).fetch();
-    console.log(eventItems)
+    console.log(eventItems);
     return {
       events: eventItems,
       ready: rdy,
     };
   }, []);
-
 
   return (ready ? (
     <Container id="list-events-page" className="py-3">

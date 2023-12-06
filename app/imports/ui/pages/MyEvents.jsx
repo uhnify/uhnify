@@ -8,8 +8,6 @@ import { Events } from '../../api/events/Events';
 import EventCard from '../components/Events';
 /* Renders a card containing all of the Clubs documents. Use <Club> to render each card. */
 const MyEvents = () => {
-
-
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { ready, events } = useTracker(() => {
     // Note that this subscription will get cleaned up
