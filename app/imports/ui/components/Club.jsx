@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 /** Renders a card with club information. */
 const Club = ({ club, onAddToProfile }) => (

@@ -12,6 +12,7 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { EventClubs } from '../../api/events/EventClubs';
+import { ClubEvents } from '../../api/events/ClubEvents';
 
 const updateProfileMethod = 'Profiles.update';
 
@@ -54,6 +55,10 @@ Meteor.methods({
 
 Meteor.methods({
   createUserProfile: function (userId, email, firstName, lastName) {
+    check(userId, String);
+    check(email, String);
+    check(firstName, String);
+    check(lastName, String);
     // const UH_ID = generateUH_ID();
     Profiles.collection.insert({
       // UH_ID,
@@ -164,6 +169,10 @@ Meteor.methods({
 
     if (!this.userId) {
       throw new Meteor.Error('not-logged-in', 'You must be logged in to perform this action');
+    }
+
+    if (!(imageBuffer instanceof Buffer)) {
+      throw new Meteor.Error('invalid-argument', 'imageBuffer must be a Buffer');
     }
 
     // Ensure user is updating their own profile

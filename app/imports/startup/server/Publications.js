@@ -1,5 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
+import { WebApp } from 'meteor/webapp';
+import fs from 'fs';
+import path from 'path';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
@@ -11,13 +14,10 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import Profil
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
 import { EventClubs } from '../../api/events/EventClubs';
-import { WebApp } from 'meteor/webapp';
-import fs from 'fs';
-import path from 'path';
 
 const imagesPath = '../../../../../public/images/'; // Replace with your actual path
 // Set up a middleware in the Meteor server to handle HTTP requests for '/images' URL path.
-WebApp.connectHandlers.use('/images', (req, res, next) => {
+WebApp.connectHandlers.use('/images', (req, res) => {
   // Construct the full path of the requested image using the base directory and the URL path.
   const imagePath = path.join(imagesPath, req.url);
 
@@ -34,6 +34,7 @@ WebApp.connectHandlers.use('/images', (req, res, next) => {
     res.writeHead(200);
     // End the response by sending the image data.
     res.end(data);
+    return null;
   });
 });
 
@@ -57,13 +58,11 @@ Meteor.publish(Clubs.adminPublicationName, function () {
 // User-level publications for Events
 Meteor.publish(Events.userPublicationName, function () {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
+    // const username = Meteor.users.findOne(this.userId).username;
     return Events.collection.find();
   }
   return this.ready();
 });
-
-
 
 // Admin-level publications for Events
 Meteor.publish(Events.adminPublicationName, function () {
@@ -147,7 +146,6 @@ Meteor.publish(ProfileClubs.userPublicationName, function () {
   return this.ready();
 });
 
-
 Meteor.publish(EventClubs.userPublicationName, function () {
   if (!this.userId) {
     return this.ready();
@@ -161,8 +159,7 @@ Meteor.publish(EventClubs.userPublicationName, function () {
   const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
   const clubIDs = clubs.map(club => club.clubID); // Assuming 'clubID' is the field in Clubs collection
 
-
-  const eventsCursor = Events.collection.find().fetch();
+  // const eventsCursor = Events.collection.find().fetch();
   console.log(Events.collection.find({ eventID: { $in: clubIDs } }).fetch());
   return Events.collection.find({ eventID: { $in: clubIDs } });
 });
