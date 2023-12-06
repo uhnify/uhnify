@@ -14,7 +14,6 @@
       "password": "changeme"
     }
   ],
-
   "defaultInterests": [
     {
       "interestID": 1,
@@ -57,7 +56,6 @@
       "name": "Student Affairs"
     }
   ],
-
   "defaultProfiles": [
     {
       "UH_ID": 22400001,
@@ -76,6 +74,30 @@
       "bio": "Administrator of the platform.",
       "title": "System Administrator",
       "picture": "images/CampusFromADistance.png"
+    }
+  ],
+  "defaultClub": [
+    {
+      "clubID": 1,
+      "name": "Basketball Club",
+      "owner": "john@foo.com",
+      "description": "A club for basketball enthusiasts looking to play and improve their skills.",
+      "location": "Campus Sports Center",
+      "image": "images/ChessClub.png",
+      "meetingTime": "Every Wednesday 4:00 pm - 6:00 pm",
+      "contactInfo": "contact@basketballclub.com",
+      "categories": ["Sports", "Team Sports", "Basketball"]
+    },
+    {
+      "clubID": 2,
+      "name": "Volleyball Club",
+      "owner": "admin@foo.com",
+      "description": "Join our volleyball club to enjoy friendly matches and tournaments.",
+      "location": "Campus Gymnasium",
+      "image": "images/ChemistryClub.png",
+      "meetingTime": "Every Tuesday and Thursday 5:00 pm - 7:00 pm",
+      "contactInfo": "volleyball@clubexample.com",
+      "categories": ["Sports", "Team Sports", "Volleyball"]
     }
   ],
   "defaultEvent": [
