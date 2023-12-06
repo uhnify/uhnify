@@ -39,6 +39,8 @@ ClubDetailsModal.propTypes = {
   club: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
+    meetingTime: PropTypes.string,
+    location: PropTypes.string,
 
   }),
 };
