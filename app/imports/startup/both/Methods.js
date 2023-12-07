@@ -12,7 +12,7 @@ import { ProfilesClub } from '../../api/profiles/ProfilesClub';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
 import { ProfilesEvents } from '../../api/profiles/ProfilesEvents';
 import { EventClubs } from '../../api/events/EventClubs';
-import { ClubEvents } from '../../api/events/ClubEvents';
+// import { ClubEvents } from '../../api/events/ClubEvents';
 
 const updateProfileMethod = 'Profiles.update';
 
@@ -39,7 +39,7 @@ Meteor.methods({
     return clubID;
   },
   'Clubs.organizeEvent'({ clubID, eventID }) {
-    ClubEvents.collection.insert({ clubId: clubID, eventId: eventID });
+    EventClubs.collection.insert({ clubId: clubID, eventId: eventID });
   },
 });
 
