@@ -76,7 +76,7 @@ const NavBar = () => {
                     <Image src="images/default-profile.png" className="profilePicture" />
                   )
                 ) : (
-                  <Image src="images/default-profile.png" className="profilePicture" />
+                  'Sign In'
                 )
               }
               id="nav-dropdown-profile"
