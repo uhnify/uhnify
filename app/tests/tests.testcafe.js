@@ -40,10 +40,10 @@ test('Test the MyClubs page', async (testController) => {
   await myClubsPage.isDisplayed(testController);
 });
 
-test('Test the MyEvents page', async (testController) => {
+test('Test the Event Finder page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoMyEventsPage(testController);
+  await navBar.gotoEventFinderPage(testController);
   await myEventsPage.isDisplayed(testController);
 });
 
