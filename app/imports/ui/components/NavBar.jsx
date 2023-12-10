@@ -4,7 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Roles } from 'meteor/alanning:roles';
 import { Meteor } from 'meteor/meteor';
 import { Container, Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
-import { Gear } from 'react-bootstrap-icons';
+import { Gear, PersonFill } from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Profiles } from '../../api/profiles/Profiles';
 import LoadingSpinner from './LoadingSpinner'; // Import Bootstrap CSS
@@ -71,12 +71,12 @@ const NavBar = () => {
               title={
                 currentUser ? (
                   profile ? (
-                    <Image src={profile.picture || 'images/default-profile.png'} className="profilePicture" />
+                    <Image src={profile.picture || 'public/images/defaultprofilepic.png'} className="profilePicture" />
                   ) : (
-                    <Image src="images/default-profile.png" className="profilePicture" />
+                    <PersonFill />
                   )
                 ) : (
-                  <Image src="images/default-profile.png" className="profilePicture" />
+                  'Sign In'
                 )
               }
               id="nav-dropdown-profile"
