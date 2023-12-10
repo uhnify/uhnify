@@ -12,4 +12,4 @@ class EventfinderPage {
   }
 }
 
-export const myEventsPage = new EventfinderPage();
+export const eventFinderPage = new EventfinderPage();
