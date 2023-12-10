@@ -22,6 +22,7 @@ const ClubFinder = () => {
       if (error) {
         console.error('Error adding club to profile:', error);
       } else {
+        //  notification upon successful add
         swal('Success', 'Item added successfully', 'success');
       }
     });

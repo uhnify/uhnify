@@ -73,6 +73,7 @@ const NavBar = () => {
                   profile ? (
                     <Image src={profile.picture || 'public/images/defaultprofilepic.png'} className="profilePicture" />
                   ) : (
+                    //  if no profile found
                     <PersonFill />
                   )
                 ) : (
