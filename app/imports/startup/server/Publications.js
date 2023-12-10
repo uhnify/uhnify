@@ -57,11 +57,8 @@ Meteor.publish(Clubs.adminPublicationName, function () {
 
 // User-level publications for Events
 Meteor.publish(Events.userPublicationName, function () {
-  if (this.userId) {
-    // const username = Meteor.users.findOne(this.userId).username;
-    return Events.collection.find();
-  }
-  return this.ready();
+  // const username = Meteor.users.findOne(this.userId).username;
+  return Events.collection.find();
 });
 
 // Admin-level publications for Events
