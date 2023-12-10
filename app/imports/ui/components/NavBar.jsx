@@ -71,7 +71,7 @@ const NavBar = () => {
               title={
                 currentUser ? (
                   profile ? (
-                    <Image src={profile.picture || "images/default-profile.png"} className="profilePicture" />
+                    <Image src={profile.picture || 'images/default-profile.png'} className="profilePicture" />
                   ) : (
                     <Image src="images/default-profile.png" className="profilePicture" />
                   )
