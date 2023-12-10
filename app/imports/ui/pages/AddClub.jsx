@@ -21,7 +21,6 @@ const formSchema = new SimpleSchema({
   },
 
 });
-
 //  RNG function
 const ranNum = () => {
   const min = 0;
