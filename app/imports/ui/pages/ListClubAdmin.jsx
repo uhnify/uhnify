@@ -4,20 +4,27 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Clubs } from '../../api/club/Club';
 import ClubItemAdmin from '../components/ClubItemAdmin';
+import { Events } from '../../api/events/Events'; // Adjust the path as necessary
+import EventCardAdmin from '../components/EventsAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 /* Renders a table containing all of the Club documents. Use <ClubItemAdmin> to render each row. */
 const ListClubAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { clubs, ready } = useTracker(() => {
+  const { clubs, events, ready } = useTracker(() => {
     // Get access to Club documents.
-    const subscription = Meteor.subscribe(Clubs.adminPublicationName);
+    const clubSubscription = Meteor.subscribe(Clubs.adminPublicationName);
+    //
+    const eventSubscription = Meteor.subscribe(Events.adminPublicationName);
     // Determine if the subscription is ready
-    const rdy = subscription.ready();
+    const rdy = clubSubscription.ready() && eventSubscription.ready();
     // Get the Club documents
-    const items = Clubs.collection.find({}).fetch();
+    const itemClub = Clubs.collection.find({}).fetch();
+    const itemEvent = Events.collection.find({}).fetch();
+
     return {
-      clubs: items,
+      clubs: itemClub,
+      events: itemEvent,
       ready: rdy,
     };
   }, []);
@@ -26,10 +33,20 @@ const ListClubAdmin = () => {
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>My Clubs</h2>
+            <h2>All Clubs</h2>
           </Col>
           <Row xs={1} md={2} lg={4}>
             {clubs.map((club) => (<Col key={club._id}><ClubItemAdmin club={club} /></Col>))}
+          </Row>
+        </Col>
+      </Row>
+      <Row className="justify-content-center py-5">
+        <Col>
+          <Col className="text-center">
+            <h2>All Events</h2>
+          </Col>
+          <Row xs={1} md={2} lg={4}>
+            {events.map((event) => (<Col key={event._id}><EventCardAdmin event={event} /></Col>))}
           </Row>
         </Col>
       </Row>

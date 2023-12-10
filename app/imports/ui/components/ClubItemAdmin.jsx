@@ -18,7 +18,8 @@ const ClubItemAdmin = ({ club }) => (
       {club.categories && club.categories.map(category => (
         <span key={category} className="club-category-tag">{category}</span>
       ))}
-      <Link to={`/edit/${club._id}`}>Edit</Link>
+      <Link to={`/edit/${club._id}`} className="px-2">Edit</Link>
+      <Link to={`/edit/${club._id}`} className="px-2">Delete</Link>
     </Card.Body>
   </Card>
 );
