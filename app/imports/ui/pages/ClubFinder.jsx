@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row, Modal, Button } from 'react-bootstrap';
+import swal from 'sweetalert';
 import { useTracker } from 'meteor/react-meteor-data';
 import { CiFilter } from 'react-icons/ci';
 import { Clubs } from '../../api/club/Club';
@@ -21,7 +22,7 @@ const ClubFinder = () => {
       if (error) {
         console.error('Error adding club to profile:', error);
       } else {
-        console.log('Club added to profile successfully');
+        swal('Success', 'Item added successfully', 'success');
       }
     });
   };
