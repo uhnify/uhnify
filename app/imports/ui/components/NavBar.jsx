@@ -36,7 +36,7 @@ const NavBar = () => {
             {currentUser && (
               <NavDropdown id="club-drop" title="ClubHub">
                 <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
+                <NavDropdown.Item id="my-clubs" as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
                 <NavDropdown.Item id="add-clubs" as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
               </NavDropdown>
             )}

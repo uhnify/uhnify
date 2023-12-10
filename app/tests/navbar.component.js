@@ -59,6 +59,7 @@ class NavBar {
   }
 
   async gotoMyClubsPage(testController) {
+    await testController.click('#club-drop');
     await testController.click('#my-clubs');
   }
 
