@@ -48,6 +48,7 @@ const App = () => {
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/Profilez" element={<Profilez />} />
+          <Route path="/Profile" element={<Profile />} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute><EditClubAdmin /></AdminProtectedRoute>} />
           <Route path="/todays-events" element={<MyEvents />} />
           <Route path="/clubdetail" element={<ClubDetail />} />
