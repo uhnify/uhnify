@@ -4,8 +4,9 @@ import { signoutPage } from './signout.page';
 import { navBar } from './navbar.component';
 import { browseClubsPage } from './browseclubs.page';
 import { myClubsPage } from './myclubs.page';
-import { myEventsPage } from './myevents.page';
+import { myEventsPage } from './eventfinder.page';
 import { addClubPage } from './addclubs.page';
+import { createEventsPage } from './createevents.page';
 
 /* global fixture:false, test:false */
 
@@ -45,6 +46,28 @@ test('Test the Event Finder page', async (testController) => {
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoEventFinderPage(testController);
   await myEventsPage.isDisplayed(testController);
+});
+
+test('Test the My Events page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoMyEventsPage(testController);
+  await myEventsPage.isDisplayed(testController);
+});
+
+// test('Test the Event Calendar page', async (testController) => {
+//   await navBar.gotoSignInPage(testController);
+//   await signinPage.signin(testController, credentials.username, credentials.password);
+//   await navBar.gotoEventCalendarPage(testController);
+//   await myEventsPage.isDisplayed(testController);
+// });
+
+test('Test the AddEvents page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCreateEventsPage(testController);
+  await createEventsPage.isDisplayed(testController);
+  await createEventsPage.addEvent(testController);
 });
 
 test('Test the AddClubs page', async (testController) => {
