@@ -16,7 +16,6 @@ const EventCard = ({ event }) => (
     <Card.Body className="event-card-body"> {/* Add class for body styling */}
       <Card.Text className="event-card-description">{event.description}</Card.Text>
       {/* Conditionally render Edit link based on user's permission */}
-      <Link to={`/edit/event/${event.eventID}`} className="event-card-edit-link">Description</Link>
     </Card.Body>
   </Card>
 );

@@ -21,6 +21,12 @@ const formSchema = new SimpleSchema({
   },
 
 });
+//  RNG function
+const ranNum = () => {
+  const min = 0;
+  const max = 10000;
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
 
 const bridge = new SimpleSchema2Bridge(formSchema);
 
@@ -29,10 +35,11 @@ const AddClub = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
+    const clubID = ranNum();
     const { name, description, image, meetingTime, location, categories } = data;
     const owner = Meteor.user().username;
     Clubs.collection.insert(
-      { name, description, image, owner, meetingTime, location, categories },
+      { name, description, image, owner, meetingTime, location, categories, clubID },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
