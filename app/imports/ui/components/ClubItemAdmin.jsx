@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Club (Admin) table. See pages/ListClubAdmin.jsx. */
@@ -24,8 +24,7 @@ const ClubItemAdmin = ({ club, collection }) => {
           <span key={category} className="club-category-tag">{category}</span>
         ))}
         <Link to={`/edit/${club._id}`} className="px-2">Edit</Link>
-        <Link to={`/edit/${club._id}`} className="px-2">Delete</Link>
-        <Button variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Button>
+        <Link variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Link>
       </Card.Body>
     </Card>
   );
