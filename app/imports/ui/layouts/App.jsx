@@ -22,6 +22,7 @@ import Profile from '../pages/Profile';
 import AddClub from '../pages/AddClub';
 import MyEvents from '../pages/MyEvents';
 import AddEvent from '../pages/AddEvent';
+import EditClub from '../pages/EditClub';
 import ListEventsCalender from '../pages/ListEventsCalender';
 import Profilez from '../pages/Profilez';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/create-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
           <Route path="/admin" element={<AdminProtectedRoute ready={ready}><ListClubAdmin /></AdminProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditClub /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

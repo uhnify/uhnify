@@ -26,6 +26,7 @@ const ClubItemAdmin = ({ club }) => (
 // Require a document to be passed to this component.
 ClubItemAdmin.propTypes = {
   club: PropTypes.shape({
+    clubID: PropTypes.number,
     name: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
