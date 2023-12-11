@@ -140,21 +140,27 @@ const SignUp = ({ location }) => {
                   <label htmlFor="tag1" className="tag-label">Academic</label>
 
                   <input type="checkbox" id="tag2" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag2" className="tag-label">Arts</label>
 
                   <input type="checkbox" id="tag3" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag3" className="tag-label">Sports</label>
 
                   <input type="checkbox" id="tag4" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag4" className="tag-label">Social</label>
 
                   <input type="checkbox" id="tag5" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag5" className="tag-label">Cultural</label>
 
                   <input type="checkbox" id="tag6" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag6" className="tag-label">Creativity</label>
 
                   <input type="checkbox" id="tag7" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag7" className="tag-label">Creativity</label>
                 </div>
                 <div className="d-flex justify-content-between mt-5">
