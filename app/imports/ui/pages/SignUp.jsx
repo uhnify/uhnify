@@ -64,13 +64,11 @@ const SignUp = ({ location }) => {
     try {
       await Accounts.createUser({ email, username: email, password });
       await swal('Success', 'Registration successful!', 'success');
-      console.log(Meteor.userId());
       Meteor.call('createUserProfile', Meteor.userId(), email, fName, lName, (error) => {
         if (error) {
           swal('Error', error.reason, 'error');
         } else {
           setRedirectToRef(true);
-          console.log('successful user Profile');
         }
       });
     } catch (err) {

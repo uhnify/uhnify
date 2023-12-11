@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Card, Image } from 'react-bootstrap';
 
 /** Renders a single row in the List Club (Admin) table. See pages/ListClubAdmin.jsx. */
 const ClubItemAdmin = ({ club, collection }) => {
   const removeItem = (docID) => {
-    console.log(`remove eventItem to remove is ${docID}`);
     collection.remove(docID);
   };
   return (
@@ -23,9 +21,9 @@ const ClubItemAdmin = ({ club, collection }) => {
         {club.categories && club.categories.map(category => (
           <span key={category} className="club-category-tag">{category}</span>
         ))}
-        <Link to={`/edit/${club._id}`} className="px-2">Edit</Link>
+        <Button to={`/edit/${club._id}`} className="px-2">Edit</Button>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Link>
+        <Button variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Button>
       </Card.Body>
     </Card>
   );

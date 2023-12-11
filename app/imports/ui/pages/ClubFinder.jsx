@@ -70,9 +70,7 @@ const ClubFinder = () => {
 
   const addClubToProfile = (clubId) => {
     Meteor.call('profileClubs.add', clubId, (error) => {
-      if (error) {
-        console.error('Error adding club to profile:', error);
-      } else {
+      if (!error) {
         swal('Success', 'Item added successfully', 'success');
       }
     });

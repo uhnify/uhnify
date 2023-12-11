@@ -34,7 +34,6 @@ Meteor.methods({
       title: '',
       picture: '/images/defaultprofilepic.png', // Default profile picture
     });
-    // console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
   },
 });
 
@@ -81,9 +80,6 @@ Meteor.methods({
     // If it exists, remove it
     if (exists) {
       ProfileClubs.collection.remove({ userId: this.userId, clubId: clubId });
-      console.log('Club removed successfully');
-    } else {
-      console.log('Club does not exist in profile');
     }
   },
 
@@ -102,8 +98,6 @@ Meteor.methods({
         userId: this.userId,
         clubId: clubId,
       });
-    } else {
-      console.log('already exists');
     }
   },
   'eventClubs.add'(clubId) {
@@ -159,7 +153,6 @@ Meteor.methods({
         { $set: { picture: `/images/${imageName}` } },
       );
     } catch (err) {
-      console.error('Error uploading image:', err);
       throw new Meteor.Error('file-upload-failed', 'Failed to upload image');
     }
   },

@@ -5,7 +5,7 @@ import { Card, Image, Button } from 'react-bootstrap';
 /** Renders a card with club information. */
 const Club = ({ club, onAddToProfile, onViewDetails }) =>
 // Limit the description to a specific number of characters
-
+  // eslint-disable-next-line implicit-arrow-linebreak
   (
     <Card className="club-card2"> {/* Add class for styling */}
       <Card.Header className="club-card-header"> {/* Add class for styling */}

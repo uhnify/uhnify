@@ -96,11 +96,6 @@ Meteor.publish(ProfileClubs.userPublicationName, function () {
   if (this.userId) {
     const profileClubs = ProfileClubs.collection.find({ userId: this.userId }).fetch();
     const clubIds = profileClubs.map(pc => pc.clubId);
-    console.log('Club IDs:', clubIds); // Log the club IDs
-
-    const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
-    console.log('Clubs found:', clubs); // Log the found clubs
-
     // Return the cursor, not the fetched array
     return Clubs.collection.find({ _id: { $in: clubIds } });
   }
@@ -119,8 +114,5 @@ Meteor.publish(EventClubs.userPublicationName, function () {
   // Fetch the clubs to get their clubIDs
   const clubs = Clubs.collection.find({ _id: { $in: clubIds } }).fetch();
   const clubIDs = clubs.map(club => club.clubID); // Assuming 'clubID' is the field in Clubs collection
-
-  // const eventsCursor = Events.collection.find().fetch();
-  console.log(Events.collection.find({ eventID: { $in: clubIDs } }).fetch());
   return Events.collection.find({ eventID: { $in: clubIDs } });
 });

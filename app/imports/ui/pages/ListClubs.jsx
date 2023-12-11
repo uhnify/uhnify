@@ -11,13 +11,7 @@ import { ProfileClubs } from '../../api/profile/ProfileClubs';
 const ListClub = () => {
   const onRemoveFromProfile = (clubId) => {
     // Call Meteor method to remove club from collection
-    Meteor.call('profileClubs.remove', clubId, (error) => {
-      if (error) {
-        console.error('Error removing club from profile:', error);
-      } else {
-        console.log('Club removed from profile successfully');
-        window.location.reload();
-      }
+    Meteor.call('profileClubs.remove', clubId, () => {
     });
   };
 

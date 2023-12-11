@@ -1,11 +1,10 @@
 import React from 'react';
-import { Card, Image } from 'react-bootstrap';
+import { Button, Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const EventCardAdmin = ({ event, collection }) => {
   const removeItem = (docID) => {
-    console.log(`remove eventItem to remove is ${docID}`);
     collection.remove(docID);
   };
   return (
@@ -21,10 +20,12 @@ const EventCardAdmin = ({ event, collection }) => {
       <Card.Body className="event-card-body"> {/* Add class for body styling */}
         <Card.Text className="event-card-description">{event.description}</Card.Text>
         {/* Conditionally render Edit link based on user's permission */}
+        {/* eslint-disable-next-line react/prop-types */}
         <Link to={`/edit/event/${event._id}`} className="event-card-edit-link">Description</Link>
+        {/* eslint-disable-next-line react/prop-types */}
         <Link to={`/edit/event/${event._id}`} className="px-2">Edit</Link>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link variant="danger" onClick={() => removeItem(event.eventID)} className="px-2">Delete</Link>
+        <Button variant="danger" onClick={() => removeItem(event.eventID)} className="px-2">Delete</Button>
       </Card.Body>
     </Card>
   );
