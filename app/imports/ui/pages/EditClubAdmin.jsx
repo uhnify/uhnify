@@ -38,7 +38,7 @@ const EditClubAdmin = () => {
       swal('Success', 'Item updated successfully', 'success')));
   };
 
-  return ready ? (
+  return (
     <Container className="py-3">
       <Row className="justify-content-center">
         <Col xs={10}>
@@ -59,8 +59,7 @@ const EditClubAdmin = () => {
           </AutoForm>
         </Col>
       </Row>
-    </Container>
-  ) : <LoadingSpinner />;
+    </Container>)
 };
 
 export default EditClubAdmin;

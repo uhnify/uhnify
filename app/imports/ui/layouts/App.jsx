@@ -49,7 +49,7 @@ const App = () => {
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profilez" element={<Profilez />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/edit/:_id" element={<AdminProtectedRoute><EditClubAdmin /></AdminProtectedRoute>} />
+          <Route path="/edit/:_id" element={<ProtectedRoute><EditClubAdmin /></ProtectedRoute>} />
           <Route path="/user-events" element={<MyEvents />} />
           <Route path="/clubdetail" element={<ClubDetail />} />
           <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
