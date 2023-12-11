@@ -100,7 +100,7 @@ const Landing = () => {
         <Row className="gx-5">
           {/* Each Col component should span 4 grid units */}
           <Col xs={12} md={6} lg={4}>
-            <NavLink to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <NavLink id="link-club-card" to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
                 <Card.Img src="images/StudentsAtFootball.png" alt="Events" />
                 <Card.Body>

@@ -22,6 +22,11 @@ test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
+test('Test that landing page club card works', async (testController) => {
+  await landingPage.isDisplayed(testController);
+  await landingPage.eventCard(testController);
+});
+
 test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);

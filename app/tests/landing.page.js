@@ -10,6 +10,11 @@ class LandingPage {
   async isDisplayed(testController) {
     await testController.expect(this.pageSelector.exists).ok();
   }
+
+  async eventCard(testController) {
+    await this.isDisplayed(testController);
+    await testController.click('#link-club-card');
+  }
 }
 
 export const landingPage = new LandingPage();
