@@ -52,6 +52,10 @@ const ClubFinder = () => {
     setCategories([...uniqueCategories]);
   }, [clubs]);
   // Combined filter logic for search term and selected categories
+  useEffect(() => {
+    // Reset to the first page whenever the search term changes
+    setCurrentPage(1);
+  }, [searchTerm]);
 
   const handleCloseFilterModal = () => setShowFilterModal(false);
 
