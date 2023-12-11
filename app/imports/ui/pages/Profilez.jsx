@@ -4,6 +4,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
+import ClubCarousel from '../components/ClubCarousel';
 
 const Profilez = () => {
   // Fetches and tracks the profile data for the current user
@@ -63,7 +64,7 @@ const Profilez = () => {
         </Col>
 
       </Row>
-
+      <ClubCarousel />
     </Container>
   ) : <LoadingSpinner />;
 };
