@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import swal from 'sweetalert';
 import { Clubs } from '../../api/club/Club';
 import Club2 from '../components/Club2';
 import ClubDetailsModal from '../components/ClubDetailsModal';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
+
 /* Renders a card containing all of the Clubs documents. Use <Club> to render each card. */
 const ListClub = () => {
   const onRemoveFromProfile = (clubId) => {
     Meteor.call('profileClubs.remove', clubId, (error) => {
       if (error) {
-        console.error('Error removing club from profile:', error);
+        swal('Error', 'Couldnt Remove', 'error');
       } else {
-        console.log('Club removed from profile successfully');
         window.location.reload();
       }
     });
