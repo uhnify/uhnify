@@ -68,6 +68,7 @@ const ListClubAdmin = () => {
               <Col key={profile._id}>
                 <ProfileCard
                   profile={profile}
+                  collection={Profiles.collection}
                 />
               </Col>
             ))}
