@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import { Clubs } from '../../api/club/Club';
 import LoadingSpinner from '../components/LoadingSpinner';
+import loadingSpinner from '../components/LoadingSpinner';
 
 const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
@@ -38,10 +39,10 @@ const EditClubAdmin = () => {
       swal('Success', 'Item updated successfully', 'success')));
   };
 
-  return ready ? (
+  return ready?(
     <Container className="py-3">
-      <Row className="justify-content-center">
-        <Col xs={10}>
+      <Row className=" d-flex justify-content-center">
+        <Col xs={12} md={8} lg={6} className="mx-auto">
           <Col className="text-center"><h2>Edit Club</h2></Col>
           <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
@@ -59,8 +60,9 @@ const EditClubAdmin = () => {
           </AutoForm>
         </Col>
       </Row>
-    </Container>
-  ) : <LoadingSpinner />;
+    </Container>) : (
+    <LoadingSpinner />
+)
 };
 
 export default EditClubAdmin;
