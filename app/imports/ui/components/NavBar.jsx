@@ -36,17 +36,17 @@ const NavBar = () => {
             {currentUser && (
               <NavDropdown id="club-drop" title="ClubHub">
                 <NavDropdown.Item id="browse-clubs" as={NavLink} to="/search-clubs">Club Finder</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
+                <NavDropdown.Item id="my-clubs" as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
                 <NavDropdown.Item id="add-clubs" as={NavLink} to="/create-club">Start Club</NavDropdown.Item>
               </NavDropdown>
             )}
 
             {currentUser && (
               <NavDropdown title="Events" id="nav-dropdown-events">
-                <NavDropdown.Item id="my-events" as={NavLink} to="/upcoming-events">Event Finder</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/calender-events">Event Calendar</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/todays-events">My Events</NavDropdown.Item>
-                <NavDropdown.Item as={NavLink} to="/create-event">Start Event</NavDropdown.Item>
+                <NavDropdown.Item id="event-finder" as={NavLink} to="/upcoming-events">Event Finder</NavDropdown.Item>
+                <NavDropdown.Item id="event-calendar" as={NavLink} to="/calender-events">Event Calendar</NavDropdown.Item>
+                <NavDropdown.Item id="my-events" as={NavLink} to="/todays-events">My Events</NavDropdown.Item>
+                <NavDropdown.Item id="create-event" as={NavLink} to="/create-event">Start Event</NavDropdown.Item>
               </NavDropdown>
             )}
 
@@ -86,10 +86,10 @@ const NavBar = () => {
               // These items will only be shown when there is a logged-in user\
 
                 <>
-                  <NavDropdown.Item as={NavLink} to="/Profilez">Profile</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/calender-events">Agenda</NavDropdown.Item>
-                  <NavDropdown.Item as={NavLink} to="/profile">
+                  <NavDropdown.Item id="profile" as={NavLink} to="/Profilez">Profile</NavDropdown.Item>
+                  <NavDropdown.Item id="nav-my-clubs" as={NavLink} to="/my-clubs">My Clubs</NavDropdown.Item>
+                  <NavDropdown.Item id="nav-calendar-events" as={NavLink} to="/calender-events">Agenda</NavDropdown.Item>
+                  <NavDropdown.Item id="nav-customize" as={NavLink} to="/profile">
                     <Gear /> Customize
                   </NavDropdown.Item>
                   <NavDropdown.Divider />

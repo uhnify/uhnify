@@ -22,7 +22,7 @@ class NavBar {
   }
 
   /** Check that the specified user is currently logged in. */
-  async isLoggedIn(testController, username) {
+  async isLoggedIn(testController) {
     const visible = await Selector('#basic-navbar-nav').visible;
     if (!visible) {
       await testController.click('button.navbar-toggler');
@@ -53,23 +53,70 @@ class NavBar {
     await testController.click('#login-dropdown-sign-up');
   }
 
+  //  check that browse clubs page link works
   async gotoBrowseClubsPage(testController) {
     await testController.click('#club-drop');
     await testController.click('#browse-clubs');
   }
 
+  // check that my clubs page link works
   async gotoMyClubsPage(testController) {
+    await testController.click('#club-drop');
     await testController.click('#my-clubs');
   }
 
+  // check that event finder page link works
+  async gotoEventFinderPage(testController) {
+    await testController.click('#nav-dropdown-events');
+    await testController.click('#event-finder');
+  }
+
+  // check that add clubs page link works
+  async gotoAddClubsPage(testController) {
+    await testController.click('#club-drop');
+    await testController.click('#add-clubs');
+  }
+
+  // check that event calendar page link works
+  async gotoEventCalendarPage(testController) {
+    await testController.click('#nav-dropdown-events');
+    await testController.click('#event-calendar');
+  }
+
+  // check that create events page link works
+  async gotoCreateEventsPage(testController) {
+    await testController.click('#nav-dropdown-events');
+    await testController.click('#create-event');
+  }
+
+  // check that my events page link works
   async gotoMyEventsPage(testController) {
     await testController.click('#nav-dropdown-events');
     await testController.click('#my-events');
   }
 
-  async gotoAddClubsPage(testController) {
-    await testController.click('#club-drop');
-    await testController.click('#add-clubs');
+  // check that my profile page link works
+  async gotoProfilePage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#profile');
+  }
+
+  // check that my events page link works
+  async gotoMyNavClubsPage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-my-clubs');
+  }
+
+  // check that my events page link works
+  async gotoAgendaPage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-calendar-events');
+  }
+
+  // check that my events page link works
+  async gotoCustomizePage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-customize');
   }
 }
 
