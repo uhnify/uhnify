@@ -1,4 +1,5 @@
 import { Selector } from 'testcafe';
+import { eventFinderPage } from './eventfinder.page';
 
 class LandingPage {
   constructor() {
@@ -14,6 +15,7 @@ class LandingPage {
   async eventCard(testController) {
     await this.isDisplayed(testController);
     await testController.click('#link-event-card');
+    await eventFinderPage.isDisplayed(testController);
   }
 
   async browseClubCard(testController) {
