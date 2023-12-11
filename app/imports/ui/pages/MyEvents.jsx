@@ -39,7 +39,7 @@ const MyEvents = () => {
               <Col className="text-center">
                 <h2>My Events</h2>
               </Col>
-              <Row xs={1} md={2} lg={4}>
+              <Row xs={1} md={2} lg={3}>
                 {events.map((event) => (
                   <Col key={event._id}><EventCard event={event} /></Col>
                 ))}
