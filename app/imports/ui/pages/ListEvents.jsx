@@ -23,20 +23,32 @@ const ListEvents = () => {
     };
   }, []);
 
-  return (ready ? (
-    <Container id="list-events-page" className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>Up Coming Events</h2>
-          </Col>
-          <Row xs={1} md={2} lg={4}>
-            {events.map((event) => (<Col key={event._id}><EventCard event={event} /></Col>))}
+  return (
+    ready ? (
+      <Container id="list-events-page" className="py-3">
+        {events.length === 0 ? (
+          <Row className="justify-content-center">
+            <Col className="text-center">
+              <h2>You currently have no events</h2>
+            </Col>
           </Row>
-        </Col>
-      </Row>
-    </Container>
-  ) : <LoadingSpinner />);
+        ) : (
+          <Row className="justify-content-center">
+            <Col>
+              <Col className="text-center">
+                <h2>Up Coming Events</h2>
+              </Col>
+              <Row xs={1} md={2} lg={4}>
+                {events.map((event) => (
+                  <Col key={event._id}><EventCard event={event} /></Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        )}
+      </Container>
+    ) : <LoadingSpinner />
+  );
 };
 
 export default ListEvents;

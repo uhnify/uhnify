@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
@@ -24,20 +24,32 @@ const MyEvents = () => {
       ready: rdy,
     };
   }, []);
-  return (ready ? (
-    <Container id="my-events" className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>My Events</h2>
-          </Col>
-          <Row xs={1} md={2} lg={4}>
-            {events.map((event) => (<Col key={event._id}><EventCard event={event} /></Col>))}
+  return (
+    ready ? (
+      <Container id="my-events" className="py-3">
+        {events.length === 0 ? (
+          <Row className="justify-content-center">
+            <Col className="text-center">
+              <h2>You currently have no events</h2>
+            </Col>
           </Row>
-        </Col>
-      </Row>
-    </Container>
-  ) : <LoadingSpinner />);
+        ) : (
+          <Row className="justify-content-center">
+            <Col>
+              <Col className="text-center">
+                <h2>My Events</h2>
+              </Col>
+              <Row xs={1} md={2} lg={4}>
+                {events.map((event) => (
+                  <Col key={event._id}><EventCard event={event} /></Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        )}
+      </Container>
+    ) : <LoadingSpinner />
+  );
 };
 
 export default MyEvents;

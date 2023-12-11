@@ -48,25 +48,45 @@ const ListClub = () => {
       ready: rdy,
     };
   }, []);
-  return (ready ? (
-    <Container id="list-clubs" className="py-3">
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>My Clubs</h2>
-          </Col>
-          <Row xs={1} md={2} lg={4}>
-            {clubs.map((club) => (<Col key={club._id}><Club2 club={club} onRemoveFromProfile={() => onRemoveFromProfile(club._id)} onViewDetails={() => handleViewDetails(club)} /></Col>))}
+  return (
+    ready ? (
+      <Container id="list-clubs" className="py-3">
+        {clubs.length === 0 ? (
+          <Row className="justify-content-center">
+            <Col className="text-center">
+              <h2>You currently have no clubs</h2>
+            </Col>
           </Row>
-        </Col>
-      </Row>
-      <ClubDetailsModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        club={selectedClub}
-      />
-    </Container>
-  ) : <LoadingSpinner />);
+        ) : (
+          <Row className="justify-content-center">
+            <Col>
+              <Col className="text-center">
+                <h2>My Clubs</h2>
+              </Col>
+              <Row xs={1} md={2} lg={4}>
+                {clubs.map((club) => (
+                  <Col key={club._id}>
+                    <Club2
+                      club={club}
+                      onRemoveFromProfile={() => onRemoveFromProfile(club._id)}
+                      onViewDetails={() => handleViewDetails(club)}
+                    />
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
+        )}
+        <ClubDetailsModal
+          show={showModal}
+          handleClose={handleCloseModal}
+          club={selectedClub}
+        />
+      </Container>
+    ) : (
+      <LoadingSpinner />
+    )
+  );
 };
 
 export default ListClub;

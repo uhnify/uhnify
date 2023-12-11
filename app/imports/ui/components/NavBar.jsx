@@ -45,7 +45,7 @@ const NavBar = () => {
               <NavDropdown title="Events" id="nav-dropdown-events">
                 <NavDropdown.Item id="event-finder" as={NavLink} to="/upcoming-events">Event Finder</NavDropdown.Item>
                 <NavDropdown.Item id="event-calendar" as={NavLink} to="/calender-events">Event Calendar</NavDropdown.Item>
-                <NavDropdown.Item id="my-events" as={NavLink} to="/todays-events">My Events</NavDropdown.Item>
+                <NavDropdown.Item id="my-events" as={NavLink} to="/user-events">My Events</NavDropdown.Item>
                 <NavDropdown.Item id="create-event" as={NavLink} to="/create-event">Start Event</NavDropdown.Item>
               </NavDropdown>
             )}

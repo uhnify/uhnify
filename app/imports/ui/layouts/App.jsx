@@ -47,10 +47,10 @@ const App = () => {
           <Route path="/calender-events" element={<ListEventsCalender />} />
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
-          <Route path="/Profilez" element={<Profilez />} />
-          <Route path="/Profile" element={<Profile />} />
+          <Route path="/profilez" element={<Profilez />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/edit/:_id" element={<AdminProtectedRoute><EditClubAdmin /></AdminProtectedRoute>} />
-          <Route path="/todays-events" element={<MyEvents />} />
+          <Route path="/user-events" element={<MyEvents />} />
           <Route path="/clubdetail" element={<ClubDetail />} />
           <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />
           <Route path="/create-event" element={<ProtectedRoute><AddEvent /></ProtectedRoute>} />
