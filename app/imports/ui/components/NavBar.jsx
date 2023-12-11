@@ -28,7 +28,7 @@ const NavBar = () => {
     <Navbar expand="lg" className="dark-green-navbar py-xl-5">
       <Container>
         <Navbar.Brand as={NavLink} to="/">
-          <img src="/images/UHnifyLogozz.png" alt="UHnify Logo" width="250" />
+          UHnify
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -72,7 +72,7 @@ const NavBar = () => {
                 // eslint-disable-next-line no-nested-ternary
                 currentUser ? (
                   profile ? (
-                    <Image src={profile.picture || 'public/images/defaultprofilepic.png'} className="profilePicture" />
+                    <Image src={profile.picture || 'public/images/defaultprofilepic.png'} className="profilePicture" style={{ width: '40px', height: '30px' }} />
                   ) : (
                     //  if no profile found
                     <PersonFill />
