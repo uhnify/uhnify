@@ -5,26 +5,34 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { Clubs } from '../../api/club/Club';
 import ClubItemAdmin from '../components/ClubItemAdmin';
 import { Events } from '../../api/events/Events'; // Adjust the path as necessary
+import { Profiles } from '../../api/profiles/Profiles';
 import EventCardAdmin from '../components/EventsAdmin';
 import LoadingSpinner from '../components/LoadingSpinner';
+import ProfileCard from '../components/Profiles';
 
 /* Renders a table containing all of the Club documents. Use <ClubItemAdmin> to render each row. */
 const ListClubAdmin = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { clubs, events, ready } = useTracker(() => {
+  const { clubs, events, profiles, ready } = useTracker(() => {
     // Get access to Club documents.
     const clubSubscription = Meteor.subscribe(Clubs.adminPublicationName);
     //
     const eventSubscription = Meteor.subscribe(Events.adminPublicationName);
+
+    //
+    const profileSubscription = Meteor.subscribe(Profiles.adminPublicationName);
+
     // Determine if the subscription is ready
-    const rdy = clubSubscription.ready() && eventSubscription.ready();
+    const rdy = clubSubscription.ready() && eventSubscription.ready() && profileSubscription.ready();
     // Get the Club documents
     const itemClub = Clubs.collection.find({}).fetch();
     const itemEvent = Events.collection.find({}).fetch();
+    const itemProfile = Profiles.collection.find({}).fetch();
 
     return {
       clubs: itemClub,
       events: itemEvent,
+      profiles: itemProfile,
       ready: rdy,
     };
   }, []);
@@ -50,6 +58,23 @@ const ListClubAdmin = () => {
           </Row>
         </Col>
       </Row>
+      <Row className="justify-content-center py-5">
+        <Col>
+          <Col className="text-center">
+            <h2>All Profiles</h2>
+          </Col>
+          <Row xs={1} md={2} lg={4}>
+            {profiles.map((profile) => (
+              <Col key={profile._id}>
+                <ProfileCard
+                  profile={profile}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Col>
+      </Row>
+
     </Container>
   ) : <LoadingSpinner />);
 };
