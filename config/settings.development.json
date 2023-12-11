@@ -218,7 +218,7 @@
     },
     {
       "clubID": 12,
-      "name": "American Institute of Aeronautics and Astronautics Student Branch at the University of Hawai'i at Manoa",
+      "name": "American Institute of Aeronautics and Astronautics",
       "owner": "admin@foo.com",
       "description": "Establish a community for aerospace-related student projects and programs at the UHM and further the purposes and programs of AIAA.",
       "location": "Library Conference Room",
@@ -361,7 +361,7 @@
     },
     {
       "clubID": 23,
-      "name": "Association for Computing Machinery at the University of Hawaii at Manoa",
+      "name": "Association for Computing Machinery",
       "owner": "admin@foo.com",
       "description": "ACM is a global scientific and educational organization dedicated to advancing the art, science, engineering, and application of computing, serving both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards. The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members.",
       "location": "Campus Main Hall",

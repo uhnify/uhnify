@@ -1223,3 +1223,11 @@ em {
 {
   font-size: .8em;
 }
+
+.suggestions-dropdown {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  background-color: grey;
+  width: 17%;
+}

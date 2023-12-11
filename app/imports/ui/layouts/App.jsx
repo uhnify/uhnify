@@ -22,7 +22,6 @@ import Profile from '../pages/Profile';
 import AddClub from '../pages/AddClub';
 import MyEvents from '../pages/MyEvents';
 import AddEvent from '../pages/AddEvent';
-import ListEventsCalender from '../pages/ListEventsCalender';
 import Profilez from '../pages/Profilez';
 import EditClubAdmin from '../pages/EditClubAdmin';
 import EditEventAdmin from '../pages/EditEventAdmin';
@@ -45,7 +44,6 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/home" element={<ProtectedRoute><Landing /></ProtectedRoute>} />
           <Route path="/upcoming-events" element={<ListEvents />} />
-          <Route path="/calender-events" element={<ListEventsCalender />} />
           <Route path="/my-clubs" element={<ProtectedRoute><ListClubs /></ProtectedRoute>} />
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profilez" element={<Profilez />} />

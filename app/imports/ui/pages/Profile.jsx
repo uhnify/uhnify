@@ -105,9 +105,9 @@ const Profile = () => {
               {/* Display the selected image if available, otherwise the default one */
                 imagePreview ? <img className="profile-picture" src={imagePreview} alt="Profile" /> : <img className="profile-picture" src={profile.picture} alt="Profile" />
               }
-              <Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
+              <div className="mb-4 w-100 d-flex justify-content-center"><Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
                 Edit Profile Picture
-              </Button>
+              </Button></div>
               <input
                 type="file"
                 accept="image/*"
