@@ -14,14 +14,26 @@ const ClubFinder = () => {
   const [categories, setCategories] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedClub, setSelectedClub] = useState(null);
-
+  const [showFilterModal, setShowFilterModal] = useState(false);
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
+
+  const handleShowFilterModal = () => setShowFilterModal(true);
+  const handleCloseFilterModal = () => setShowFilterModal(false);
+
 
   const handleViewDetails = (club) => {
     setSelectedClub(club);
     setShowModal(true);
   };
+
+  const handleShowDetailsModal = (club) => {
+    setSelectedClub(club);
+    setShowDetailsModal(true);
+  };
+  const handleCloseDetailsModal = () => setShowDetailsModal(false);
 
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
@@ -53,8 +65,8 @@ const ClubFinder = () => {
       });
     });
     setCategories([...uniqueCategories]);
+    console.log('Categories set:', [...uniqueCategories]); // Debug log
   }, [clubs]);
-
   const handleCategoryChange = (event, category) => {
     if (event.target.checked) {
       setSelectedCategories([...selectedCategories, category]);
@@ -68,11 +80,12 @@ const ClubFinder = () => {
 
   return (ready ? (
     <Container id="browse-clubs-page" className="py-3">
-      <Button variant="light" onClick={handleShowModal}>
+      <Button variant="light" onClick={handleShowFilterModal}>
         <CiFilter /> Filter
       </Button>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
+      {/* Filter Modal */}
+      <Modal show={showFilterModal} onHide={handleCloseFilterModal}>
         <Modal.Header closeButton>
           <Modal.Title>Filter Clubs by Category</Modal.Title>
         </Modal.Header>
@@ -91,11 +104,12 @@ const ClubFinder = () => {
           ))}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
+          <Button variant="secondary" onClick={handleCloseFilterModal}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
+
 
       {/* Render filtered clubs */}
       <Row xs={1} md={2} lg={3}>
@@ -104,16 +118,16 @@ const ClubFinder = () => {
             <Club
               club={club}
               onAddToProfile={() => addClubToProfile(club._id)}
-              onViewDetails={() => handleViewDetails(club)}
+              onViewDetails={() => handleShowDetailsModal(club)}
             />
           </Col>
         ))}
       </Row>
-      <ClubDetailsModal
-        show={showModal}
-        handleClose={handleCloseModal}
-        club={selectedClub}
-      />
+    <ClubDetailsModal
+      show={showDetailsModal}
+      handleClose={handleCloseDetailsModal}
+      club={selectedClub}
+    />
     </Container>
   ) : <LoadingSpinner />);
 };
