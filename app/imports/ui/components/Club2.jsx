@@ -3,32 +3,42 @@ import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'react-bootstrap';
 
 /** Renders a card with club information. */
-const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => (
-  <Card className="club-card">
-    <Card.Header className="club-card-header">
-      <Image src={club.image} className="club-card-image" alt={club.name} />
-      <div className="club-card-title-area">
-        <Card.Title className="club-card-title">{club.name}</Card.Title>
-        <Card.Subtitle className="club-card-meeting-time">{club.meetingTime}</Card.Subtitle>
-      </div>
-    </Card.Header>
-    <Card.Body className="club-card-body">
-      <Card.Text className="club-card-description">{club.description}</Card.Text>
-      <div className="club-card-categories">
-        {club.categories && club.categories.map(category => (
-          <span key={category} className="club-category-tag">{category}</span>
-        ))}
-      </div>
-      {/* Changed from Link to Button */}
-      <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
-        View Details
-      </Button>
-      <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3 club-card-remove-link">
-        Remove from My Clubs
-      </Button>
-    </Card.Body>
-  </Card>
-);
+/** Renders a card with club information. */
+const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => {
+  // Define a maximum character length
+  const MAX_DESCRIPTION_LENGTH = 200;
+
+  // Truncate the description if it exceeds the maximum length
+  const truncatedDescription = club.description.length > MAX_DESCRIPTION_LENGTH
+    ? `${club.description.substring(0, MAX_DESCRIPTION_LENGTH)}...`
+    : club.description;
+
+  return (
+    <Card className="club-card">
+      <Card.Header className="club-card-header">
+        <Image src={club.image} className="club-card-image" alt={club.name} />
+        <div className="club-card-title-area">
+          <Card.Title className="club-card-title">{club.name}</Card.Title>
+          <Card.Subtitle className="club-card-meeting-time">{club.meetingTime}</Card.Subtitle>
+        </div>
+      </Card.Header>
+      <Card.Body className="club-card-body">
+        <Card.Text className="club-card-description">{truncatedDescription}</Card.Text>
+        <div className="club-card-categories">
+          {club.categories && club.categories.map(category => (
+            <span key={category} className="club-category-tag">{category}</span>
+          ))}
+        </div>
+        <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+          View Details
+        </Button>
+        <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3 club-card-remove-link">
+          Remove from My Clubs
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+};
 
 // PropTypes
 Club2.propTypes = {
