@@ -4,9 +4,9 @@ import { Card, Image, Button } from 'react-bootstrap';
 
 /** Renders a card with club information. */
 const Club = ({ club, onAddToProfile, onViewDetails }) =>
-  // Limit the description to a specific number of characters
+// Limit the description to a specific number of characters
 
-   (
+  (
     <Card className="club-card2"> {/* Add class for styling */}
       <Card.Header className="club-card-header"> {/* Add class for styling */}
         <Image src={club.image} className="club-card-image" alt={club.name} /> {/* Add class for image styling */}
@@ -27,8 +27,7 @@ const Club = ({ club, onAddToProfile, onViewDetails }) =>
         <Button onClick={onAddToProfile} className="mt-3 club-card-remove-link"> Add to My Clubs</Button>
       </Card.Body>
     </Card>
-  )
-;
+  );
 
 // PropTypes to match ClubsCollection schema
 Club.propTypes = {
