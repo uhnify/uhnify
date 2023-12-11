@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
+import swal from 'sweetalert';
 import { Navigate } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import SimpleSchema from 'simpl-schema';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { AutoForm, TextField } from 'uniforms-bootstrap5';
-import { Profile } from '../../api/profile/Profile';
 
 /**
  * SignUp component is similar to signin component, but we create a new user instead.
@@ -135,24 +136,31 @@ const SignUp = ({ location }) => {
               <AutoForm schema={bridge} model={formData} onSubmit={data => submit(data)}>
                 <div className="tag-container">
                   <input type="checkbox" id="tag1" className="tag-checkbox" onChange={handleCheckboxChange} />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag1" className="tag-label">Academic</label>
 
                   <input type="checkbox" id="tag2" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag2" className="tag-label">Arts</label>
 
                   <input type="checkbox" id="tag3" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag3" className="tag-label">Sports</label>
 
                   <input type="checkbox" id="tag4" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag4" className="tag-label">Social</label>
 
                   <input type="checkbox" id="tag5" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag5" className="tag-label">Cultural</label>
 
                   <input type="checkbox" id="tag6" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag6" className="tag-label">Creativity</label>
 
                   <input type="checkbox" id="tag7" className="tag-checkbox" />
+                  {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
                   <label htmlFor="tag7" className="tag-label">Creativity</label>
                 </div>
                 <div className="d-flex justify-content-between mt-5">
