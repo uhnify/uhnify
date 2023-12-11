@@ -1215,3 +1215,8 @@ em {
   background-color: red !important; /* Use !important to override any existing styles */
   color: white; /* Optional: Change text color to white for better visibility */
 }
+
+.smaller-text
+{
+  font-size: .8em;
+}

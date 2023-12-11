@@ -78,7 +78,7 @@ const NavBar = () => {
                     <PersonFill />
                   )
                 ) : (
-                  'Sign In'
+                  <span className="smaller-text">Sign In</span>
                 )
               }
               id="nav-dropdown-profile"
