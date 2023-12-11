@@ -13,7 +13,17 @@ class LandingPage {
 
   async eventCard(testController) {
     await this.isDisplayed(testController);
-    await testController.click('#link-club-card');
+    await testController.click('#link-event-card');
+  }
+
+  async browseClubCard(testController) {
+    await this.isDisplayed(testController);
+    await testController.click('#browse-club-card');
+  }
+
+  async myClubCard(testController) {
+    await this.isDisplayed(testController);
+    await testController.click('#my-club-card');
   }
 }
 

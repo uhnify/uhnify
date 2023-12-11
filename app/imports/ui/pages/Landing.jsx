@@ -100,7 +100,7 @@ const Landing = () => {
         <Row className="gx-5">
           {/* Each Col component should span 4 grid units */}
           <Col xs={12} md={6} lg={4}>
-            <NavLink id="link-club-card" to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <NavLink id="link-event-card" to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
                 <Card.Img src="images/StudentsAtFootball.png" alt="Events" />
                 <Card.Body>
@@ -111,7 +111,7 @@ const Landing = () => {
             </NavLink>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <NavLink to="/search-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <NavLink id="browse-club-card" to="/search-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
                 <Card.Img src="images/KumbayaCircle2.png" alt="Browse Clubs" />
                 <Card.Body>
@@ -122,7 +122,7 @@ const Landing = () => {
             </NavLink>
           </Col>
           <Col xs={12} md={6} lg={4}>
-            <NavLink to="/my-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <NavLink id="my-club-card" to="/my-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
                 <Card.Img src="images/StudentsAtCafe.png" alt="My Clubs" />
                 <Card.Body>
