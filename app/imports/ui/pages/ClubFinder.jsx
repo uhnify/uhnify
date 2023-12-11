@@ -94,7 +94,11 @@ const ClubFinder = () => {
       <Row xs={1} md={2} lg={3}>
         {filteredClubs.map(club => (
           <Col key={club._id}>
-            <Club club={club} onAddToProfile={() => addClubToProfile(club._id)} />
+            <Club
+                club={club}
+                onAddToProfile={() => addClubToProfile(club._id)}
+                onViewDetails={() => handleViewDetails(club)}
+            />
           </Col>
         ))}
       </Row>
