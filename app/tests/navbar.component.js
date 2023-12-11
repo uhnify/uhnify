@@ -94,6 +94,30 @@ class NavBar {
     await testController.click('#nav-dropdown-events');
     await testController.click('#my-events');
   }
+
+  // check that my profile page link works
+  async gotoProfilePage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#profile');
+  }
+
+  // check that my events page link works
+  async gotoMyNavClubsPage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-my-clubs');
+  }
+
+  // check that my events page link works
+  async gotoAgendaPage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-calendar-events');
+  }
+
+  // check that my events page link works
+  async gotoCustomizePage(testController) {
+    await testController.click('#nav-dropdown-profile');
+    await testController.click('#nav-customize');
+  }
 }
 
 export const navBar = new NavBar();
