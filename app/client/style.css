@@ -450,9 +450,7 @@ em {
   border-radius: 20px!important;
 }
 
-.calendar-header {
-  color: #4F7942; /* Banana Leaf Green */
-}
+
 
 .event-style {
   border-color: #FF9E80; /* Coral Pink */
@@ -1219,4 +1217,9 @@ em {
 .red-title-background {
   background-color: red !important; /* Use !important to override any existing styles */
   color: white; /* Optional: Change text color to white for better visibility */
+}
+
+.smaller-text
+{
+  font-size: .8em;
 }
