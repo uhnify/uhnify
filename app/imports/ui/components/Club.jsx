@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'react-bootstrap';
 
 /** Renders a card with club information. */
-const Club = ({ club, onAddToProfile }) => {
+const Club = ({ club, onAddToProfile, onViewDetails }) => {
   // Limit the description to a specific number of characters
   const descriptionLimit = 200; // You can change this value to your desired limit
   const shortDescription = club.description.substring(0, descriptionLimit);
@@ -24,6 +24,9 @@ const Club = ({ club, onAddToProfile }) => {
             <span key={category} className="club-category-tag">{category}</span>
           ))}
         </div>
+        <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+          View Details
+        </Button>
         <Button onClick={onAddToProfile} className="mt-3 club-card-remove-link"> Add to My Clubs</Button>
       </Card.Body>
     </Card>
@@ -43,7 +46,8 @@ Club.propTypes = {
     contactInfo: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string), // Array of strings for categories
   }).isRequired,
-  onAddToProfile: PropTypes.func, // Validates the onAddToProfile prop
+  onAddToProfile: PropTypes.func,
+  onViewDetails: PropTypes.func.isRequired,
 };
 
 // DefaultProps
