@@ -69,7 +69,7 @@ Meteor.methods({
       lastName: lastName,
       bio: '',
       title: '',
-      picture: '/images/default-profile.png', // Default profile picture
+      picture: '/images/defaultprofilepic.png', // Default profile picture
     });
     // console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
   },
@@ -167,6 +167,7 @@ Meteor.methods({
     check(userId, String);
     check(imageBuffer, String);
     check(imageName, String);
+    check(imageBuffer, Buffer);
 
     if (!this.userId) {
       throw new Meteor.Error('not-logged-in', 'You must be logged in to perform this action');

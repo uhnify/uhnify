@@ -24,7 +24,8 @@ const bridge = new SimpleSchema2Bridge(formSchema);
 
 const Profile = () => {
 
-  const [imagePreview, setImagePreview] = useState('');
+  const [setImagePreview] = useState('');
+  let [imagePreview] = useState(''); // Initialize imagePreview
   const fileInput = useRef(null); // Initialize fileInput with useRef
 
   const handleImageChange = (event) => {
@@ -33,22 +34,25 @@ const Profile = () => {
       const reader = new FileReader();
 
       reader.onload = function (e) {
-        // Use the Buffer from the 'buffer' package
-        const buffer = Buffer.from(e.target.result);
-        const imageName = `${Meteor.userId()}-${file.name}`;
+        imagePreview = e.target.result;
 
-        Meteor.call('uploadProfilePicture', Meteor.userId(), buffer, imageName, (error, result) => {
-          if (error) {
-            console.error('Error uploading image:', error);
-          } else {
-            setImagePreview(`/images/${imageName}`);
-          }
-        });
+        const profile = Profiles.collection.findOne({ userId: Meteor.userId() });
+
+        // Ensure the profile exists before attempting an update
+        if (profile) {
+          Profiles.collection.update(
+            { _id: profile._id }, // Use the _id field in the selector
+            { $set: { picture: imagePreview } },
+          );
+        }
+
+        setImagePreview(imagePreview);
       };
 
-      reader.readAsArrayBuffer(file);
+      reader.readAsDataURL(file);
     }
   };
+
   const submit = (data, formRef) => {
     const { Firstname, Lastname, Email } = data;
 
@@ -60,6 +64,7 @@ const Profile = () => {
         formRef.reset();
       }
     });
+
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
@@ -92,8 +97,9 @@ const Profile = () => {
           <Col className="text-center"><h2>Account Details</h2></Col>
           <Row>
             <div className="d-flex flex-column align-items-center">
-              {/* Display the selected image if available, otherwise the default one */}
-              <img className="profile-picture" src={profile.picture} alt="Profile" />
+              {/* Display the selected image if available, otherwise the default one */
+                imagePreview ? <img className="profile-picture" src={imagePreview} alt="Profile" /> : <img className="profile-picture" src={profile.picture} alt="Profile" />
+              }
               <Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
                 Edit Profile Picture
               </Button>

@@ -91,7 +91,7 @@ const ClubFinder = () => {
       </Modal>
 
       {/* Render filtered clubs */}
-      <Row xs={1} md={2} lg={4}>
+      <Row xs={1} md={2} lg={3}>
         {filteredClubs.map(club => (
           <Col key={club._id}>
             <Club club={club} onAddToProfile={() => addClubToProfile(club._id)} />

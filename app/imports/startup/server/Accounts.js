@@ -25,7 +25,7 @@ const createUserProfile = (userId, email, firstName, lastName) => {
     lastName: lastName,
     bio: '',
     title: '',
-    picture: '/images/default-profile.png', // Default profile picture
+    picture: '/images/defaultprofilepic.png', // Default profile picture
   });
   console.log(`  Profile created for user ID ${userId} with UH_ID ${UH_ID}.`);
 };
