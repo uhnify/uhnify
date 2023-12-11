@@ -484,7 +484,9 @@ em {
   color: var(--volcanic-grey); /* Text color */
   background-color: var(--pale-yellow); /* Background color */
   padding: 10px;
-  margin: 5px 0;
+  margin: 15px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 8px;
   border: 1px solid var(--banana-leaf-green);
 }
@@ -1230,4 +1232,9 @@ em {
   margin: 0;
   background-color: grey;
   width: 17%;
+}
+
+.bio
+{
+  height: 400px !important;
 }

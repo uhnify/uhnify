@@ -32,19 +32,20 @@ const Profilez = () => {
       <Row className="justify-content-center">
         {/* Left Card for Information (Name, Email, Title) */}
         <Col md={4}>
-          <Card className="card-container">
-            <Card.Body>
-              <div className="text-display">Firstname: {profile.firstName || 'N/A'}</div>
-              <div className="text-display">Lastname: {profile.lastName || 'N/A'}</div>
-              <div className="text-display">Email: {profile.email || 'N/A'}</div>
-              <div className="text-display">Title: {profile.title || 'N/A'}</div>
+          <Card className="card-container bio">
+            <Card.Body className="d-flex justify-content-center flex-column">
+
+              <div className="text-display w-75 text-center">Firstname: {profile.firstName || 'N/A'}</div>
+              <div className="text-display w-75 text-center">Lastname: {profile.lastName || 'N/A'}</div>
+              <div className="text-display w-75 text-center">Email: {profile.email || 'N/A'}</div>
+              <div className="text-display w-75 text-center">Title: {profile.title || 'N/A'}</div>
             </Card.Body>
           </Card>
         </Col>
 
         {/* Center Card with Profile Picture */}
         <Col md={4}>
-          <Card className="card-container">
+          <Card className="card-container bio">
             <Card.Body className="text-center">
               <img src={profile.picture} alt="Profile" className="profile-picture rounded-circle" />
             </Card.Body>
@@ -53,7 +54,7 @@ const Profilez = () => {
 
         {/* Right Card for Bio */}
         <Col md={4}>
-          <Card>
+          <Card className="bio card-container">
             <Card.Body>
               {/* Display Bio Information */}
               <div className="text-display">Bio: {profile.bio || 'N/A'}</div>
@@ -61,21 +62,8 @@ const Profilez = () => {
           </Card>
         </Col>
 
-      </Row>{/* New Row for small cards */}
-      <Row className="justify-content-center pt-4">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <Col key={index} xs={12} sm={6} md={2} className="pb-3">
-            <Card className="small-card">
-              <Card.Body className="text-center">
-                <Card.Title>Card {index + 1}</Card.Title>
-                <Card.Text>
-                  Some details
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
       </Row>
+
     </Container>
   ) : <LoadingSpinner />;
 };
