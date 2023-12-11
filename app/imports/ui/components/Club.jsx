@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Card, Image, Button } from 'react-bootstrap';
 
 /** Renders a card with club information. */
-const Club = ({ club, onAddToProfile, onViewDetails }) => {
+const Club = ({ club, onAddToProfile, onViewDetails }) =>
   // Limit the description to a specific number of characters
 
-  return (
-    <Card className="club-card"> {/* Add class for styling */}
+   (
+    <Card className="club-card2"> {/* Add class for styling */}
       <Card.Header className="club-card-header"> {/* Add class for styling */}
         <Image src={club.image} className="club-card-image" alt={club.name} /> {/* Add class for image styling */}
         <div className="club-card-title-area"> {/* Div for title and meeting time */}
@@ -15,7 +15,7 @@ const Club = ({ club, onAddToProfile, onViewDetails }) => {
           <Card.Subtitle className="club-card-meeting-time">{club.meetingTime}</Card.Subtitle>
         </div>
       </Card.Header>
-      <Card.Body className="club-card-body"> {/* Add class for body styling */}
+      <Card.Body className="club-card-body2"> {/* Add class for body styling */}
         <div className="club-card-categories"> {/* Div for categories */}
           {club.categories && club.categories.map(category => (
             <span key={category} className="club-category-tag">{category}</span>
@@ -27,8 +27,8 @@ const Club = ({ club, onAddToProfile, onViewDetails }) => {
         <Button onClick={onAddToProfile} className="mt-3 club-card-remove-link"> Add to My Clubs</Button>
       </Card.Body>
     </Card>
-  );
-};
+  )
+;
 
 // PropTypes to match ClubsCollection schema
 Club.propTypes = {

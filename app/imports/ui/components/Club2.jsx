@@ -24,17 +24,19 @@ const Club2 = ({ club, onRemoveFromProfile, onViewDetails }) => {
       </Card.Header>
       <Card.Body className="club-card-body">
         <Card.Text className="club-card-description">{truncatedDescription}</Card.Text>
-        <div className="club-card-categories">
+        <div className="club-card-categories mb-5">
           {club.categories && club.categories.map(category => (
             <span key={category} className="club-category-tag">{category}</span>
           ))}
         </div>
-        <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
-          View Details
-        </Button>
-        <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3 club-card-remove-link">
-          Remove from My Clubs
-        </Button>
+        <div className="club-card-buttons">
+          <Button type="button" onClick={() => onViewDetails(club)} className="mt-3 club-card-detail-link">
+            View Details
+          </Button>
+          <Button onClick={() => onRemoveFromProfile(club.clubID)} className="mt-3 club-card-remove-link">
+            Remove from My Clubs
+          </Button>
+        </div>
       </Card.Body>
     </Card>
   );

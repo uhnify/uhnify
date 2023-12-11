@@ -111,7 +111,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('images/DesignCutout.png'); /* Add your image path */
   background-size: cover;
   background-position: center;
   border-radius: 20px; /* If you want rounded edges */
@@ -222,11 +221,47 @@ em {
 
 /* Club Card Styling */
 .club-card {
+  position: relative;
   background-color: var(--coconut-white); /* White background for contrast */
   border-radius: 20px!important; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   overflow: hidden;
+  height: 500px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Club Card Styling */
+.club-card2 {
+  position: relative;
+  background-color: var(--coconut-white); /* White background for contrast */
+  border-radius: 20px!important; /* Rounded edges */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden;
+  height: 400px !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
+}
+.club-card-body {
+  height: 250px; /* Set a fixed height, adjust as needed */
+  position: relative; /* Establishes a positioning context for children */
+  display: flex;
+  margin-right: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+.club-card-body2 {
+  height: 150px; /* Set a fixed height, adjust as needed */
+  position: relative; /* Establishes a positioning context for children */
+  display: flex;
+  margin-right: 20px;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.club-card-buttons {
+  position: absolute;
+  bottom: 0; /* Aligns the container to the bottom */
+  width: 100%; /* Ensures it spans the full width of the card */
+  padding: 10px; /* Add some padding around the buttons */
 }
 
 .club-card:hover {
@@ -1255,3 +1290,5 @@ em {
 .custom-pagination .page-item:not(.disabled) .page-link:hover {
   background-color: grey;
 }
+
+
