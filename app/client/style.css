@@ -1238,3 +1238,20 @@ em {
 {
   height: 400px !important;
 }
+
+.custom-pagination .page-item {
+  margin-right: 5px; /* Adjust the space as needed */
+}
+
+.custom-pagination .page-link {
+  background-color: white;
+}
+
+.custom-pagination .page-item.active .page-link {
+  background-color: grey;
+  border: black;
+}
+
+.custom-pagination .page-item:not(.disabled) .page-link:hover {
+  background-color: grey;
+}
