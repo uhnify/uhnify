@@ -7,7 +7,6 @@ import { myClubsPage } from './myclubs.page';
 import { eventFinderPage } from './eventfinder.page';
 import { addClubPage } from './addclubs.page';
 import { createEventsPage } from './createevents.page';
-import { eventCalendarPage } from './eventcalendar.page';
 import { myEventsPage } from './myevents.page';
 import { profilePage } from './profile.page';
 
@@ -76,13 +75,6 @@ test('Test the Event Finder page', async (testController) => {
   await navBar.gotoEventFinderPage(testController);
   await eventFinderPage.isDisplayed(testController);
 });
-
-// test('Test the Event Calendar page', async (testController) => {
-//   await navBar.gotoSignInPage(testController);
-//   await signinPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.gotoEventCalendarPage(testController);
-//   await eventCalendarPage.isDisplayed(testController);
-// });
 
 test('Test the My Events page', async (testController) => {
   await navBar.gotoSignInPage(testController);
