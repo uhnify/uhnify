@@ -24,6 +24,7 @@ const ClubItemAdmin = ({ club, collection }) => {
           <span key={category} className="club-category-tag">{category}</span>
         ))}
         <Link to={`/edit/${club._id}`} className="px-2">Edit</Link>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <Link variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Link>
       </Card.Body>
     </Card>
@@ -42,6 +43,7 @@ ClubItemAdmin.propTypes = {
     owner: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   collection: PropTypes.object.isRequired,
 };
 

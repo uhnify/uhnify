@@ -69,6 +69,7 @@ const NavBar = () => {
             {/* </Form> */}
             <NavDropdown
               title={
+                // eslint-disable-next-line no-nested-ternary
                 currentUser ? (
                   profile ? (
                     <Image src={profile.picture || 'public/images/defaultprofilepic.png'} className="profilePicture" />
