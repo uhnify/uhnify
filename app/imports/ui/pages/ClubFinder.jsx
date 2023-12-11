@@ -6,15 +6,22 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { CiFilter } from 'react-icons/ci';
 import { Clubs } from '../../api/club/Club';
 import Club from '../components/Club';
+import ClubDetailsModal from '../components/ClubDetailsModal';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const ClubFinder = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [selectedClub, setSelectedClub] = useState(null);
 
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
+
+  const handleViewDetails = (club) => {
+    setSelectedClub(club);
+    setShowModal(true);
+  };
 
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
@@ -95,13 +102,18 @@ const ClubFinder = () => {
         {filteredClubs.map(club => (
           <Col key={club._id}>
             <Club
-                club={club}
-                onAddToProfile={() => addClubToProfile(club._id)}
-                onViewDetails={() => handleViewDetails(club)}
+              club={club}
+              onAddToProfile={() => addClubToProfile(club._id)}
+              onViewDetails={() => handleViewDetails(club)}
             />
           </Col>
         ))}
       </Row>
+      <ClubDetailsModal
+        show={showModal}
+        handleClose={handleCloseModal}
+        club={selectedClub}
+      />
     </Container>
   ) : <LoadingSpinner />);
 };
