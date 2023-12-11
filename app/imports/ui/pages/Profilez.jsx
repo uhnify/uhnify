@@ -83,7 +83,7 @@ const Profilez = () => {
     Email: profile.email,
   };
   return ready ? (
-    <Container className="py-3">
+    <Container id="profile-page" className="py-3">
       <Row className="justify-content-center mb-4" >
         <Col>
           {/* Assuming your image is placed in the public/images directory */}

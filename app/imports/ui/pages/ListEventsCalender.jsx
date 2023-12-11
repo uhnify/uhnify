@@ -29,7 +29,7 @@ const ListEventsCalendar = () => {
   }));
 
   return ready ? (
-    <Container className="calendar-container">
+    <Container id="event-calendar" className="calendar-container">
       <div className="calendar-header">
         <h1>Event Calendar</h1>
       </div>
