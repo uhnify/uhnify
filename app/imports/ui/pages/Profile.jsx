@@ -111,6 +111,7 @@ const Profile = () => {
               />
             </div>
           </Row>
+          <div className="image-wrapper">
           <AutoForm
             ref={ref => { fRef = ref; }}
             schema={bridge}
@@ -131,6 +132,7 @@ const Profile = () => {
               </Card.Body>
             </Card>
           </AutoForm>
+          </div>
         </Col>
       </Row>
     </Container>

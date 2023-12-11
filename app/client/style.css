@@ -73,6 +73,61 @@ body {
   flex-direction: column; /* Stack children elements vertically */
 }
 
+.image-wrapper {
+  position: relative;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+@media (max-width: 576px) { /* Adjust for small screens */
+  .theme-text-field,
+  .theme-select-field,
+  .submit-button {
+    font-size: 14px; /* Smaller font size */
+    padding: 8px; /* Smaller padding */
+  }
+}
+
+.theme-text-field, .theme-select-field, .submit-button {
+  width: 100%; /* Ensures full width */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+  .theme-text-field, .theme-select-field, .submit-button {
+    /* Adjust padding, font-size, etc., as needed for smaller screens */
+  }
+}
+
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('images/DesignCutout.png'); /* Add your image path */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px; /* If you want rounded edges */
+  z-index: -1; /* Ensures the image is behind the form */
+  /* Adjust width and height as needed to make it wider and shorter */
+  width: 115%; /* Example: to make it wider */
+  height: 100%; /* Example: to make it shorter */
+  margin-left: -5%; /* Adjust to align center if width is more than 100% */
+}
+
+.theme-card {
+  background: rgba(255, 255, 255, 0.8)!important; /* Optional: for slight transparency */
+  /* Position the card inside the wrapper */
+  position: relative;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .gray-background {
   background-color: var(--light-tropical-green);
   color: var(--banana-leaf-green);
