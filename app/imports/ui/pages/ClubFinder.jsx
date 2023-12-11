@@ -142,7 +142,7 @@ const ClubFinder = () => {
         {/* Pagination Controls */}
         <div className="d-flex justify-content-center my-3">
           <Pagination className="custom-pagination">
-            <Pagination.Prev onClick={handlePrevPage} disabled={currentPage === 1} />
+            {totalPages > 1 && <Pagination.Prev onClick={handlePrevPage} disabled={currentPage === 1} />}
             {[...Array(totalPages).keys()].map(number => (
               <Pagination.Item
                 key={number + 1}
@@ -152,9 +152,10 @@ const ClubFinder = () => {
                 {number + 1}
               </Pagination.Item>
             ))}
-            <Pagination.Next onClick={handleNextPage} disabled={currentPage === totalPages} />
+            {totalPages > 1 && <Pagination.Next onClick={handleNextPage} disabled={currentPage === totalPages} />}
           </Pagination>
         </div>
+
         {/* Club Details Modal */}
         <ClubDetailsModal
           show={showDetailsModal}
