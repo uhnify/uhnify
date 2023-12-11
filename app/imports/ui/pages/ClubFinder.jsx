@@ -18,7 +18,9 @@ const ClubFinder = () => {
   const [showFilterModal, setShowFilterModal] = useState(false);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  // eslint-disable-next-line no-use-before-define,no-shadow
   const handleNextPage = () => setCurrentPage(currentPage => Math.min(currentPage + 1, totalPages));
+  // eslint-disable-next-line no-shadow
   const handlePrevPage = () => setCurrentPage(currentPage => Math.max(currentPage - 1, 1));
   // Fetch clubs and set up subscription
   const { ready, clubs } = useTracker(() => {

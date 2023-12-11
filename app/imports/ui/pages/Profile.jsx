@@ -104,9 +104,11 @@ const Profile = () => {
               {/* Display the selected image if available, otherwise the default one */
                 imagePreview ? <img className="profile-picture" src={imagePreview} alt="Profile" /> : <img className="profile-picture" src={profile.picture} alt="Profile" />
               }
-              <div className="mb-4 w-100 d-flex justify-content-center"><Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
-                Edit Profile Picture
-              </Button></div>
+              <div className="mb-4 w-100 d-flex justify-content-center">
+                <Button variant="primary" className="edit-profile-picture w-50" onClick={() => fileInput.current.click()}>
+                  Edit Profile Picture
+                </Button>
+              </div>
               <input
                 type="file"
                 accept="image/*"
@@ -118,9 +120,8 @@ const Profile = () => {
           </Row>
           <div className="image-wrapper">
             <AutoForm
-              ref={ref => { fRef = ref; }}
               schema={bridge}
-              onSubmit={data => submit(data, fRef)}
+              onSubmit={data => submit(data)}
               model={transformedProfile} // Autofill the form with profile data
             >
               <Card>
