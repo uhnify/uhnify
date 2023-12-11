@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Col, Container, Row, Modal, Button } from 'react-bootstrap';
+import { Col, Container, Row, Modal, Button, Pagination } from 'react-bootstrap';
 import swal from 'sweetalert';
 import { useTracker } from 'meteor/react-meteor-data';
 import { CiFilter } from 'react-icons/ci';
@@ -10,6 +10,8 @@ import ClubDetailsModal from '../components/ClubDetailsModal';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const ClubFinder = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const clubsPerPage = 9; // You can set this to any number you prefer
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedClub, setSelectedClub] = useState(null);
@@ -25,6 +27,19 @@ const ClubFinder = () => {
       ready: subscription.ready(),
     };
   }, []);
+
+  const filteredClubs = clubs.filter(club => {
+    const matchesSearchTerm = searchTerm === '' || club.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategories = selectedCategories.length === 0 || club.categories.some(category => selectedCategories.includes(category));
+    return matchesSearchTerm && matchesCategories;
+  });
+
+  const indexOfLastClub = currentPage * clubsPerPage;
+  const indexOfFirstClub = indexOfLastClub - clubsPerPage;
+  const currentClubs = filteredClubs.slice(indexOfFirstClub, indexOfLastClub);
+
+  const totalPages = Math.ceil(filteredClubs.length / clubsPerPage);
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   useEffect(() => {
     const uniqueCategories = new Set();
     clubs.forEach(club => {
@@ -35,11 +50,7 @@ const ClubFinder = () => {
     setCategories([...uniqueCategories]);
   }, [clubs]);
   // Combined filter logic for search term and selected categories
-  const filteredClubs = clubs.filter(club => {
-    const matchesSearchTerm = searchTerm === '' || club.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategories = selectedCategories.length === 0 || club.categories.some(category => selectedCategories.includes(category));
-    return matchesSearchTerm && matchesCategories;
-  });
+
   const handleCloseFilterModal = () => setShowFilterModal(false);
 
   const handleShowDetailsModal = (club) => {
@@ -72,16 +83,20 @@ const ClubFinder = () => {
       <Container id="browse-clubs-page" className="py-3">
 
         <div className="d-flex justify-content-start">
-          <div><Button variant="light" onClick={handleShowFilterModal}>
-            <CiFilter/> Filter
-          </Button></div>
+          <div>
+            <Button variant="light" onClick={handleShowFilterModal}>
+              <CiFilter /> Filter
+            </Button>
+          </div>
           <div className="px-4"><input
             type="text"
             placeholder="Search for clubs..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
             className="search-input mt-1"
-          /></div></div>
+          />
+          </div>
+        </div>
 
         {/* Filter Modal */}
         <Modal show={showFilterModal} onHide={handleCloseFilterModal}>
@@ -109,9 +124,9 @@ const ClubFinder = () => {
           </Modal.Footer>
         </Modal>
 
-        {/* Render filtered clubs */}
+        {/* Render filtered clubs for current page */}
         <Row xs={1} md={2} lg={3}>
-          {filteredClubs.map(club => (
+          {currentClubs.map(club => (
             <Col key={club._id}>
               <Club
                 club={club}
@@ -121,11 +136,28 @@ const ClubFinder = () => {
             </Col>
           ))}
         </Row>
+
+        {/* Pagination Controls */}
+        <div className="d-flex justify-content-center my-3">
+          <Pagination>
+            {[...Array(totalPages).keys()].map(number => (
+              <Pagination.Item
+                key={number + 1}
+                active={number + 1 === currentPage}
+                onClick={() => paginate(number + 1)}
+              >
+                {number + 1}
+              </Pagination.Item>
+            ))}
+          </Pagination>
+        </div>
+        {/* Club Details Modal */}
         <ClubDetailsModal
           show={showDetailsModal}
           handleClose={handleCloseDetailsModal}
-          club={selectedClub}
+          club={selectedClub} // Ensure this prop is used correctly in ClubDetailsModal
         />
+
       </Container>
     ) : <LoadingSpinner />);
 };
