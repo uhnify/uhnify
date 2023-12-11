@@ -165,6 +165,7 @@ Meteor.methods({
 Meteor.methods({
   uploadProfilePicture(userId, imageBuffer, imageName) {
     check(userId, String);
+    check(imageBuffer, String);
     check(imageName, String);
     check(imageBuffer, Buffer);
 

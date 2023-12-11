@@ -12,15 +12,19 @@ const Footer = () => (
         <Col lg={2} className="footer-column">
           <h2>SOCIALS</h2>
           <hr className="heading-underline" />
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <a href="https://www.facebook.com/uhmanoa/" target="_blank" rel="noopener noreferrer" className="social-icon">
             <Facebook className="px-2" size={45} />
           </a>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <a href="https://www.instagram.com/uhmanoanews/?hl=en" target="_blank" rel="noopener noreferrer" className="social-icon">
             <Instagram className="px-2" size={45} />
           </a>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <a href="https://twitter.com/uhmanoa?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" rel="noopener noreferrer" className="social-icon">
             <Twitter className="px-2" size={45} />
           </a>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <a href="https://www.linkedin.com/school/uhmanoa/" target="_blank" rel="noopener noreferrer" className="social-icon">
             <Linkedin className="px-2" size={45} />
           </a>
