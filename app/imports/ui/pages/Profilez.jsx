@@ -36,10 +36,10 @@ const Profilez = () => {
           <Card className="card-container bio">
             <Card.Body className="d-flex justify-content-center flex-column">
 
-              <div className="text-display w-75 text-center">Firstname: {profile.firstName || 'N/A'}</div>
-              <div className="text-display w-75 text-center">Lastname: {profile.lastName || 'N/A'}</div>
-              <div className="text-display w-75 text-center">Email: {profile.email || 'N/A'}</div>
-              <div className="text-display w-75 text-center">Title: {profile.title || 'N/A'}</div>
+              <div className="text-display w-75 text-center">{profile.firstName || 'N/A'}</div>
+              <div className="text-display w-75 text-center">{profile.lastName || 'N/A'}</div>
+              <div className="text-display w-75 text-center">{profile.email || 'N/A'}</div>
+              <div className="text-display w-75 text-center">{profile.title || 'N/A'}</div>
             </Card.Body>
           </Card>
         </Col>
@@ -58,7 +58,7 @@ const Profilez = () => {
           <Card className="bio card-container">
             <Card.Body>
               {/* Display Bio Information */}
-              <div className="text-display">Bio: {profile.bio || 'N/A'}</div>
+              <div className="text-display">{profile.bio || 'N/A'}</div>
             </Card.Body>
           </Card>
         </Col>
