@@ -59,20 +59,20 @@ const AddClub = () => {
         <Col xs={12} sm={10} md={8} lg={5}>
           <h2 className="text-center heading">Start Club</h2>
           <div className="image-wrapper">
-          <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} className="form">
-            <Card className="theme-card">
-              <Card.Body>
-                <TextField id="name" name="name" className="theme-text-field" />
-                <TextField id="image" name="image" className="theme-text-field" />
-                <TextField id="location" name="location" className="theme-text-field" />
-                <LongTextField id="description" name="description" className="theme-text-field" />
-                <TextField id="meetingTime" name="meetingTime" className="theme-text-field" />
-                <SelectField name="categories" className="theme-select-field" />
-                <SubmitField id="submit" value="Submit" className="submit-button" />
-                <ErrorsField className="error-field" />
-              </Card.Body>
-            </Card>
-          </AutoForm>
+            <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} className="form">
+              <Card className="theme-card">
+                <Card.Body>
+                  <TextField id="name" name="name" className="theme-text-field" />
+                  <TextField id="image" name="image" className="theme-text-field" />
+                  <TextField id="location" name="location" className="theme-text-field" />
+                  <LongTextField id="description" name="description" className="theme-text-field" />
+                  <TextField id="meetingTime" name="meetingTime" className="theme-text-field" />
+                  <SelectField name="categories" className="theme-select-field" />
+                  <SubmitField id="submit" value="Submit" className="submit-button" />
+                  <ErrorsField className="error-field" />
+                </Card.Body>
+              </Card>
+            </AutoForm>
           </div>
         </Col>
       </Row>

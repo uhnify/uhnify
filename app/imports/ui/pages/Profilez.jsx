@@ -22,7 +22,6 @@ const Profilez = () => {
   }
   // use this to pass into schema because userId doenst work
 
-
   return ready ? (
     <Container id="profile-page" className="py-3">
       <Row className="justify-content-center mb-4">
