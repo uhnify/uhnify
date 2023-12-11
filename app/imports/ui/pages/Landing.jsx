@@ -41,7 +41,7 @@ const Landing = () => {
           <Container fluid className="py-5">
             <div className="d-flex justify-content-center align-items-center">
               <Image
-                src="/images/UHManoaLandingPage.png"
+                src="/images/main_landing2.jpeg"
                 alt="Main campus image"
                 fluid
                 style={{ borderRadius: '50px' }}
@@ -102,7 +102,7 @@ const Landing = () => {
           <Col xs={12} md={6} lg={4}>
             <NavLink id="link-event-card" to="/upcoming-events" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
-                <Card.Img src="images/StudentsAtFootball.png" alt="Events" />
+                <Card.Img src="images/events_landingCard2.jpeg" alt="Events" />
                 <Card.Body>
                   <Card.Title>Events</Card.Title>
                   <Card.Text>Join the community in exciting events around campus.</Card.Text>
@@ -113,7 +113,7 @@ const Landing = () => {
           <Col xs={12} md={6} lg={4}>
             <NavLink id="browse-club-card" to="/search-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
-                <Card.Img src="images/KumbayaCircle2.png" alt="Browse Clubs" />
+                <Card.Img src="images/club_landingAccountingClub2.jpeg" alt="Browse Clubs" />
                 <Card.Body>
                   <Card.Title>Browse Clubs</Card.Title>
                   <Card.Text>Discover clubs that match your interests and become a member.</Card.Text>
@@ -124,7 +124,7 @@ const Landing = () => {
           <Col xs={12} md={6} lg={4}>
             <NavLink id="my-club-card" to="/my-clubs" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Card className="club-card">
-                <Card.Img src="images/StudentsAtCafe.png" alt="My Clubs" />
+                <Card.Img src="images/club_landingCheer.jpeg" alt="My Clubs" />
                 <Card.Body>
                   <Card.Title>My Clubs</Card.Title>
                   <Card.Text>View and manage your club memberships and activities.</Card.Text>
