@@ -14,7 +14,7 @@ const generateUH_ID = () => {
 };
 
 // Function to create a profile for the new user
-const createUserProfile = (userId, email, firstName, lastName) => {
+const createUserProfile = (userId, email) => {
   const UH_ID = generateUH_ID();
   Profiles.collection.insert({
     // UH_ID,

@@ -6,13 +6,7 @@ import path from 'path';
 import { Clubs } from '../../api/club/Club';
 import { Events } from '../../api/events/Events';
 import { Profiles } from '../../api/profiles/Profiles';
-import { Interests } from '../../api/interests/Interests';
-import { ClubInterests } from '../../api/club/ClubInterests';
-import { EventsInterests } from '../../api/events/EventsInterests';
-import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
-import { ProfilesClub } from '../../api/profiles/ProfilesClub'; // Import ProfilesClub collection
 import { ProfileClubs } from '../../api/profile/ProfileClubs';
-import { ProfilesEvents } from '../../api/profiles/ProfilesEvents'; // Import ProfilesEvents collection
 import { EventClubs } from '../../api/events/EventClubs';
 
 const imagesPath = '../../../../../public/images/'; // Replace with your actual path
@@ -88,36 +82,6 @@ Meteor.publish(Profiles.adminPublicationName, function () {
 // Publication for all Clubs
 Meteor.publish('clubs.all', function () {
   return Clubs.collection.find();
-});
-
-// General publication for Interests
-Meteor.publish(Interests.publicationName, function () {
-  return Interests.collection.find();
-});
-
-// General publication for ClubInterests
-Meteor.publish(ClubInterests.publicationName, function () {
-  return ClubInterests.collection.find();
-});
-
-// General publication for EventsInterests
-Meteor.publish(EventsInterests.publicationName, function () {
-  return EventsInterests.collection.find();
-});
-
-// General publication for ProfilesInterests
-Meteor.publish(ProfilesInterests.publicationName, function () {
-  return ProfilesInterests.collection.find();
-});
-
-// General publication for ProfilesClub
-Meteor.publish(ProfilesClub.publicationName, function () {
-  return ProfilesClub.collection.find();
-});
-
-// General publication for ProfilesEvents
-Meteor.publish(ProfilesEvents.publicationName, function () {
-  return ProfilesEvents.collection.find();
 });
 
 // Roles publication
