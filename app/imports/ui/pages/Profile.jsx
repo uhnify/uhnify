@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+// Importing necessary components and hooks
 import { Card, Col, Container, Row, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { AutoForm, ErrorsField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -9,7 +10,7 @@ import SimpleSchema from 'simpl-schema';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
 
-// Create a schema to specify the structure of the data to appear in the form.
+// Schema for the form
 const formSchema = new SimpleSchema({
   Firstname: String,
   Lastname: String,
@@ -22,11 +23,12 @@ const formSchema = new SimpleSchema({
 const bridge = new SimpleSchema2Bridge(formSchema);
 
 const Profile = () => {
-
+  // State and ref for handling the profile picture
   const [setImagePreview] = useState('');
-  let [imagePreview] = useState(''); // Initialize imagePreview
-  const fileInput = useRef(null); // Initialize fileInput with useRef
+  let [imagePreview] = useState('');
+  const fileInput = useRef(null);
 
+  // Handles image selection for profile picture
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file && file.type.startsWith('image')) {
@@ -35,12 +37,11 @@ const Profile = () => {
       reader.onload = function (e) {
         imagePreview = e.target.result;
 
+        // Finds and updates the user's profile with the new image
         const profile = Profiles.collection.findOne({ userId: Meteor.userId() });
-
-        // Ensure the profile exists before attempting an update
         if (profile) {
           Profiles.collection.update(
-            { _id: profile._id }, // Use the _id field in the selector
+            { _id: profile._id },
             { $set: { picture: imagePreview } },
           );
         }
@@ -52,6 +53,7 @@ const Profile = () => {
     }
   };
 
+  // Submits the form data to update the user profile
   const submit = (data, formRef) => {
     const { Firstname, Lastname, Email } = data;
 
@@ -63,11 +65,9 @@ const Profile = () => {
         formRef.reset();
       }
     });
-
   };
 
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
-  let fRef = null;
+  // Subscribes to user profile data and fetches it
   const { ready, profile } = useTracker(() => {
     const subscription = Meteor.subscribe(Profiles.userPublicationName);
     const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
@@ -76,6 +76,7 @@ const Profile = () => {
       profile: userProfile,
     };
   }, []);
+
   console.log(profile); // Log to check the structure of the profile data
   // Transform profile data to match form field names
   // Check if the profile data is not ready and show loading spinner

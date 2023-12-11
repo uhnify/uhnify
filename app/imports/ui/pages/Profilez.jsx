@@ -1,99 +1,44 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Card, Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
-import { Buffer } from 'buffer';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
 
-// Create a schema to specify the structure of the data to appear in the form.
-// const formSchema = new SimpleSchema({
-//   Firstname: String,
-//   Lastname: String,
-//   Email: {
-//     type: String,
-//     regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-//   },
-// });
-
 const Profilez = () => {
-
-  const [imagePreview, setImagePreview] = useState('');
-  const fileInput = useRef(null); // Initialize fileInput with useRef
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file && file.type.startsWith('image')) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        // Use the Buffer from the 'buffer' package
-        const buffer = Buffer.from(e.target.result);
-        const imageName = `${Meteor.userId()}-${file.name}`;
-
-        Meteor.call('uploadProfilePicture', Meteor.userId(), buffer, imageName, (error) => {
-          if (error) {
-            console.error('Error uploading image:', error);
-          } else {
-            setImagePreview(`/images/${imageName}`);
-          }
-        });
-      };
-
-      reader.readAsArrayBuffer(file);
-    }
-  };
-  // const submit = (data, formRef) => {
-  //   const { Firstname, Lastname, Email } = data;
-  //
-  //   Meteor.call('updateUserProfile', Meteor.userId(), { Firstname, Lastname, Email }, (error) => {
-  //     if (error) {
-  //       swal('Error', error.reason, 'error');
-  //     } else {
-  //       swal('Success', 'Profile updated successfully', 'success');
-  //       formRef.reset();
-  //     }
-  //   });
-  // };
-
-  // Render the form. Use Uniforms: https://github.com/vazco/uniforms
+  // Fetches and tracks the profile data for the current user
   const { ready, profile } = useTracker(() => {
     const subscription = Meteor.subscribe(Profiles.userPublicationName);
+    // Fetches the current user's profile data
     const userProfile = Profiles.collection.findOne({ userId: Meteor.userId() });
     return {
-      ready: subscription.ready(),
-      profile: userProfile,
+      ready: subscription.ready(), // Checks if the subscription is ready
+      profile: userProfile, // Holds the fetched profile data
     };
   }, []);
-  console.log(profile); // Log to check the structure of the profile data
-  // Transform profile data to match form field names
-  // Check if the profile data is not ready and show loading spinner
+
   if (!ready || !profile) {
     return <LoadingSpinner />; // or some other indication that data is loading
   }
   // use this to pass into schema because userId doenst work
-  const transformedProfile = {
-    Firstname: profile.firstName,
-    Lastname: profile.lastName,
-    Email: profile.email,
-  };
+
+
   return ready ? (
     <Container id="profile-page" className="py-3">
       <Row className="justify-content-center mb-4">
         <Col>
-          {/* Assuming your image is placed in the public/images directory */}
           <Image src="/images/Header.png" fluid alt="Banner" className="rounded-banner" />
         </Col>
       </Row>
       <Row className="justify-content-center">
-        {/* Left Card for Information */}
+        {/* Left Card for Information (Name, Email, Title) */}
         <Col md={4}>
           <Card className="card-container">
             <Card.Body>
-              {/* Replace text fields with simple text display */}
-              <div className="text-display">Firstname: {transformedProfile.Firstname}</div>
-              <div className="text-display">Lastname: {transformedProfile.Lastname}</div>
-              <div className="text-display">Email: {transformedProfile.Email}</div>
+              <div className="text-display">Firstname: {profile.firstName || 'N/A'}</div>
+              <div className="text-display">Lastname: {profile.lastName || 'N/A'}</div>
+              <div className="text-display">Email: {profile.email || 'N/A'}</div>
+              <div className="text-display">Title: {profile.title || 'N/A'}</div>
             </Card.Body>
           </Card>
         </Col>
@@ -102,16 +47,18 @@ const Profilez = () => {
         <Col md={4}>
           <Card className="card-container">
             <Card.Body className="text-center">
-              <img src={imagePreview || profile.picture} alt="Profile" className="profile-picture rounded-circle" />
-              <input type="file" accept="image/*" ref={fileInput} onChange={handleImageChange} style={{ display: 'none' }} />
+              <img src={profile.picture} alt="Profile" className="profile-picture rounded-circle" />
             </Card.Body>
           </Card>
         </Col>
 
-        {/* Right Card for the Form */}
+        {/* Right Card for Bio */}
         <Col md={4}>
           <Card>
-            <Card.Body />
+            <Card.Body>
+              {/* Display Bio Information */}
+              <div className="text-display">Bio: {profile.bio || 'N/A'}</div>
+            </Card.Body>
           </Card>
         </Col>
 
