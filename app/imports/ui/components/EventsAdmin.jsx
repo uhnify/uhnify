@@ -22,8 +22,9 @@ const EventCardAdmin = ({ event, collection }) => {
         <Card.Text className="event-card-description">{event.description}</Card.Text>
         {/* Conditionally render Edit link based on user's permission */}
         <Link to={`/edit/event/${event.eventID}`} className="event-card-edit-link">Description</Link>
-        <Link to={`/edit/${event._id}`} className="px-2">Edit</Link>
-        <Link variant="danger" onClick={() => removeItem(event._id)} className="px-2">Delete</Link>
+        <Link to={`/edit/${event.eventID}`} className="px-2">Edit</Link>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <Link variant="danger" onClick={() => removeItem(event.eventID)} className="px-2">Delete</Link>
       </Card.Body>
     </Card>
   );
@@ -42,6 +43,7 @@ EventCardAdmin.propTypes = {
     clubID: PropTypes.number, // Assuming clubID is a number as per your schema
     // Add other fields as necessary
   }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   collection: PropTypes.object.isRequired,
 };
 

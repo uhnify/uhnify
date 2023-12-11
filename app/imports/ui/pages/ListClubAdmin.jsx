@@ -46,7 +46,7 @@ const ListClubAdmin = () => {
             <h2>All Events</h2>
           </Col>
           <Row xs={1} md={2} lg={4}>
-            {events.map((event) => (<Col key={event._id}><EventCardAdmin event={event} collection={Events.collection}/></Col>))}
+            {events.map((event) => (<Col key={event._id}><EventCardAdmin event={event} collection={Events.collection} /></Col>))}
           </Row>
         </Col>
       </Row>

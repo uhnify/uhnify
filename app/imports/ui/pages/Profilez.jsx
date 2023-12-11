@@ -1,25 +1,20 @@
 import React, { useState, useRef } from 'react';
 import { Card, Col, Container, Row, Image } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
-import swal from 'sweetalert';
 import { Meteor } from 'meteor/meteor';
-import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
-import SimpleSchema from 'simpl-schema';
 import { Buffer } from 'buffer';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Profiles } from '../../api/profiles/Profiles';
 
 // Create a schema to specify the structure of the data to appear in the form.
-const formSchema = new SimpleSchema({
-  Firstname: String,
-  Lastname: String,
-  Email: {
-    type: String,
-    regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-  },
-});
-
-const bridge = new SimpleSchema2Bridge(formSchema);
+// const formSchema = new SimpleSchema({
+//   Firstname: String,
+//   Lastname: String,
+//   Email: {
+//     type: String,
+//     regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+//   },
+// });
 
 const Profilez = () => {
 
@@ -48,18 +43,18 @@ const Profilez = () => {
       reader.readAsArrayBuffer(file);
     }
   };
-  const submit = (data, formRef) => {
-    const { Firstname, Lastname, Email } = data;
-
-    Meteor.call('updateUserProfile', Meteor.userId(), { Firstname, Lastname, Email }, (error) => {
-      if (error) {
-        swal('Error', error.reason, 'error');
-      } else {
-        swal('Success', 'Profile updated successfully', 'success');
-        formRef.reset();
-      }
-    });
-  };
+  // const submit = (data, formRef) => {
+  //   const { Firstname, Lastname, Email } = data;
+  //
+  //   Meteor.call('updateUserProfile', Meteor.userId(), { Firstname, Lastname, Email }, (error) => {
+  //     if (error) {
+  //       swal('Error', error.reason, 'error');
+  //     } else {
+  //       swal('Success', 'Profile updated successfully', 'success');
+  //       formRef.reset();
+  //     }
+  //   });
+  // };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   const { ready, profile } = useTracker(() => {
@@ -84,7 +79,7 @@ const Profilez = () => {
   };
   return ready ? (
     <Container id="profile-page" className="py-3">
-      <Row className="justify-content-center mb-4" >
+      <Row className="justify-content-center mb-4">
         <Col>
           {/* Assuming your image is placed in the public/images directory */}
           <Image src="/images/Header.png" fluid alt="Banner" className="rounded-banner" />
@@ -116,9 +111,7 @@ const Profilez = () => {
         {/* Right Card for the Form */}
         <Col md={4}>
           <Card>
-            <Card.Body>
-
-            </Card.Body>
+            <Card.Body />
           </Card>
         </Col>
 
@@ -135,7 +128,7 @@ const Profilez = () => {
               </Card.Body>
             </Card>
           </Col>
-))}
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />;
