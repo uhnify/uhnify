@@ -112,7 +112,6 @@ body {
   right: 0;
   bottom: 0;
   background-size: cover;
-// eslint-disable-next-line
   background-image: url('/images/DesignCutout.png');
   background-position: center;
   border-radius: 20px; /* If you want rounded edges */
