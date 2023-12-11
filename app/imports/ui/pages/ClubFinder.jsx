@@ -6,34 +6,15 @@ import { useTracker } from 'meteor/react-meteor-data';
 import { CiFilter } from 'react-icons/ci';
 import { Clubs } from '../../api/club/Club';
 import Club from '../components/Club';
-import ClubDetailsModal from '../components/ClubDetailsModal';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const ClubFinder = () => {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [categories, setCategories] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [selectedClub, setSelectedClub] = useState(null);
-  const [showFilterModal, setShowFilterModal] = useState(false);
-  const [showDetailsModal, setShowDetailsModal] = useState(false);
+
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => setShowModal(false);
-
-
-  const handleShowFilterModal = () => setShowFilterModal(true);
-  const handleCloseFilterModal = () => setShowFilterModal(false);
-
-
-  const handleViewDetails = (club) => {
-    setSelectedClub(club);
-    setShowModal(true);
-  };
-
-  const handleShowDetailsModal = (club) => {
-    setSelectedClub(club);
-    setShowDetailsModal(true);
-  };
-  const handleCloseDetailsModal = () => setShowDetailsModal(false);
 
   // ... code to fetch clubs ...
   const addClubToProfile = (clubId) => {
@@ -65,8 +46,8 @@ const ClubFinder = () => {
       });
     });
     setCategories([...uniqueCategories]);
-    console.log('Categories set:', [...uniqueCategories]); // Debug log
   }, [clubs]);
+
   const handleCategoryChange = (event, category) => {
     if (event.target.checked) {
       setSelectedCategories([...selectedCategories, category]);
@@ -80,12 +61,11 @@ const ClubFinder = () => {
 
   return (ready ? (
     <Container id="browse-clubs-page" className="py-3">
-      <Button variant="light" onClick={handleShowFilterModal}>
+      <Button variant="light" onClick={handleShowModal}>
         <CiFilter /> Filter
       </Button>
 
-      {/* Filter Modal */}
-      <Modal show={showFilterModal} onHide={handleCloseFilterModal}>
+      <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>
           <Modal.Title>Filter Clubs by Category</Modal.Title>
         </Modal.Header>
@@ -104,30 +84,24 @@ const ClubFinder = () => {
           ))}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseFilterModal}>
+          <Button variant="secondary" onClick={handleCloseModal}>
             Close
           </Button>
         </Modal.Footer>
       </Modal>
-
 
       {/* Render filtered clubs */}
       <Row xs={1} md={2} lg={3}>
         {filteredClubs.map(club => (
           <Col key={club._id}>
             <Club
-              club={club}
-              onAddToProfile={() => addClubToProfile(club._id)}
-              onViewDetails={() => handleShowDetailsModal(club)}
+                club={club}
+                onAddToProfile={() => addClubToProfile(club._id)}
+                onViewDetails={() => handleViewDetails(club)}
             />
           </Col>
         ))}
       </Row>
-    <ClubDetailsModal
-      show={showDetailsModal}
-      handleClose={handleCloseDetailsModal}
-      club={selectedClub}
-    />
     </Container>
   ) : <LoadingSpinner />);
 };

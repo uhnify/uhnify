@@ -21,8 +21,8 @@ const createUserProfile = (userId, email, firstName, lastName) => {
     userId,
     email,
     // Set other fields to default values or leave them to be updated later
-    firstName: 'John',
-    lastName: 'Foo',
+    firstName: firstName,
+    lastName: lastName,
     bio: '',
     title: '',
     picture: '/images/defaultprofilepic.png', // Default profile picture

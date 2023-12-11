@@ -53,11 +53,10 @@ const AddEvent = () => {
         <Col xs={5}>
           <Col className="text-center"><h2>Start Event</h2></Col>
           <div className="image-wrapper">
-
             <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
               <Card>
                 <Card.Body>
-                  <NumField id="eventID" name="eventID" label="Club ID" />
+                  <NumField id="eventID" name="eventID" />
                   <TextField id="title" name="title" />
                   <TextField id="image" name="image" />
                   <TextField id="location" name="location" />
@@ -69,7 +68,6 @@ const AddEvent = () => {
                 </Card.Body>
               </Card>
             </AutoForm>
-
           </div>
         </Col>
       </Row>

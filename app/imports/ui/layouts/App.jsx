@@ -25,7 +25,6 @@ import AddEvent from '../pages/AddEvent';
 import ListEventsCalender from '../pages/ListEventsCalender';
 import Profilez from '../pages/Profilez';
 import EditClubAdmin from '../pages/EditClubAdmin';
-import EditEventAdmin from '../pages/EditEventAdmin';
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
   const { ready } = useTracker(() => {
@@ -50,8 +49,7 @@ const App = () => {
           <Route path="/search-clubs" element={<ProtectedRoute><ClubFinder /></ProtectedRoute>} />
           <Route path="/profilez" element={<Profilez />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/edit/:_id" element={<ProtectedRoute><EditClubAdmin /></ProtectedRoute>} />
-          <Route path="/edit/event/:_id" element={<ProtectedRoute><EditEventAdmin /></ProtectedRoute>} />
+          <Route path="/edit/:_id" element={<AdminProtectedRoute><EditClubAdmin /></AdminProtectedRoute>} />
           <Route path="/user-events" element={<MyEvents />} />
           <Route path="/clubdetail" element={<ClubDetail />} />
           <Route path="/create-club" element={<ProtectedRoute><AddClub /></ProtectedRoute>} />

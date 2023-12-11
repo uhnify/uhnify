@@ -21,8 +21,8 @@ const EventCardAdmin = ({ event, collection }) => {
       <Card.Body className="event-card-body"> {/* Add class for body styling */}
         <Card.Text className="event-card-description">{event.description}</Card.Text>
         {/* Conditionally render Edit link based on user's permission */}
-        <Link to={`/edit/event/${event._id}`} className="event-card-edit-link">Description</Link>
-        <Link to={`/edit/event/${event._id}`} className="px-2">Edit</Link>
+        <Link to={`/edit/event/${event.eventID}`} className="event-card-edit-link">Description</Link>
+        <Link to={`/edit/${event.eventID}`} className="px-2">Edit</Link>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
         <Link variant="danger" onClick={() => removeItem(event.eventID)} className="px-2">Delete</Link>
       </Card.Body>

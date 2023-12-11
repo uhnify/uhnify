@@ -5,6 +5,8 @@ import { Card, Image, Button } from 'react-bootstrap';
 /** Renders a card with club information. */
 const Club = ({ club, onAddToProfile, onViewDetails }) => {
   // Limit the description to a specific number of characters
+  const descriptionLimit = 200; // You can change this value to your desired limit
+  const shortDescription = club.description.substring(0, descriptionLimit);
 
   return (
     <Card className="club-card"> {/* Add class for styling */}
@@ -16,6 +18,7 @@ const Club = ({ club, onAddToProfile, onViewDetails }) => {
         </div>
       </Card.Header>
       <Card.Body className="club-card-body"> {/* Add class for body styling */}
+        <Card.Text className="club-card-description">{shortDescription}</Card.Text>
         <div className="club-card-categories"> {/* Div for categories */}
           {club.categories && club.categories.map(category => (
             <span key={category} className="club-category-tag">{category}</span>
