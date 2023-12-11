@@ -78,6 +78,11 @@ body {
   padding: 20px; /* Adjust padding as needed */
 }
 
+#add-events .card {
+  /* Semi-transparent white background */
+  background-color: rgba(255, 255, 255, 0.8)!important;
+}
+
 @media (max-width: 576px) { /* Adjust for small screens */
   .theme-text-field,
   .theme-select-field,

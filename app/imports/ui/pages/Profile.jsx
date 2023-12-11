@@ -14,6 +14,8 @@ import { Profiles } from '../../api/profiles/Profiles';
 const formSchema = new SimpleSchema({
   Firstname: String,
   Lastname: String,
+  Bio: String,
+  Title: String,
   Email: {
     type: String,
     regEx: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
@@ -84,11 +86,14 @@ const Profile = () => {
     return <LoadingSpinner />; // or some other indication that data is loading
   }
   // use this to pass into schema because userId doenst work
-  const transformedProfile = {
+  const transformedProfile = ({
     Firstname: profile.firstName,
     Lastname: profile.lastName,
     Email: profile.email,
-  };
+    Bio: profile.bio, // Add bio field
+    Title: profile.title, // Add title field
+  });
+
   return ready ? (
     <Container className="py-3">
 
@@ -113,26 +118,28 @@ const Profile = () => {
             </div>
           </Row>
           <div className="image-wrapper">
-          <AutoForm
-            ref={ref => { fRef = ref; }}
-            schema={bridge}
-            onSubmit={data => submit(data, fRef)}
-            model={transformedProfile} // Autofill the form with profile data
-          >
-            <Card>
-              <Card.Body>
-                <Row>
-                  <Col><TextField name="Firstname" label="First Name" /></Col>
-                  <Col><TextField name="Lastname" label="Last Name" /></Col>
-                </Row>
-                <Row>
-                  <TextField name="Email" />
-                </Row>
-                <SubmitField value="Update" />
-                <ErrorsField />
-              </Card.Body>
-            </Card>
-          </AutoForm>
+            <AutoForm
+              ref={ref => { fRef = ref; }}
+              schema={bridge}
+              onSubmit={data => submit(data, fRef)}
+              model={transformedProfile} // Autofill the form with profile data
+            >
+              <Card>
+                <Card.Body>
+                  <Row>
+                    <Col><TextField name="Firstname" label="First Name" /></Col>
+                    <Col><TextField name="Lastname" label="Last Name" /></Col>
+                    <TextField name="Bio" label="Bio" />
+                    <TextField name="Title" label="Title" />
+                  </Row>
+                  <Row>
+                    <TextField name="Email" />
+                  </Row>
+                  <SubmitField value="Update" />
+                  <ErrorsField />
+                </Card.Body>
+              </Card>
+            </AutoForm>
           </div>
         </Col>
       </Row>
