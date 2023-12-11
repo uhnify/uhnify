@@ -9,6 +9,7 @@ import { addClubPage } from './addclubs.page';
 import { createEventsPage } from './createevents.page';
 import { eventCalendarPage } from './eventcalendar.page';
 import { myEventsPage } from './myevents.page';
+import { profilePage } from './profile.page';
 
 /* global fixture:false, test:false */
 
@@ -102,18 +103,21 @@ test('Test the Profile page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoProfilePage(testController);
+  await profilePage.isDisplayed(testController);
 });
 
 test('Test the nav my clubs page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoMyNavClubsPage(testController);
+  await myClubsPage.isDisplayed(testController);
 });
 
 test('Test the nav agenda page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoAgendaPage(testController);
+  await eventCalendarPage.isDisplayed(testController);
 });
 
 test('Test the nav customize page', async (testController) => {
