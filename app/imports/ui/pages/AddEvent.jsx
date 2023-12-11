@@ -56,7 +56,7 @@ const AddEvent = () => {
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)}>
             <Card>
               <Card.Body>
-                <NumField id="eventID" name="eventID" />
+                <NumField id="eventID" name="eventID" label="Club ID"/>
                 <TextField id="title" name="title" />
                 <TextField id="image" name="image" />
                 <TextField id="location" name="location" />
