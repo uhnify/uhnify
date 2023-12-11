@@ -56,8 +56,9 @@ const AddClub = () => {
   return (
     <Container id="add-clubs" className="py-3">
       <Row className="justify-content-center">
-        <Col xs={5}>
+        <Col xs={12} sm={10} md={8} lg={5}>
           <h2 className="text-center heading">Start Club</h2>
+          <div className="image-wrapper">
           <AutoForm ref={ref => { fRef = ref; }} schema={bridge} onSubmit={data => submit(data, fRef)} className="form">
             <Card className="theme-card">
               <Card.Body>
@@ -72,6 +73,7 @@ const AddClub = () => {
               </Card.Body>
             </Card>
           </AutoForm>
+          </div>
         </Col>
       </Row>
     </Container>
