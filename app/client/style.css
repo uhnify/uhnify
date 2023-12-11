@@ -1150,6 +1150,11 @@ em {
   flex-wrap: nowrap;
 }
 
+.rounded-edge {
+  border-radius: 20px;
+  overflow: hidden; /* This ensures content doesn't spill out of rounded corners */
+}
+
 .carousel-background {
   background-size: cover;
   background-position: center;

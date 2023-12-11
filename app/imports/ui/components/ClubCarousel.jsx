@@ -21,7 +21,7 @@ const ClubCarousel = () => {
 
   return ready ? (
     <Container className="py-5">
-      <Carousel>
+      <Carousel className="rounded-edge">
         {randomClubs.map((club, idx) => (
           <Carousel.Item key={idx} interval={3000}>
             <Row className="carousel-row">
