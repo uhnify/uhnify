@@ -166,6 +166,7 @@ Meteor.methods({
   uploadProfilePicture(userId, imageBuffer, imageName) {
     check(userId, String);
     check(imageName, String);
+    check(imageBuffer, Buffer);
 
     if (!this.userId) {
       throw new Meteor.Error('not-logged-in', 'You must be logged in to perform this action');
