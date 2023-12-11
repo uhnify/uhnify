@@ -80,7 +80,7 @@ class NavBar {
   // check that event calendar page link works
   async gotoEventCalendarPage(testController) {
     await testController.click('#nav-dropdown-events');
-    await testController.click('#event-calendar');
+    await testController.click('#my-events');
   }
 
   // check that create events page link works

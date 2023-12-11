@@ -2,7 +2,7 @@ import { Selector } from 'testcafe';
 
 class EventCalendarPage {
   constructor() {
-    this.pageId = '#event-calendar';
+    this.pageId = '#my-events';
     this.pageSelector = Selector(this.pageId);
   }
 

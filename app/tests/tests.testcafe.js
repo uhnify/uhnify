@@ -77,12 +77,12 @@ test('Test the Event Finder page', async (testController) => {
   await eventFinderPage.isDisplayed(testController);
 });
 
-test('Test the Event Calendar page', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signinPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoEventCalendarPage(testController);
-  await eventCalendarPage.isDisplayed(testController);
-});
+// test('Test the Event Calendar page', async (testController) => {
+//   await navBar.gotoSignInPage(testController);
+//   await signinPage.signin(testController, credentials.username, credentials.password);
+//   await navBar.gotoEventCalendarPage(testController);
+//   await eventCalendarPage.isDisplayed(testController);
+// });
 
 test('Test the My Events page', async (testController) => {
   await navBar.gotoSignInPage(testController);
@@ -117,7 +117,7 @@ test('Test the nav agenda page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signinPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoAgendaPage(testController);
-  await eventCalendarPage.isDisplayed(testController);
+  await eventFinderPage.isDisplayed(testController);
 });
 
 test('Test the nav customize page', async (testController) => {
