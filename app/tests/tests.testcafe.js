@@ -79,3 +79,27 @@ test('Test the AddEvents page', async (testController) => {
   await createEventsPage.isDisplayed(testController);
   await createEventsPage.addEvent(testController);
 });
+
+test('Test the Profile page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoProfilePage(testController);
+});
+
+test('Test the nav my clubs page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoMyNavClubsPage(testController);
+});
+
+test('Test the nav agenda page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoAgendaPage(testController);
+});
+
+test('Test the nav customize page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signinPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoCustomizePage(testController);
+});
