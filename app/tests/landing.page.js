@@ -1,5 +1,7 @@
 import { Selector } from 'testcafe';
 import { eventFinderPage } from './eventfinder.page';
+import { browseClubsPage } from './browseclubs.page';
+import { myClubsPage } from './myclubs.page';
 
 class LandingPage {
   constructor() {
@@ -21,11 +23,13 @@ class LandingPage {
   async browseClubCard(testController) {
     await this.isDisplayed(testController);
     await testController.click('#browse-club-card');
+    await browseClubsPage.isDisplayed(testController);
   }
 
   async myClubCard(testController) {
     await this.isDisplayed(testController);
     await testController.click('#my-club-card');
+    await myClubsPage.isDisplayed(testController);
   }
 }
 
