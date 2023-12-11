@@ -57,9 +57,9 @@ const Profile = () => {
 
   // Submits the form data to update the user profile
   const submit = (data, formRef) => {
-    const { Firstname, Lastname, Email } = data;
+    const { Firstname, Lastname, Email, Bio, Title } = data;
 
-    Meteor.call('updateUserProfile', Meteor.userId(), { Firstname, Lastname, Email }, (error) => {
+    Meteor.call('updateUserProfile', Meteor.userId(), { Firstname, Lastname, Email, Bio, Title }, (error) => {
       if (error) {
         swal('Error', error.reason, 'error');
       } else {
@@ -79,7 +79,6 @@ const Profile = () => {
     };
   }, []);
 
-  console.log(profile); // Log to check the structure of the profile data
   // Transform profile data to match form field names
   // Check if the profile data is not ready and show loading spinner
   if (!ready || !profile) {

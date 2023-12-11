@@ -82,6 +82,8 @@ Meteor.methods({
       Firstname: String,
       Lastname: String,
       Email: String,
+      Bio: String,
+      Title: String,
     });
 
     // Ensure the user is logged in and updating their own profile
@@ -92,7 +94,7 @@ Meteor.methods({
     // Update the user's profile
     Profiles.collection.update(
       { userId: userId },
-      { $set: { firstName: profileData.Firstname, lastName: profileData.Lastname, email: profileData.Email } },
+      { $set: { firstName: profileData.Firstname, lastName: profileData.Lastname, email: profileData.Email, bio: profileData.Bio, title: profileData.Title } },
     );
   },
 });
