@@ -9,7 +9,6 @@ import EventCard from '../components/Events';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { EventClubs } from '../../api/events/EventClubs';
 
-
 /* Renders a card containing all of the Events documents. Use <Event> to render each card. */
 const ListEvents = () => {
   // useTracker connects Meteor data to React components.
