@@ -13,6 +13,7 @@ const Club = ({ club, onAddToProfile, onViewDetails }) =>
         <div className="club-card-title-area"> {/* Div for title and meeting time */}
           <Card.Title className="club-card-title">{club.name}</Card.Title>
           <Card.Subtitle className="club-card-meeting-time">{club.meetingTime}</Card.Subtitle>
+          <Card.Subtitle className="club-card-meeting-time py-2">Club ID Number: {club.clubID}</Card.Subtitle>
         </div>
       </Card.Header>
       <Card.Body className="club-card-body2"> {/* Add class for body styling */}
