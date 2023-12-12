@@ -3,13 +3,14 @@ import { Card, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 const EventCard = ({ event }) => (
-  <Card className="club-card2"> {/* Add class for styling */}
+  <Card className="club-card "> {/* Add class for styling */}
     <Card.Header className="club-card-header"> {/* Add class for styling */}
       {/* Use event image or a default one */}
       <Image src={event.image || 'images/default-event.jpg'} width={75} alt={event.title} className="event-card-image" />
       <div className="event-card-title-area"> {/* Div for title and date */}
         <Card.Title className="event-card-title">{event.title}</Card.Title>
         <Card.Subtitle className="event-card-date">{event.date.toDateString()}</Card.Subtitle>
+        <Card.Subtitle className="club-card-meeting-time py-2">Club ID Number: {event.eventID}</Card.Subtitle>
       </div>
     </Card.Header>
     <Card.Body className="event-card-body2"> {/* Add class for body styling */}
