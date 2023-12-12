@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
-import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
+import { AutoForm, ErrorsField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
@@ -15,7 +15,6 @@ const bridge = new SimpleSchema2Bridge(Clubs.schema);
 const EditClubAdmin = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { _id } = useParams();
-  // console.log('EditClubAdmin', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Club documents.
@@ -32,8 +31,8 @@ const EditClubAdmin = () => {
   // console.log('EditClubAdmin', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, description, image, meetingTime, location, categories } = data;
-    Clubs.collection.update(_id, { $set: { name, description, image, meetingTime, location, categories } }, (error) => (error ?
+    const { name, owner, description, location, image, meetingTime, categories } = data;
+    Clubs.collection.update(_id, { $set: { name, owner, description, location, image, meetingTime, categories } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };
@@ -47,11 +46,12 @@ const EditClubAdmin = () => {
             <Card>
               <Card.Body>
                 <TextField id="name" name="name" className="theme-text-field" />
-                <TextField id="image" name="image" className="theme-text-field" />
+                <TextField id="owner" name="owner" className="theme-text-field" />
+                <TextField id="description" name="description" className="theme-text-field" />
                 <TextField id="location" name="location" className="theme-text-field" />
-                <LongTextField id="description" name="description" className="theme-text-field" />
+                <TextField id="image" name="image" className="theme-text-field" />
                 <TextField id="meetingTime" name="meetingTime" className="theme-text-field" />
-                <SelectField name="categories" className="theme-select-field" />
+                <SelectField name="categories" id="categories" className="theme-select-field" />
                 <SubmitField id="submit" value="Submit" className="submit-button" />
                 <ErrorsField className="error-field" />
               </Card.Body>

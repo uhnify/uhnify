@@ -19,7 +19,6 @@ class ClubsCollection {
       location: String,
       image: String,
       meetingTime: String,
-      // contactInfo: String,
       categories: {
         type: Array,
         optional: true, // make it optional if not all clubs have categories

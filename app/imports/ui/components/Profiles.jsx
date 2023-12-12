@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a large card with profile information */
-const ProfileCard = ({ profile }) => {
-  const removeItem = (docID, collection) => {
+const ProfileCard = ({ profile, collection }) => {
+  const removeItem = (docID) => {
     collection.remove(docID);
   };
   return (
@@ -14,10 +15,10 @@ const ProfileCard = ({ profile }) => {
         <div className="mt-2"> {/* Adds margin-top for spacing */}
           <p className="text-black"><strong>First Name:</strong> {profile.firstName || 'N/A'}</p>
           <p className="text-black"><strong>Last Name:</strong> {profile.lastName || 'N/A'}</p>
-          <Button variant="danger" onClick={() => removeItem(profile._id)} className="px-2">Delete</Button>
-
           <Card.Subtitle>{profile.title}</Card.Subtitle>
           <Card.Text>{profile.bio}</Card.Text>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link variant="danger" onClick={() => removeItem(profile._id)} className="px-2">Delete</Link>
         </div>
       </Card.Header>
 
@@ -58,6 +59,8 @@ ProfileCard.propTypes = {
     title: PropTypes.string,
     picture: PropTypes.string,
   }).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  collection: PropTypes.object.isRequired,
 };
 
 export default ProfileCard;

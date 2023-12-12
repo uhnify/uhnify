@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -20,12 +20,9 @@ const EventCardAdmin = ({ event, collection }) => {
       <Card.Body className="event-card-body"> {/* Add class for body styling */}
         <Card.Text className="event-card-description">{event.description}</Card.Text>
         {/* Conditionally render Edit link based on user's permission */}
-        {/* eslint-disable-next-line react/prop-types */}
-        <Link to={`/edit/event/${event._id}`} className="event-card-edit-link">Description</Link>
-        {/* eslint-disable-next-line react/prop-types */}
         <Link to={`/edit/event/${event._id}`} className="px-2">Edit</Link>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Button variant="danger" onClick={() => removeItem(event.eventID)} className="px-2">Delete</Button>
+        <Link variant="danger" onClick={() => removeItem(event._id)} className="px-2">Delete</Link>
       </Card.Body>
     </Card>
   );
@@ -34,6 +31,7 @@ const EventCardAdmin = ({ event, collection }) => {
 // Define propTypes for EventCard
 EventCardAdmin.propTypes = {
   event: PropTypes.shape({
+    _id: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
     date: PropTypes.instanceOf(Date),

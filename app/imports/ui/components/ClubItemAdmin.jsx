@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Card, Image } from 'react-bootstrap';
+import { Card, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Club (Admin) table. See pages/ListClubAdmin.jsx. */
 const ClubItemAdmin = ({ club, collection }) => {
@@ -21,9 +22,9 @@ const ClubItemAdmin = ({ club, collection }) => {
         {club.categories && club.categories.map(category => (
           <span key={category} className="club-category-tag">{category}</span>
         ))}
-        <Button to={`/edit/${club._id}`} className="px-2">Edit</Button>
+        <Link to={`/edit/${club._id}`} className="px-2">Edit</Link>
         {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Button variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Button>
+        <Link variant="danger" onClick={() => removeItem(club._id)} className="px-2">Delete</Link>
       </Card.Body>
     </Card>
   );
@@ -32,11 +33,11 @@ const ClubItemAdmin = ({ club, collection }) => {
 // Require a document to be passed to this component.
 ClubItemAdmin.propTypes = {
   club: PropTypes.shape({
+    _id: PropTypes.string,
     name: PropTypes.string,
     image: PropTypes.string,
     description: PropTypes.string,
     location: PropTypes.string,
-    _id: PropTypes.string,
     meetingTime: PropTypes.string,
     owner: PropTypes.string,
     categories: PropTypes.arrayOf(PropTypes.string),
