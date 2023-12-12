@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-const EventCard = ({ event }) => (
+const EventCard = ({ event, club }) => (
   <Card className="club-card2"> {/* Add class for styling */}
     <Card.Header className="club-card-header"> {/* Add class for styling */}
       {/* Use event image or a default one */}
@@ -10,6 +10,8 @@ const EventCard = ({ event }) => (
       <div className="event-card-title-area"> {/* Div for title and date */}
         <Card.Title className="event-card-title">{event.title}</Card.Title>
         <Card.Subtitle className="event-card-date">{event.date.toDateString()}</Card.Subtitle>
+        <Card.Subtitle className="event-card-date py-2"> Club ID: {club.clubID}</Card.Subtitle>
+
       </div>
     </Card.Header>
     <Card.Body className="event-card-body2"> {/* Add class for body styling */}
@@ -32,6 +34,13 @@ EventCard.propTypes = {
     clubID: PropTypes.number, // Assuming clubID is a number as per your schema
     // Add other fields as necessary
   }).isRequired,
+  club: PropTypes.shape({
+    clubID: PropTypes.number,
+  }),
+};
+
+EventCard.defaultProps = {
+  club: null,
 };
 
 export default EventCard;
