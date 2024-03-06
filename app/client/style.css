@@ -227,7 +227,7 @@ em {
   border-radius: 20px!important; /* Rounded edges */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   overflow: hidden;
-  height: 100% !important;
+  height: 500px !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effect */
 }
 
